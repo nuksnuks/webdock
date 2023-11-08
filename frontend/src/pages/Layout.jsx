@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-
+import  '/./src/styles/MainNavbar.scss'
 
 const Layout = () => {
   return (
@@ -7,7 +7,7 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
           </li>
           <li>
             <Link to="/posts">Roadmap</Link>
@@ -16,9 +16,15 @@ const Layout = () => {
             <Link to="/roadmap">Feature Requests</Link>
           </li>
           <li>
-            <Link to="/single">Single Request</Link>
+            <Link to="/single">Settings</Link>
           </li>
+          <li>
+            <Link to="/single">Frontpage</Link>
+          </li>
+          <button> Sign In </button>
+          <button> Sign Up </button>
         </ul>
+        
       </nav>
 
       <Outlet />

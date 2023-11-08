@@ -1,0 +1,40 @@
+@import "./globals.scss";
+
+nav {
+    background-color: $white;
+    color: $grey;
+    display: inline;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid $grey;
+    li{ 
+        float: left;
+        a {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            color: $grey;
+            text-decoration: none;
+            img {
+                height: 20px;
+            }
+        }    
+    }
+}
+ button {
+    background-color: $green1;
+    color: $white;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid $green2;
+    border-radius: 5px;
+    :hover {
+        background-color: $white;
+        color: $green1;
+    }
+ }
