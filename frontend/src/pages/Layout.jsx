@@ -19,7 +19,7 @@ const Layout = () => {
             <Link to="/single">Settings</Link>
           </li>
           <li>
-            <Link to="/single">Frontpage</Link>
+            <Link to="/">Frontpage</Link>
           </li>
           <button> Sign In </button>
           <button> Sign Up </button>
