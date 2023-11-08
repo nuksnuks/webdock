@@ -10,10 +10,10 @@ const Layout = () => {
             <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
           </li>
           <li>
-            <Link to="/posts">Roadmap</Link>
+            <Link to="/roadmap">Roadmap</Link>
           </li>
           <li>
-            <Link to="/roadmap">Feature Requests</Link>
+            <Link to="/posts">Feature Requests</Link>
           </li>
           <li>
             <Link to="/single">Settings</Link>
