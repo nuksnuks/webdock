@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import  '/./src/styles/MainNavbar.scss'
 
 const Nav = () => {
   return (
     <nav>
+        <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
         <ul>
-          <li>
-            <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
-          </li>
           <li>
             <Link to="/roadmap">Roadmap</Link>
           </li>
@@ -20,9 +19,11 @@ const Nav = () => {
           <li>
             <Link to="/">Frontpage</Link>
           </li>
-          <button> Sign In </button>
-          <button> Sign Up </button>
         </ul>
+        <div>
+            <button> Sign In </button>
+            <button> Sign Up </button>
+        </div>
         
       </nav>
   )

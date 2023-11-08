@@ -4,8 +4,22 @@ nav {
     font-family: $poppins;
     background-color: $white;
     color: $grey;
-    display: inline;
+    display:flex;
     justify-content: space-between;
+    border-bottom: 1px solid $grey;
+    a {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        color: $grey;
+        text-decoration: none;
+        img {
+            height: 20px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }  
+    
 }
 
 ul {
@@ -13,19 +27,10 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border-bottom: 1px solid $grey;
+    
     li{ 
         float: left;
-        a {
-            display: block;
-            margin: 10px;
-            padding: 10px;
-            color: $grey;
-            text-decoration: none;
-            img {
-                height: 20px;
-            }
-        }    
+          
     }
 }
 button {
