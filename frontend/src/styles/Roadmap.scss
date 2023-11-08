@@ -1,0 +1,48 @@
+@import "./globals.scss";
+
+.roadmap {
+    display: flex;
+    padding: 10px;
+    background-color: $white;
+    .roadmapColumn {
+        flex: 1;
+        border: 1px solid $grey;
+        margin: 10px;
+        .roadmapColumnPlanned {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            background-color: $blue;
+            color: $white;
+            user-select: none;
+        }
+        .roadmapColumnProgress{
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            background-color: $green1;
+            color: $white;
+            user-select: none;
+        }
+        border: 1px solid $grey;
+        .roadmapColumnCompleted {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            background-color: $purple;
+            color: $white;
+            user-select: none;
+        }
+    }
+    .roadmapContent {
+        padding: 10px 15px;
+        box-sizing: border-box;
+        background: $white;
+        border: 1px solid $grey;
+        cursor: pointer;
+    }
+}
+
+.roadmapColumn:not(:last-child) {
+    margin-right:  10px;
+}
