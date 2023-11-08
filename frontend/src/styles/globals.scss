@@ -1,30 +1,28 @@
-// //1. Variabler
-// //definerer variablerne
-// $poppins: 'Poppins';
-// $raleway: 'Raleway';
-// 
-// $green1: #018647;
-// $green2: #A4FFAF;
-// $orange1: #ED8007;
-// $orange2: #FBC330;
-// 
-// // Loader fontsne fra mappen
-// @font-face {
-//   font-family: $poppins;
-//   src: url('./src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-// }
-// 
-// @font-face {
-//   font-family: $raleway;
-//   src: url('./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
-// }
-// 
-// 
-// // 2. Mixins¨
-// // definer mixins, først "navngiv" den, derefter styler vi den
-// @mixin mixinEx {
-//     color: red;
-//     font-size: 25px;
-//     font-weight: bold;
-//     border: 1px solid blue;
-// }
+$poppins: 'Poppins';
+$raleway: 'Raleway';
+
+@font-face {
+  font-family: $poppins;
+  src: url('./src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $raleway;
+  src: url('./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
+$green1: #018647;
+$green2: #A4FFAF;
+$orange1: #ED8007;
+$orange2: #FBC330;
+
+
+ @mixin mixinEx {
+    font-family: $poppins;
+    color: $orange1;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid $green1;
+    border-radius: 5px;
+    padding: 10px;
+ }

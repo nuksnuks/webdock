@@ -1,15 +1,35 @@
-// //hent globals.scss
-// @import "./globals.scss";
+ @import "./globals.scss";
   
-// //brug fontsne
+h2 {
+    font-family: $raleway;
+    @include mixinEx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // h1 {
 //     font-family: $raleway;
 // }
-//   
-// h2 {
-//     font-family: $poppins;    
-// }
-// 
+//    
+//  h2 {
+//      font-family: $poppins;    
+//  }
+// // 
 // //brug mixins
 // 
 // .mixinex {

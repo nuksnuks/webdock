@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <div >
+      <div className="mixinex">
         <h2>Dette er 'App' Componentet</h2>
       </div>
     </>
