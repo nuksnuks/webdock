@@ -1,6 +1,7 @@
 @import "./globals.scss";
 
 nav {
+    font-family: $poppins;
     background-color: $white;
     color: $grey;
     display: inline;
@@ -31,7 +32,7 @@ ul {
     color: $white;
     padding: 10px;
     margin: 10px;
-    border: 1px solid $green2;
+    border: none;
     border-radius: 5px;
     :hover {
         background-color: $white;

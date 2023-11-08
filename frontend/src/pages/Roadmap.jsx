@@ -20,6 +20,8 @@ const Roadmap = () => {
           <div className="roadmapColumnCompleted"> Completed </div>
           <div className="roadmapContent">
           </div>
+          <div className="roadmapContent">
+          </div>
         </div>
       </div>
     </>

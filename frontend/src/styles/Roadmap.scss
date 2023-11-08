@@ -1,37 +1,40 @@
 @import "./globals.scss";
 
+@mixin RoadmapColumn{
+    font-family: $poppins;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    user-select: none;
+    color: $white;
+    border-radius: 5px 5px 0px 0px;
+    
+}
+
 .roadmap {
     display: flex;
-    padding: 10px;
     background-color: $white;
+    width: 80vw;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
     .roadmapColumn {
         flex: 1;
-        border: 1px solid $grey;
-        margin: 10px;
+        justify-content: space-around;
         .roadmapColumnPlanned {
-            text-align: center;
-            padding: 10px;
-            font-size: 30px;
+            @include RoadmapColumn;
             background-color: $blue;
-            color: $white;
-            user-select: none;
+            
         }
         .roadmapColumnProgress{
-            text-align: center;
-            padding: 10px;
-            font-size: 30px;
+            @include RoadmapColumn;
             background-color: $green1;
-            color: $white;
-            user-select: none;
         }
-        border: 1px solid $grey;
+        
         .roadmapColumnCompleted {
-            text-align: center;
-            padding: 10px;
-            font-size: 30px;
+            @include RoadmapColumn;
             background-color: $purple;
-            color: $white;
-            user-select: none;
         }
     }
     .roadmapContent {
@@ -40,9 +43,10 @@
         background: $white;
         border: 1px solid $grey;
         cursor: pointer;
+        
     }
-}
-
-.roadmapColumn:not(:last-child) {
-    margin-right:  10px;
+    .roadmapContent:last-of-type {
+        border-radius: 0px 0px 5px 5px;
+        transform: translatey(-1px);
+    }
 }
