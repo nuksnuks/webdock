@@ -6,6 +6,7 @@ import Posts from './pages/Posts';
 import Roadmap from './pages/Roadmap';
 import Single from './pages/Single';
 import Layout from './pages/Layout';
+import AdminPage from './pages/AdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/posts" element={<Posts />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/single" element={<Single />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
