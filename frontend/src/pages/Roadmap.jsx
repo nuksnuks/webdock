@@ -2,7 +2,6 @@ import React from 'react'
 import  '/./src/styles/Roadmap.scss'
 
 const Roadmap = () => {
-    console.log("1")
     return (
     <>
       <div className="roadmap">
