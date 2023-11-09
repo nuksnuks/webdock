@@ -21,6 +21,10 @@ const PostList = () => {
         //behandling af responsdataen og indlæses her i posts ved at kalde setPosts
         setPosts(data);
         setShowDummyData(false); // Skjul dummydata, når de faktiske data er tilgængelige
+      
+        //Generer og indstiller dummy brugernavne
+        const dummyUsernames = ["UserA", "UserB", "UserC"]; // Erstat med dine egne dummy brugernavne
+      setUsernames(dummyUsernames);
       })
       .catch((error) => {
         console.error('Fejl ved hentning af postdata:', error);
@@ -30,13 +34,16 @@ const PostList = () => {
 //Her render vi komponentets indhold baseret på vores Dummy Data
   return (
     <div className='post-list'>
-      <h2>Activity Feed</h2>
-      {showDummyData ? (
-        <ul>
-          {[1, 2, 3].map((id) => (
-            <li key={id}> Placeholder Post {id}</li>
-          ))}
-        </ul>
+      <h2>Activity Feed</h2> {showDummyData ? (
+        <div className='post-container'>
+          <ul>
+            {[1, 2, 3].map((id) => (
+              <li key={id} className='post-item'>
+              <img src="/src/assets/avatar.jpg" alt="" className="user-image"/>
+              Placeholder Post {id}</li>
+            ))}
+          </ul>
+        </div>
       ) : (
         <ul>
           {posts.map((post) => (
