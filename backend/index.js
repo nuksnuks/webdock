@@ -7,6 +7,8 @@ app.get('/', (req, res) => {
 });
 
 
+
+
 //server kører på port 
 app.listen(3301, ()=>{
     console.log("backend kører på http://localhost:3301/")
