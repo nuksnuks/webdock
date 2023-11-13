@@ -10,7 +10,7 @@ import  '/./src/styles/Sidebar.scss'
 const Sidebar = () => {
   return (
     <div className="leftside">
-      <Link to="/">
+      <Link to="/CreateFeatureRequest">
         <span className="menupicture">
           <img src={add} alt="add" />
         </span>

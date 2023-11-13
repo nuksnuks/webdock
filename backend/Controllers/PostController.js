@@ -1,5 +1,5 @@
 // controllers/PostController.js
-const { Post } = require('../models');
+const { Post } = require('../models/PostModel.');
 
 const PostController = {
   getAllPosts: async (req, res) => {

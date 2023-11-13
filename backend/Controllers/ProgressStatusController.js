@@ -1,5 +1,5 @@
 // controllers/ProgressStatusController.js
-const { ProgressStatus } = require('../models');
+const { ProgressStatus } = require('../models/ProgressStatusModel.');
 
 const ProgressStatusController = {
   getAllProgressStatuses: async (req, res) => {

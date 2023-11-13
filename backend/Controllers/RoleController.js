@@ -1,5 +1,5 @@
 // controllers/RoleController.js
-const { Role } = require('../models');
+const { Role } = require('../models/RoleModel.');
 
 const RoleController = {
   getAllRoles: async (req, res) => {
