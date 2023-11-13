@@ -11,10 +11,10 @@ const Nav = () => {
             <Link to="/roadmap">Roadmap</Link>
           </li>
           <li>
-            <Link to="/posts">Feature Requests</Link>
+            <Link to="/featurerequest">Feature Requests</Link>
           </li>
           <li>
-            <Link to="/single">Settings</Link>
+            <Link to="/settings">Settings</Link>
           </li>
           <li>
             <Link to="/">Frontpage</Link>
