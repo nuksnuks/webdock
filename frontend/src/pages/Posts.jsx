@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import '/./src/styles/post.scss'; // Importer SCSS-filen
 
 
+
+
 //Selve listen over de posts bliver defineret her i en arrow
 const PostList = () => {
   //Bruger her hooks usestate
@@ -12,14 +14,18 @@ const PostList = () => {
   const [showDummyData, setShowDummyData] = useState(true);
 
 
+  
+
+
   //useEffect udfører API anmodning
   useEffect(() => {
-    //Fetch henter til den url vi får fra webdock.
-    fetch('din_api_endpoint_url')
+    //Fetch henter url
+    fetch('/Post')
       .then((response) => response.json())
       .then((data) => {
         //behandling af responsdataen og indlæses her i posts ved at kalde setPosts
-        setPosts(data);
+        setPosts(data)
+        
         setShowDummyData(false); // Skjul dummydata, når de faktiske data er tilgængelige
       
         //Generer og indstiller dummy brugernavne
@@ -29,21 +35,39 @@ const PostList = () => {
       .catch((error) => {
         console.error('Fejl ved hentning af postdata:', error);
       });
-  }, []); // Tom dependency array, køres ved databsens opbygning
+  }, []); // Tom dependency array, køres ved databasen opbygning
 
 //Her render vi komponentets indhold baseret på vores Dummy Data
   return (
     <div className='post-list'>
+      
+      <div className='request'>
+      <div className="vote-section">
+                  <button className='arrow'></button>
+                  <span>2</span>
+                  <button className='arrow'></button>
+                </div>
+                <div>
+        <h1>Feature request Title</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
+                <p>Created by ... on 00/00/0000</p>
+                </div>
+      </div>
       <h2>Activity Feed</h2> {showDummyData ? (
         <div className='post-container'>
           <ul>
             {[1, 2, 3].map((id) => (
               <li key={id} className='post-item'>
               <img src="/src/assets/avatar.jpg" alt="" className="user-image"/>
-              Placeholder Post {id}</li>
+              <div className='post-content'>
+              <h3>Placeholder til comment {id}</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.</p>
+              </div>
+              </li>
             ))}
           </ul>
         </div>
+        
       ) : (
         <ul>
           {posts.map((post) => (
