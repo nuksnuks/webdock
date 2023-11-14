@@ -18,5 +18,8 @@
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^8.2.0"
+  }
 }
