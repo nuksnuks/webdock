@@ -2,6 +2,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+
 const User = sequelize.define('User', {
   userId: {
     type: DataTypes.INTEGER,
@@ -39,7 +40,7 @@ const User = sequelize.define('User', {
 
 // Define associations with other models
 User.associate = (models) => {
-  User.hasMany(models.Post, { foreignKey: 'UserId' });
+  User.hasMany(models.post, { foreignKey: 'UserId' });
   User.belongsTo(models.Role, { foreignKey: 'roleId' });
   // Add other associations...
 };

@@ -1,6 +1,7 @@
 // models/Post.js
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Assuming you have a Sequelize instance created
+const sequelize = require('../config/database'); 
+
 
 const Post = sequelize.define('Post', {
   postId: {
@@ -16,7 +17,7 @@ const Post = sequelize.define('Post', {
     type: DataTypes.TEXT,
   },
   image: {
-    type: DataTypes.STRING, // You can adjust the data type as needed
+    type: DataTypes.BLOB, // You can adjust the data type as needed
   },
   createdAt: {
     type: DataTypes.DATE,
@@ -36,7 +37,7 @@ Post.associate = (models) => {
   Post.belongsTo(models.ProgressStatus, { foreignKey: 'ProgressStatusId' });
   Post.belongsTo(models.FlagStatus, { foreignKey: 'FlagStatusId' });
   Post.hasMany(models.LikeStatus, { foreignKey: 'PostId' });
-  // Add other associations as per your diagram
+  
 };
 
 module.exports = Post;

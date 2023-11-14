@@ -1,6 +1,6 @@
 // models/Role.js
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Assuming you have a Sequelize instance created
+const sequelize = require('../config/database'); 
 
 const Role = sequelize.define('Role', {
   roleId: {
@@ -9,7 +9,7 @@ const Role = sequelize.define('Role', {
     autoIncrement: true, 
   },
   roleType: {
-    type: DataTypes.ENUM('Admin', 'User', 'Moderator'), // Replace with your specific role types
+    type: DataTypes.ENUM('Admin', 'User', 'Moderator'), 
     allowNull: false,
   },
 });
@@ -17,7 +17,7 @@ const Role = sequelize.define('Role', {
 // Define associations with other models
 Role.associate = (models) => {
   Role.hasMany(models.User, { foreignKey: 'RoleId' });
-  // Add other associations as per your diagram
+  
 };
 
 module.exports = Role;
