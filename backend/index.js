@@ -1,9 +1,9 @@
 const sequelize = require('sequelize');
-const sequelize = require('./config/database');
+const connection = require('./config/database');
 const { syncModels } = require('./Models');
 
 // Test the connection
-sequelize
+connection
   .authenticate()
   .then(() => {
     console.log('Connection established!');
