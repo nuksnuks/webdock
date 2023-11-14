@@ -1,5 +1,5 @@
 // controllers/NotificationController.js
-const { Notification } = require('../models/Notificationmodel.');
+const { Notification } = require('../Models/Notificationmodel.');
 
 const NotificationController = {
   getAllNotifications: async (req, res) => {

@@ -1,5 +1,5 @@
 // controllers/FlagStatusController.js
-const { FlagStatus } = require('../models/FlagStatusModel.');
+const { FlagStatus } = require('../Models/FlagStatusModel.');
 
 const FlagStatusController = {
   getAllFlagStatuses: async (req, res) => {

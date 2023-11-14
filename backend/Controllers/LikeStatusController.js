@@ -1,5 +1,5 @@
 // controllers/LikeStatusController.js
-const { LikeStatus } = require('../models/LikeStatus.');
+const { LikeStatus } = require('../Models/LikeStatus.');
 
 const LikeStatusController = {
   getAllLikeStatuses: async (req, res) => {

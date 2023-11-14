@@ -1,5 +1,5 @@
 // controllers/CommentController.js
-const { Comment } = require('../models/CommentModel.');
+const { Comment } = require('../Models/CommentModel.');
 
 const CommentController = {
   getAllComments: async (req, res) => {

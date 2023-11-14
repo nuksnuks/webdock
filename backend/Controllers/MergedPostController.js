@@ -1,5 +1,5 @@
 // controllers/MergedPostController.js
-const { MergedPost } = require('../models/MergedPostModel.');
+const { MergedPost } = require('../Models/MergedPostModel.');
 
 const MergedPostController = {
   getAllMergedPosts: async (req, res) => {
