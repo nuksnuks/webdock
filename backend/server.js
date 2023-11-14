@@ -14,7 +14,7 @@ const sequelize = new Sequelize('webdock_db', 'root', 'zob4hSbUGSAM', {
 });
 
 
-app.get('/endpoint', async (req, res) => {
+app.get('/Users', async (req, res) => {
   try {
     const users = await User.findAll();
     res.json(users);
