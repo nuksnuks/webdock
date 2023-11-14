@@ -2,11 +2,18 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); 
 
-const Notification = sequelize.define('Notification', {
+const Notice = sequelize.define('Notice', {
   notificationId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
+  },
+  postId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Post',
+      key: 'postId',
+    },
   },
   description: {
     type: DataTypes.STRING,
@@ -19,9 +26,9 @@ const Notification = sequelize.define('Notification', {
 });
 
 // Define associations with other models
-Notification.associate = (models) => {
-  Notification.belongsTo(models.User, { foreignKey: 'userId' });
-  Notification.belongsTo(models.Post, { foreignKey: 'postId' });
+Notice.associate = (models) => {
+  Notice.belongsTo(models.User, { foreignKey: 'userId' });
+  Notice.belongsTo(models.Post, { foreignKey: 'postId' });
 };
 
-module.exports = Notification;
+module.exports = Notice;

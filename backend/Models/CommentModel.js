@@ -10,7 +10,6 @@ const Comment = sequelize.define('Comment', {
   },
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     references: {
       model: 'User',
       key: 'userId',
@@ -18,7 +17,6 @@ const Comment = sequelize.define('Comment', {
   },
   postId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     references: {
       model: 'Post',
       key: 'postId',
@@ -41,5 +39,7 @@ Comment.associate = (models) => {
   Comment.belongsTo(models.User, { foreignKey: 'userId', as: 'commentedByUser' });
   Comment.belongsTo(models.Post, { foreignKey: 'postId', as: 'commentedOnPost' });
 };
+
+sequelize.sync()
 
 module.exports = Comment;

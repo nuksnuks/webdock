@@ -31,12 +31,12 @@ const Post = sequelize.define('Post', {
 
 // Define associations with other models
 Post.associate = (models) => {
-  Post.belongsTo(models.User, { foreignKey: 'UserId' });
-  Post.hasMany(models.Notification, { foreignKey: 'PostId' });
-  Post.belongsTo(models.Category, { foreignKey: 'CategoryId' });
-  Post.belongsTo(models.ProgressStatus, { foreignKey: 'ProgressStatusId' });
-  Post.belongsTo(models.FlagStatus, { foreignKey: 'FlagStatusId' });
-  Post.hasMany(models.LikeStatus, { foreignKey: 'PostId' });
+  Post.belongsTo(models.User, { foreignKey: 'userId' });
+  Post.hasMany(models.Notification, { foreignKey: 'postId' });
+  Post.belongsTo(models.Category, { foreignKey: 'categoryId' });
+  Post.belongsTo(models.ProgressStatus, { foreignKey: 'progressStatusId' });
+  Post.belongsTo(models.FlagStatus, { foreignKey: 'flagStatusId' });
+  Post.hasMany(models.LikeStatus, { foreignKey: 'postId' });
   
 };
 

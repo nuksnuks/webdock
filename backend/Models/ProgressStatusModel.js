@@ -1,6 +1,7 @@
 // models/ProgressStatus.js
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); 
+
 const ProgressStatus = sequelize.define('ProgressStatus', {
   progressStatusId: {
     type: DataTypes.INTEGER,

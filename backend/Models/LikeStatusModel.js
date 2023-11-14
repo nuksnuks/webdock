@@ -10,7 +10,6 @@ const LikeStatus = sequelize.define('LikeStatus', {
   },
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     references: {
       model: 'User',
       key: 'userId',
