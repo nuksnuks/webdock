@@ -37,7 +37,8 @@ Post.associate = (models) => {
   Post.belongsTo(models.ProgressStatus, { foreignKey: 'progressStatusId' });
   Post.belongsTo(models.FlagStatus, { foreignKey: 'flagStatusId' });
   Post.hasMany(models.LikeStatus, { foreignKey: 'postId' });
-  
+  Post.hasMany(models.Comment, { foreignKey: 'commentId' });
+  Post.belongsTo(models.Category, { foreignKey: 'categoryId' });
 };
 
 module.exports = Post;

@@ -14,8 +14,10 @@ const PostList = () => {
   const [showDummyData, setShowDummyData] = useState(true);
 
 
-  
-
+  fetch('http://localhost:3066/users', {mode: 'cors'})
+  .then(userdata => userdata.json())
+  .then(response => console.log(response))
+  .catch(error => console.error('Error:', error));
 
   //useEffect udfører API anmodning
   useEffect(() => {

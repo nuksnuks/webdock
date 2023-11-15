@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("./src/assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-feature-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #efefef;
+}
+.main-feature-container .container {
+  display: flex;
+  flex-direction: column;
+}
+.main-feature-container .container .flex {
+  gap: 50px;
+  display: flex;
+}
+.main-feature-container .container .flex .left-feature-section {
+  width: auto;
+  margin-right: 2rem;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #74768F;
+  border-radius: 5px;
+  margin-top: 1.6rem;
+  margin-right: 1rem;
+  padding: 0.6rem;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature {
+  display: flex;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .vote-feature {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #74768F;
+  text-align: center;
+  justify-content: center;
+  padding: 0 20px;
+  margin-right: 1rem;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .vote-feature .fiheart-icon-feature {
+  margin: 1px;
+  padding: 1px;
+  color: #018647;
+  font-size: 1rem;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .vote-feature .vote-count-feature {
+  font-family: "Raleway";
+  font-size: 1rem;
+  color: #74768F;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature {
+  display: flex;
+  flex-direction: column;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .top-section-feature {
+  display: flex;
+  justify-content: space-between;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .top-section-feature .status-feature {
+  font-family: "Poppins";
+  color: #FFFFFF;
+  background-color: #018647;
+  border-radius: 2px;
+  padding: 3px;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .top-section-feature .count-feature {
+  font-family: "Poppins";
+  color: #FFFFFF;
+  background-color: #018647;
+  border-radius: 2px;
+  padding: 3px 5px;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .bottom-section-feature {
+  display: flex;
+  flex-direction: column;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .bottom-section-feature .title-feature {
+  font-family: "Poppins";
+  color: rgb(1, 1, 1);
+  font-weight: bolder;
+  padding: 5px;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .main-content-feature .right-content-feature .bottom-section-feature .description-feature {
+  font-family: "Raleway";
+  color: black;
+  font-size: 0.7rem;
+  padding: 1px;
+}
+.main-feature-container .container .flex .left-feature-section .feature-request-item .footer-feature {
+  font-family: "Raleway";
+  color: #74768F;
+  font-size: 0.7rem;
+  padding: 1px;
+  margin-left: 76px;
+}/*# sourceMappingURL=FeatureRequest.css.map */

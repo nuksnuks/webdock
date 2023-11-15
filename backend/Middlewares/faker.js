@@ -39,7 +39,7 @@ const sequelize = new Sequelize('webdock_db', 'root', 'zob4hSbUGSAM', {
             //laver data i Users-tabellen
 
             await User.create({
-                firstName: faker.person.firstName(),
+                firstName: "Nicole",
                 lastName: faker.person.lastName(),
                 email: faker.internet.email(),
                 password: faker.internet.password(),

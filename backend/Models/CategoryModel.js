@@ -15,10 +15,9 @@ const Category = sequelize.define('Category', {
   
 });
 
-// Define associations with other models
-Category.associate = (models) => {
-  Category.belongsTo(models.Post, { foreignKey: 'CategoryId' });
-  
+// E/R Diagram relationer
+  Category.associate = (models) => {
+  Category.belongsTo(models.Post, { foreignKey: 'categoryId' });
 };
 
 module.exports = Category;

@@ -36,8 +36,9 @@ const Comment = sequelize.define('Comment', {
 });
 
 Comment.associate = (models) => {
-  Comment.belongsTo(models.User, { foreignKey: 'userId', as: 'commentedByUser' });
-  Comment.belongsTo(models.Post, { foreignKey: 'postId', as: 'commentedOnPost' });
+  Comment.belongsTo(models.Post, { foreignKey: 'commentId' });
+  Comment.belongsTo(models.User, { foreignKey: 'userId' });
+  Comment.belongsTo(models.Post, { foreignKey: 'postId' });
 };
 
 sequelize.sync()
