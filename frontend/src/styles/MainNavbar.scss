@@ -1,12 +1,15 @@
 @import "./globals.scss";
 
 nav {
+    position:fixed;
+    z-index: 2;
     font-family: $poppins;
     background-color: $white;
     color: $grey;
     display:flex;
     justify-content: space-between;
     border-bottom: 1px solid $grey;
+    width: 100vw;
     a {
         display: block;
         margin: 10px;

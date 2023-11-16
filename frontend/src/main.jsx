@@ -8,7 +8,7 @@ import Roadmap from './pages/Roadmap';
 import Single from './pages/Single';
 import Layout from './pages/Layout';
 import AdminPage from './pages/AdminPage';
-import FeatureRequest from './pages/FeatureRequest';
+import Requests from './pages/Requests';
 import Settings from './pages/Settings';
 
 
@@ -24,12 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/single" element={<Single />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/featurerequest" element={<FeatureRequest />} />
+          <Route path="/requests" element={<Requests />} />
           <Route path="/Settings" element={<Settings />} />
-
-          
-
-           
         </Route>
       </Routes>
     </BrowserRouter>
