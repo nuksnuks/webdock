@@ -1,0 +1,37 @@
+@import "./globals.scss";
+
+// Side navber 
+
+.leftside{
+  position: fixed;
+  height: 100vh;
+  width:15vh;
+  background: url("../assets/SideBarBackgrounImage.png");
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+ 
+
+}
+.leftside .container{
+  margin: 20 auto;
+
+}
+.menupicture{
+  width: 90px;
+height: 90px;
+line-height: 31px;
+letter-spacing: 0em;
+text-align: center;
+margin: auto;
+ span {
+  font-family: Inter;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: $white;
+}
+}

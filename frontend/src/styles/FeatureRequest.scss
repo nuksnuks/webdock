@@ -1,0 +1,119 @@
+@import "./globals.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-feature-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #efefef;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .flex {
+      gap: 50px;
+      display: flex;
+
+      .left-feature-section {
+        width: auto;
+        margin-right: 2rem;
+
+        .feature-request-item {
+          display: flex;
+          flex-direction: column;
+          box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+          border: 1px solid $grey; 
+          border-radius: 5px;
+          margin-top: 1.6rem;
+          margin-right: 1rem;
+          padding: 0.6rem;
+
+          .main-content-feature {
+            display: flex;
+
+            .vote-feature {
+              display: flex;
+              flex-direction: column;
+              border: 1px solid $grey; 
+              text-align: center;
+              justify-content: center;
+              padding: 0 20px;
+              margin-right: 1rem;
+
+              .fiheart-icon-feature {
+                margin: 1px;
+                padding: 1px;
+                color: $green1; 
+                font-size: 1rem;
+              }
+              .vote-count-feature {
+                font-family: $raleway; 
+                font-size: 1rem;
+                color: $grey; 
+              }
+            }
+
+            .right-content-feature {
+              display: flex;
+              flex-direction: column;
+              .top-section-feature {
+                display: flex;
+                justify-content: space-between;
+
+                .status-feature {
+                  font-family: $poppins; 
+                  color: $white; 
+                  background-color: $green1; 
+                  border-radius: 2px;
+                  padding: 3px;
+                  font-size: 0.5rem;
+                  font-weight: bold;
+                }
+                .count-feature {
+                  font-family: $poppins; 
+                  color: $white; 
+                  background-color: $green1; 
+                  border-radius: 2px;
+                  padding: 3px 5px;
+                  font-size: 0.5rem;
+                  font-weight: bold;
+                }
+              }
+              .bottom-section-feature {
+                display: flex;
+                flex-direction: column;
+                .title-feature {
+                  font-family: $poppins; 
+                  color: rgb(1, 1, 1);
+                  font-weight: bolder;
+                  padding: 5px;
+                }
+                .description-feature {
+                  font-family: $raleway; 
+                  color: black;
+                  font-size: 0.7rem;
+                  padding: 1px;
+                }
+              }
+            }
+          }
+          .footer-feature {
+            font-family: $raleway; 
+            color: $grey; 
+            font-size: 0.7rem;
+            padding: 1px;
+            margin-left: 76px;
+          }
+        }
+      }
+    }
+  }
+}

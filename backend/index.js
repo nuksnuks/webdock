@@ -1,13 +1,16 @@
-var express = require("express");
+const sequelize = require('sequelize');
+const connection = require('./config/database');
+const { syncModels } = require('./Models');
 
-var app = express();
+// Test the connection
+connection
+  .authenticate()
+  .then(() => {
+    console.log('Connection established!');
+  })
+  .catch((err) => {
+    console.error('Unable to connect:', err);
+  });
 
-app.get('/', (req, res) => {
-    res.json("this is backend")
-});
-
-
-//server kører på port 
-app.listen(3301, ()=>{
-    console.log("backend kører på http://localhost:3301/")
-});
+// Sync models
+syncModels();
