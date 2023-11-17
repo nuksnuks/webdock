@@ -20,3 +20,14 @@ $grey: #74768F;
 $purple: #AB4ABA;
 $blue: #0091FF;
 $grey2:#8C8C8C;
+
+
+ @mixin mixinEx {
+    font-family: $poppins;
+    color: $orange1;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid $green1;
+    border-radius: 5px;
+    padding: 10px;
+ }

@@ -11,7 +11,7 @@ const Nav = () => {
             <Link to="/roadmap">Roadmap</Link>
           </li>
           <li>
-            <Link to="/requests">Feature Requests</Link>
+            <Link to="/featurerequest">Feature Requests</Link>
           </li>
           <li>
             <Link to="/settings">Settings</Link>
