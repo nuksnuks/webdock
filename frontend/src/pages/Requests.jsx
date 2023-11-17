@@ -6,7 +6,7 @@ import { FiHeart } from "react-icons/fi";
 
 
 
-function Featurerequest() {
+function Requests() {
   const [featureRequests, setFeatureRequests] = useState([]);
 
   useEffect(() => {
@@ -61,4 +61,4 @@ function Featurerequest() {
   );
 }
 
-export default Featurerequest;
+export default Requests;

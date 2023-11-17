@@ -1,8 +1,17 @@
 @import "./globals.scss";
 
-// Side navber 
+// Side navbar 
 
+<<<<<<< HEAD
 .leftside{
+<<<<<<< HEAD
+=======
+  margin-top: -46px;
+  margin-left: -30px;
+=======
+.container{
+>>>>>>> ae6a8d24d22c1be3a3ce42573ab125c0d544c251
+>>>>>>> parent of 8ef88e3 (Revert "commit all files")
   position: fixed;
   height: 100vh;
   width:15vh;
@@ -10,9 +19,18 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-around;
- 
+  justify-content: center;
+  transform: translateY(0);
+  
+  a {
+    font-family: $poppins;
+    text-align: center;
+    color: $white;
+    text-decoration: none;
+  }
+}
 
+<<<<<<< HEAD
 }
 .leftside .container{
   margin: 20 auto;
@@ -35,3 +53,5 @@ margin: auto;
   color: $white;
 }
 }
+=======
+>>>>>>> ae6a8d24d22c1be3a3ce42573ab125c0d544c251
