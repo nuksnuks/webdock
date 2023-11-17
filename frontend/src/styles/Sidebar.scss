@@ -3,8 +3,10 @@
 // Side navber 
 
 .leftside{
+  margin-top: -46px;
+  margin-left: -30px;
   position: fixed;
-  height: 100vh;
+  height: 94vh;
   width:15vh;
   background: url("../assets/SideBarBackgrounImage.png");
   display: flex;
@@ -27,7 +29,7 @@ text-align: center;
 margin: auto;
  span {
   font-family: Inter;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 31px;
   letter-spacing: 0em;

@@ -1,11 +1,30 @@
 @import "./globals.scss";
 
+$poppins: "Poppins";
+$raleway: "Raleway";
+@font-face {
+  font-family: $poppins;
+  src: url("./src/assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: $raleway;
+  src: url("./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+$green1: #018647;
+$green2: #a4ffaf;
+$orange1: #ed8007;
+$orange2: #fbc330;
+$white: #ffffff;
+$grey: #74768f;
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.main-feature-container {
+.main-container {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,107 +32,434 @@
   height: 100vh;
   overflow-x: hidden;
   background-color: #efefef;
-
   .container {
     display: flex;
     flex-direction: column;
-
-    .flex {
-      gap: 50px;
+    .navber {
       display: flex;
-
-      .left-feature-section {
-        width: auto;
-        margin-right: 2rem;
-
-        .feature-request-item {
-          display: flex;
-          flex-direction: column;
-          box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
-          border: 1px solid $grey; 
-          border-radius: 5px;
-          margin-top: 1.6rem;
-          margin-right: 1rem;
-          padding: 0.6rem;
-
-          .main-content-feature {
-            display: flex;
-
-            .vote-feature {
-              display: flex;
-              flex-direction: column;
-              border: 1px solid $grey; 
-              text-align: center;
-              justify-content: center;
-              padding: 0 20px;
-              margin-right: 1rem;
-
-              .fiheart-icon-feature {
-                margin: 1px;
-                padding: 1px;
-                color: $green1; 
-                font-size: 1rem;
-              }
-              .vote-count-feature {
-                font-family: $raleway; 
-                font-size: 1rem;
-                color: $grey; 
-              }
-            }
-
-            .right-content-feature {
-              display: flex;
-              flex-direction: column;
-              .top-section-feature {
-                display: flex;
-                justify-content: space-between;
-
-                .status-feature {
-                  font-family: $poppins; 
-                  color: $white; 
-                  background-color: $green1; 
-                  border-radius: 2px;
-                  padding: 3px;
-                  font-size: 0.5rem;
-                  font-weight: bold;
-                }
-                .count-feature {
-                  font-family: $poppins; 
-                  color: $white; 
-                  background-color: $green1; 
-                  border-radius: 2px;
-                  padding: 3px 5px;
-                  font-size: 0.5rem;
-                  font-weight: bold;
-                }
-              }
-              .bottom-section-feature {
-                display: flex;
-                flex-direction: column;
-                .title-feature {
-                  font-family: $poppins; 
-                  color: rgb(1, 1, 1);
-                  font-weight: bolder;
-                  padding: 5px;
-                }
-                .description-feature {
-                  font-family: $raleway; 
-                  color: black;
-                  font-size: 0.7rem;
-                  padding: 1px;
-                }
-              }
-            }
-          }
-          .footer-feature {
-            font-family: $raleway; 
-            color: $grey; 
-            font-size: 0.7rem;
-            padding: 1px;
-            margin-left: 76px;
+      background-color: $white;
+      margin-top: 1.2rem;
+      margin-left: 3rem;
+      box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+      .roadmap {
+        padding: 1rem;
+        font-family: $poppins;
+        color: $grey;
+        font-weight: bolder;
+        font-size: 1.5rem;
+      }
+      .featureRequest {
+        padding: 1rem;
+        font-family: $poppins;
+        color: $white;
+        font-weight: bolder;
+        background-color: $green1;
+        font-size: 1.5rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin-right: auto;
+      }
+    }
+    .bodySection {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      margin-left: 3rem;
+      margin-right: 1rem;
+      overflow: hidden;
+      
+    .dropdown {
+        display: flex;
+        justify-content: space-between;
+        max-width: 500px;
+        min-width: 250px;
+        height: 6vh;
+        box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        border: 1px solid $grey;
+        margin-right: 3rem;
+        .dropdowncomp {
+          padding: 5px;
+          color: $white;
+          font-family: $raleway;
+          #trending{
+            background-color: $green1;
           }
         }
+      }
+      .flex{
+        // display: grid;
+        // grid-template-columns: max-content;
+        // grid-auto-rows: minmax(100px, auto);
+        gap: 50px;
+        // height: 20vh;
+        display: flex;
+
+        .leftside {
+          width: auto;
+          margin-right: 2rem;
+            .planned1 {
+              display: flex;
+              flex-direction: column;
+              box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+              border: 1px solid $grey;
+              border-radius: 5px;
+              margin-top: 1.6rem;
+              margin-right: 1rem;
+              padding: 0.6rem;
+              
+              .main {
+                display: flex;
+    
+                .love1 {
+                  display: flex;
+                  flex-direction: column;
+                  border: 1px solid $grey;
+                  text-align: center;
+                  justify-content: center;
+                  padding: 0 20px;
+                  margin-right: 1rem;
+    
+                  .fiheart {
+                    margin: 1px;
+                    padding: 1px;
+                    color: $green1;
+                    font-size: 1rem;
+                  }
+                  .fiheart1 {
+                    font-family: $raleway;
+                    font-size: 1rem;
+                    color: $grey;
+                  }
+                }
+    
+                .love1right {
+                  display: flex;
+                  flex-direction: column;
+                  .top {
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .p1 {
+                      font-family: $poppins;
+                      color: $white;
+                      background-color: $green1;
+                      border-radius: 2px;
+                      padding: 3px;
+                      font-size: .5rem;
+                      font-weight: bold;
+                    }
+                    .p2 {
+                      font-family: $poppins;
+                      color: $white;
+                      background-color: $green1;
+                      border-radius: 2px;
+                      padding: 3px 5px;
+                      font-size: .5rem;
+                      font-weight: bold;
+                    }
+                  }
+                  .bottom{
+                    display: flex;
+                    flex-direction: column;
+                    .p1{
+                        font-family: $poppins;
+                        color: rgb(1, 1, 1);
+                        font-weight: bolder;
+                        padding: 5px;
+    
+                    }
+                    .p2{
+                        font-family: $raleway;
+                        color: black;
+                        font-size: .7rem;
+                        padding: 1px;
+                        
+                    }
+                  }
+    
+                }
+              }
+              .footer{
+                font-family: $raleway;
+                color: $grey;
+                font-size: .7rem;
+                padding: 1px;
+                margin-left: 76px;
+              }
+            }
+          }
+          .rightside{
+            width: 25vw;
+            height: 70vh;
+            padding: 1px;
+            box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+             margin: 2rem auto;
+             margin-right: 2rem;
+             border-radius: 3px;
+            background-color: #efefef;
+            
+            .h3{
+                font-family: $poppins;
+                margin: auto;
+                color: rgb(8, 8, 8);
+                padding: auto;
+                text-align: center;
+                margin-bottom: 5px;
+                margin-top: .7rem;
+                font-size: 1.2rem;
+                font-weight: bolder;
+            }
+            .title{
+                display: flex;
+                flex-direction: column;
+                .label{
+                    font-family: $raleway;
+                    font-size: .9rem;
+                    font-weight: bold;
+                    color: $grey;
+                    margin-left:  2rem;
+                    margin-bottom: 5px;
+                }
+                #title{
+                    width: 80%;
+                    padding: 2px;
+                    margin: auto;
+                    margin-bottom: 4px;
+                    font-family: $raleway;
+                    
+                }
+
+            }
+            .category{
+                display: flex;
+                flex-direction: column;
+                .label{
+                    font-family: $raleway;
+                    font-size: .9rem;
+                    font-weight: bold;
+                    color: black;
+                    margin-left:  2rem;
+                    margin-bottom: 5px;
+                }
+                #category{
+                    width: 80%;
+                    padding: 2px;
+                    margin: auto;
+                    margin-bottom: 4px;
+                    font-family: $raleway;
+                    
+                }
+                
+            }
+            .details{
+                display: flex;
+                flex-direction: column;
+                .label{
+                    font-family: $raleway;
+                    font-size: .9rem;
+                    font-weight: bold;
+                    color: $grey;
+                    margin-left: 2rem;
+                    margin-bottom: 5px;
+                }
+                #details{
+                    width: 80%;
+                    height: 35%;
+                    padding: 2px;
+                    margin: auto;
+                    margin-bottom: 4px;
+                    font-family: $raleway;
+                }
+            }
+            .end{
+                display: flex !important;
+                justify-content: space-between;
+
+                .fileadd{
+                    padding: 4px;
+                    border-radius: 2px;
+                    border: 1px solid $grey;
+                    margin-left: 2rem;
+                }
+                .post{
+                    background-color: $green1;
+                    border-radius: 3px;
+                    padding: 4px;
+                    font-family: $raleway;
+                    margin-right: 2rem;
+
+                    .submit{
+                        border: none;
+                        outline: none;
+                        background-color: $green1;
+                    }
+                }
+
+                
+            }
+          }
+    
+        
       }
     }
   }
 }
+@media only screen and (min-width: 769px) {
+  .con{
+      display: none;
+  }
+  .icon1{
+      display: none;
+  }
+  .main-container{
+    font-size: 100%;
+}
+.header{
+  display: none;
+}
+#top1{
+  display: none;
+}
+
+}
+
+@media (max-width:998px) {
+  html{
+      font-size: 70%;
+  }
+
+}
+
+@media screen and (max-width: 700px){
+  .main-container{
+      font-size: 40px;
+      
+  }
+  .dropdown{
+      // max-width: 200px;
+      margin-right: 10rem;
+  }
+  .fiheartI{
+      color: $green1;
+  }
+  .rightside{
+    display: none;
+  }
+  #top1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    .p1{
+      margin: .2rem;
+      background-color: rgb(77, 203, 245);
+      font-size: 1rem;
+      padding: .1rem .8rem;
+      border-radius: 2px;
+    }
+    .p2{
+      margin: .2rem;
+      background-color: rgb(77, 203, 245);
+      font-size: 1rem;
+      padding: .2rem;
+    }
+  }
+  // .leftside{
+  //   margin-right: 2rem;
+  // }
+  #top{
+    display: none;
+    
+  }
+}
+
+.main-container{
+  font-size: 62.5%;
+}
+
+$poppins: "Poppins";
+@font-face {
+    font-family: $poppins;
+    src: url("./src/assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  }
+$green1: #018647;
+$green2: #a4ffaf;
+$orange1: #ed8007;
+$orange2: #fbc330;
+$white: #ffffff;
+$grey: #74768f;
+
+  .con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    .top{
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background-color: rgb(17, 15, 15);
+      margin: auto;
+      position: relative;
+      border-radius: 100%;
+      overflow: hidden;
+    .imagef{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+    }
+    .bottom{
+      font-size: 4rem;
+      font-weight: bold;
+      font-family: $poppins;
+    }
+    
+    }
+
+    .icon{
+      position: 'absolute';
+      top:'20px';
+      right: '40px';
+    }
+    .header {
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .header a.active {
+      
+      background-color: rgb(109, 109, 246);
+      color: white;
+    }
+    
+    .header-right {
+      float: right;
+    }
+
+    

@@ -10,6 +10,7 @@ import Layout from './pages/Layout';
 import AdminPage from './pages/AdminPage';
 import FeatureRequest from './pages/FeatureRequest';
 import Settings from './pages/Settings';
+import CreateFeatureRequest from './pages/CreateFeatureRequest';
 
 
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/featurerequest" element={<FeatureRequest />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/CreateFeatureRequest" element={<CreateFeatureRequest />} />
 
           
 

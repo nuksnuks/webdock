@@ -1,125 +1,18 @@
 @import "./globals.scss";
 
-
-
 * {
   margin: 0;
   padding: 0;
 }
 
-.rootContainer {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
 
-}
-
-// navber 
-
-.navbardk{
-  width: 100%;
-  height: 162px;
-  border: 1px solid #8C8C8C;
-  display: flex;
-  justify-content: space-between;
-
-}
-.unorder{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  // overflow: hidden;
-}
-.Logo{
-    font-family: Inter;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: center;
-    margin-top: 55px;
-    
-
-}
-.unorder a{
-  float: right;
-  // color: #f2f2f2;
-  text-align: center;
-  margin-top: 33px;
-  margin-left: 60px;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.last{
-  width: 377px;
-  height: 66px;
-  border: 1px solid $grey2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 2px;
-  
-}
-.last #li1{
-  font-family: $poppins;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 54px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: $grey2;
-  
-}
-.container{
-    display: flex;
-    
-  }
-  
-  .leftside{
-    height: 1107px;
-    width:147px;
-    background: url("../image/Group 6.png");
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
-   
-  
-  }
-
-  .menupicture{
-    width: 90px;
-  height: 90px;
-  line-height: 31px;
-  letter-spacing: 0em;
-  text-align: center;
-  margin-top: 70px;
-  }
-  .menutext{
-    font-family: Inter;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 31px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #FFFFFF;
-  }
-  
-  #disable{
-    visibility: hidden;
-  }
   .rootbody{
+    margin-left: 100px;
     height: 1107px;
    background-color: #D9D9D940;
   }
   .content{
     height: 1001px;
-    background-color: #FFFFFF;
     border-radius: 4px;
     // border: 1px solid red;
     margin: 30px 60px 30px 30px;
@@ -178,12 +71,13 @@
   .uploadimg .labeling{
     
     font-family: $poppins;
+    color: white;
     font-size: 25px;
     font-weight: 700;
     line-height: 38px;
     letter-spacing: 0em;
     position: absolute;
-    left: 30px;
+    left: 20px;
     top: 15px;
   }
   .pname, .pemail{
@@ -294,7 +188,7 @@
   }
   
   input:checked + .slider {
-    background-color: #e5386d;
+    background-color:green;
   }
   
   
@@ -314,8 +208,6 @@
     border-radius: 50%;
   }
 
-
-
 /* Mobile Styles (up to 767px) */
 @media only screen and (max-width: 767px) {
     /* Your mobile styles go here */
@@ -329,14 +221,6 @@
         box-sizing: border-box;
         
         
-    }
-    .navbar{   
-        height: 56px;
-        border: 1px solid #3F3E3E;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        overflow: hidden;
     }
     .menu1{
         display: flex;
