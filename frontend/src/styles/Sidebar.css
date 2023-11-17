@@ -7,8 +7,6 @@
   src: url("./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
 }
 .leftside {
-  margin-top: 46px;
-  margin-left: 31px;
   position: fixed;
   height: 100vh;
   width: 15vh;
