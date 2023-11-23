@@ -4,21 +4,21 @@ import '/./src/styles/Roadmap.scss'
 const PostCard = ({ title, desc, date, likes, comments }) => {
   return (
     <>
-        <div className="CardBox">
-            <div className="LikeFunc">
-                <img src="" alt="" />
-                <p>{likes}</p>
+        <div className="postCard">
+            <div className="box">
+                <div className="LikeFunc">
+                    <img src="/./src/assets/heart.png" alt="heart icon" />
+                    <h5><b>{likes}</b></h5>
+                </div>
+                <div className="InfoPart">
+                    <h2 numberOfLines={1}>{title}</h2>
+                    <p>{desc}</p>
+                    <h5><b>{date}</b></h5>
+                </div>
             </div>
-
-            <div className="InfoPart">
-                <h4 numberOfLines={1}>{title}</h4>
-                <h6>{desc}</h6>
-                <p>{date}</p>
-            </div>
-
             <div className="CommentNum">
-                <img src="" alt="" />
-                <p>{comments}</p>
+                <img src="/./src/assets/Comments.png" alt="" />
+                <h5>{comments}</h5>
             </div>
         </div>
     </>

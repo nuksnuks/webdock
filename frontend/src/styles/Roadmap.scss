@@ -2,39 +2,109 @@
 
 @mixin RoadmapColumn{
     font-family: $poppins;
-    text-align: center;
-    padding: 10px;
-    font-size: 30px;
+    margin: 5px;
+    padding: 5px;
     user-select: none;
-    color: $white;
-    border-radius: 5px 5px 0px 0px;
+    color: $grey3;
     
+}
+
+@mixin Dot{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-top: 20px;
+}
+
+.postCard {
+    border-bottom: 1px solid $grey;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    justify-content: space-between;
+    img {
+        width: 3vw;
+    }
+    .box {
+        display: flex;
+        .LikeFunc {
+            margin: 5px;
+            color: $green1;
+            text-align: center;
+        }
+        .InfoPart {
+            margin: 5px;
+            padding: 5px;
+            text-align: left;
+            p {
+                color: $grey;
+                padding-top: 5px;
+            }
+            h5 {
+                padding-top: 5px;
+                color: $grey;
+            }
+        }
+    }
+    .CommentNum {
+        margin: 5px;
+        color: $green1;
+        text-align: center;
+    }
 }
 
 .roadmap {
     display: flex;
     background-color: $white;
-    width: 80vw;
-    gap: 10px;
+    width: 60vw;
+    gap: 20px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 100px;
     .roadmapColumn {
         flex: 1;
-        justify-content: space-around;
         .roadmapColumnPlanned {
+            display: flex;
+            flex-direction: row;
             @include RoadmapColumn;
-            background-color: $blue;
-            
+            h1 {
+                padding: 5px;
+                margin: 5px;
+            }
+            .dot {
+                @include Dot;
+                border: 1px solid $blue;
+                background-color: $blue;
+            }
         }
         .roadmapColumnProgress{
+            display: flex;
+            flex-direction: row;
             @include RoadmapColumn;
-            background-color: $green1;
+            h1 {
+                padding: 5px;
+                margin: 5px;
+            }
+            .dot {
+                @include Dot;
+                border: 1px solid $purple;
+                background-color: $purple;
+            }
         }
         
         .roadmapColumnCompleted {
+            display: flex;
+            flex-direction: row;
             @include RoadmapColumn;
-            background-color: $purple;
+            h1 {
+                padding: 5px;
+                margin: 5px;
+            }
+            .dot {
+                @include Dot;
+                border: 1px solid $green1;
+                background-color: $green1;
+            }
         }
     }
     .roadmapContent {
