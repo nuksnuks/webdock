@@ -1,12 +1,6 @@
 $poppins: 'Poppins';
 $raleway: 'Raleway';
 
-body {
-  background-image: url('./src/assets/footer_bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 @font-face {
   font-family: $poppins;
   src: url('./src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
@@ -26,4 +20,3 @@ $grey: #74768F;
 $purple: #AB4ABA;
 $blue: #0091FF;
 $grey2:#8C8C8C;
-$grey3: #3F3E3E;

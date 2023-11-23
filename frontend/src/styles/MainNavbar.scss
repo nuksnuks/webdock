@@ -1,7 +1,7 @@
 @import "./globals.scss";
 
 nav {
-    position: sticky;
+    position:fixed;
     z-index: 2;
     font-family: $poppins;
     background-color: $white;
