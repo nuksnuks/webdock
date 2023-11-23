@@ -4,8 +4,8 @@
         "title": "fuckfuck",
         "desc": "thissucks",
         "date": "23/11",
-        "likes": "1",
-        "comments": "0"
+        "likes": ["like", "like", "like"],
+        "comments": ["This is very easy, if you understand", "This is very easy, if you understand", "This is very easy, if you understand","This is very easy, if you understand", "This is very easy, if you understand", "This is very easy, if you understand" ]
     },
     {
         "userID": "1",
