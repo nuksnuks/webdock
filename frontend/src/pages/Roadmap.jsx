@@ -5,6 +5,19 @@ import Post from '../../../backend/Models/PostModel'
 import Components from 'components'
 
 const Roadmap = () => {
+/* Her skal der indsættes kode så den viser roadmap, men den kun indsætter kortene i den status kolonne som den høre til. 
+
+Der skal bruges noget der minder om det her:
+function App() {
+  const showElement = true;
+
+  return (
+    <div>
+      {showElement && <p>This paragraph will be displayed if showElement is true.</p>}
+    </div>
+  );
+}
+*/
     return (
     <>
       <Components>
