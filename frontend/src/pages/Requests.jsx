@@ -2,16 +2,12 @@ import React, { useEffect, useState } from "react";
 import '/./src/styles/featurerequest.scss'; // Importer SCSS-filen
 import { FiHeart } from "react-icons/fi";
 
-
-
-
-
-function Featurerequest() {
+function Requests() {
   const [featureRequests, setFeatureRequests] = useState([]);
 
   useEffect(() => {
     // Replace 'your_api_endpoint_url' with the actual API endpoint URL
-    fetch("your_api_endpoint_url")
+    fetch("http://localhost:3066/users")
       .then((response) => response.json())
       .then((data) => {
         // Update featureRequests state with fetched data
@@ -61,4 +57,4 @@ function Featurerequest() {
   );
 }
 
-export default Featurerequest;
+export default Requests;
