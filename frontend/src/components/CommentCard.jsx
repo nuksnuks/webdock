@@ -1,6 +1,6 @@
 import React from 'react'
 import '/./src/styles/CommentCard.scss'
-
+import jsonData from '../assets/data/dummyData.json'
 
 const CommentCard = ({ userName, role, likes, comments }) => {
     return (
@@ -15,7 +15,7 @@ const CommentCard = ({ userName, role, likes, comments }) => {
                     </div>
                 </div>
                 <div className="comment">
-                    <p> {comments} </p>
+                   <p>{comments}</p>
                 </div>
                 <div className="commentActions">
                     <h5><img src="/./src/assets/replyIcon.png" alt="Reply Icon" /> Reply </h5>
@@ -27,5 +27,5 @@ const CommentCard = ({ userName, role, likes, comments }) => {
         </div>
       </>
     )
-  }
+  };
 export default CommentCard

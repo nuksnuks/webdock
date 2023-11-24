@@ -6,7 +6,7 @@
         "desc": "thisissomuchfun",
         "date": "23/11",
         "likes": ["like", "like", "like"],
-        "comments": ["This is very easy, if you understand", "This is very easy, if you understand", "This is very easy, if you understand","This is very easy, if you understand", "This is very easy, if you understand", "This is very easy, if you understand" ]
+        "comments": ["This is very easy, if you understand", "I love cake"]
     },
     {
         "userID": "1",

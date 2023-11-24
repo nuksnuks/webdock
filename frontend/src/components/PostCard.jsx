@@ -1,7 +1,7 @@
 import React from 'react';
 import '/./src/styles/Roadmap.scss'
 
-const PostCard = ({ status, title, desc, date, likes, comments }) => {
+const PostCard = ({ status, title, desc, date, likes, comments, userID }) => {
   return (
     <>
         <div className="postCard">

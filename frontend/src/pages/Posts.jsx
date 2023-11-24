@@ -11,14 +11,16 @@ const Post = () => {
       
 
         {jsonData.map((item) => (
+
             <div className="request">
-              <SinglePostCard userID={item.userID}
-      userImg={item.userImg}
-      status={item.status}
-      title={item.title}
-      desc={item.desc}
-      date={item.date}
-      likes={item.likes.length} />
+              <SinglePostCard 
+                userID={item.userID}
+                userImg={item.userImg}
+                status={item.status}
+                title={item.title}
+                desc={item.desc}
+                date={item.date}
+                likes={item.likes.length} />
             </div>
             ))}
         
