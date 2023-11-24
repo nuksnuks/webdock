@@ -1,20 +1,16 @@
 import React from 'react';
-import '/./src/styles/FeatureRequest.scss'
+import '/./src/styles/FeatureRequest.scss';
 import PostCard from '../components/PostCard';
+import jsonData from '../assets/data/dummyData.json';
 
 const FeatureRequest = () => {
   return (
     <>
       <div className="featurerequest">
         <div className="FeaturerequestsContent">
-          <PostCard
-            status={Post.status}
-            title={Post.title}
-            desc={Post.description}
-            date={Post.createdAt}
-            likes={Post.likeStatus.length}
-            comments={Post.commentId.length}
-          ></PostCard>
+          {jsonData.map((item) => (
+            <PostCard key={item.id} status={item.status} title={item.title} desc={item.desc} date={item.date} likes={item.likes.length} comments={item.comments.length} />
+          ))}
         </div>
       </div>
     </>
