@@ -1,5 +1,4 @@
-// controllers/PostController.js
-const { Post } = require('../Models/PostModel.');
+const Post = require("../Models/postModel");
 
 const PostController = {
   getAllPosts: async (req, res) => {
@@ -13,9 +12,9 @@ const PostController = {
   },
 
   getPostById: async (req, res) => {
-    const postId = req.params.id;
+    const postID = req.params.id;
     try {
-      const post = await Post.findByPk(postId);
+      const post = await Post.findByPk(postID);
       if (!post) {
         return res.status(404).send('Post not found');
       }

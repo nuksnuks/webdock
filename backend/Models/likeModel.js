@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/database');
 
-const Comment = sequelize.define('Comment',{
-    commentID: {
+const Likes = sequelize.define('Like', {
+    likeID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -13,18 +13,12 @@ const Comment = sequelize.define('Comment',{
         references: {
         model: 'Users',
         key: 'userID',
-        }
-    },
-    postID: {
-        type: DataTypes.INTEGER,
-        references: {
-        model: 'Posts',
-        key: 'postID',
-        }
-    },
-    description: {
-        type : DataTypes.STRING
     }
+    },
+    liked: {
+        type: DataTypes.BOOLEAN
+    }
+
 });
 
-module.exports = Comment;
+module.exports = Likes;
