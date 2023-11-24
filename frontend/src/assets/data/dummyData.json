@@ -2,6 +2,7 @@
     {
         "userID": "0",
         "title": "fuckfuck",
+        "status": "Planned",
         "desc": "thissucks",
         "date": "23/11",
         "likes": ["like", "like", "like"],
@@ -10,6 +11,7 @@
     {
         "userID": "1",
         "title": "loveJytte",
+        "status": "In Progress",
         "desc": "shecute",
         "date": "23/11",
         "likes": "1000",
@@ -18,6 +20,7 @@
     {
         "userID": "2",
         "title": "fuckfuck",
+        "status": "Completed",
         "desc": "thissucks",
         "date": "23/11",
         "likes": "1",
@@ -26,6 +29,7 @@
     {
         "userID": "3",
         "title": "loveJytte",
+        "status": "Planned",
         "desc": "shecute",
         "date": "23/11",
         "likes": "1000",

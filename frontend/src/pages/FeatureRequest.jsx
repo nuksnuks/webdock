@@ -1,7 +1,6 @@
 import React from 'react';
 import '/./src/styles/FeatureRequest.scss'
 import PostCard from '../components/PostCard';
-import Post from '../../../backend/Models/PostModel';
 
 const FeatureRequest = () => {
   return (

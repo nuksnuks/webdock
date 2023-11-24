@@ -44,6 +44,14 @@
                 padding-top: 5px;
                 color: $grey;
             }
+            .statusBox {
+                font-size: 1vw;
+                color: $white;
+                padding: 3px;
+                background-color: $green1;
+                border-radius: 2px;
+                width: 5vw;
+            }
         }
     }
     .CommentNum {
