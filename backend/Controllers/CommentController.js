@@ -28,4 +28,4 @@ const CommentController = {
   // Add other comment-related controller methods...
 };
 
-module.exports = CommentController;
+module.exports = CommentController
