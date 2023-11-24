@@ -19,6 +19,7 @@ const CreateRequest = () => {
         fetch('http://localhost:3001/post', {
           method:'POST',
           headers: {'Content-Type': 'application/json'},
+          //laver om til en json-string:
           body: JSON.stringify(post),
         })
         .then(response => {
@@ -29,10 +30,9 @@ const CreateRequest = () => {
           }
         })
         .then(data => {
-          console.log('Major success!', data); 
+          console.log('Davids big brain fik det til at virke!', data); 
         })
         .catch(error => {
-          
           console.log('Major failure!', error.message);
         });
           };
