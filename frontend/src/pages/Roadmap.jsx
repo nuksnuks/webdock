@@ -5,10 +5,13 @@ import  '/./src/styles/Roadmap.scss'
 import PostCard from '../components/PostCard'
 import jsonData from '../assets/data/dummyData.json'
 import CommentCard from '../components/CommentCard'
+import BackgroundBox from './BackgroundBox';
 
 const Roadmap = () =>{ 
     return (
     <>
+    <BackgroundBox
+        contentPlace = {
       <div className="roadmap">
         <div className="roadmapColumn">
           <div className="roadmapColumnPlanned">
@@ -45,6 +48,8 @@ const Roadmap = () =>{
           </div>
         </div>
       </div>
+      }
+      />
     </>
   )
 }
