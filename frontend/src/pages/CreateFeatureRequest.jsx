@@ -1,5 +1,4 @@
-import React from "react";
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import  '/./src/styles/CreateFeatureRequest.scss'
 import picture from "../assets/Picture.png";
 

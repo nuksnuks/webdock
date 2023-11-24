@@ -1,7 +1,7 @@
 // /Users/abd/projects/webdock/backend/routes/index.js
 const express = require('express');
 const router = express.Router();
-const UserController = require('..Controllers/');
+const UserController = require('..Controllers/index');
 const middlewares = require('../Middlewares');
 
 // middleware.authenticate er stadig tom

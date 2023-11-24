@@ -25,7 +25,23 @@ const PostController = {
     }
   },
 
+  createPost: async (req, res) => {
+    try {
+      const { category, title, description, tags, picture } = req.body;
+
+      const post = await Post.create({
+        category, 
+        title, 
+        description, 
+        tags, 
+        picture
+      });
+    }catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   // Add other post-related controller methods...
-};
+  }
+};  
 
 module.exports = PostController;

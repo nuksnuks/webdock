@@ -22,4 +22,4 @@ const syncModels = async () => {
   }
 };
 
-module.exports = syncModels;
+module.exports =  syncModels ,{ Post, User, Comment, Like, Notification };

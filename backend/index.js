@@ -2,8 +2,11 @@ const sequelize = require('sequelize');
 const connection = require('./config/database');
 const syncModels  = require('./Models/index');
 const express = require('express');
+const cors = require('cors');
+const Post = require('./Models/postModel');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Test the connection
@@ -19,5 +22,19 @@ connection
 // Sync models
 syncModels();
 
-const PORT = process.env.PORT || 3066;
+app.post('/post', async (req, res) => {
+  try {
+    const post = await Post.create({
+      Category: req.body.category,
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image
+    });
+    res.status(201).json(post);
+  } catch (error) {
+    res.status(500).send(error.message); 
+  }
+});
+
+const PORT = 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
