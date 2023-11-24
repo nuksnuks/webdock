@@ -1,10 +1,45 @@
 import React from "react";
+import React, { useState } from "react";
 import  '/./src/styles/CreateFeatureRequest.scss'
 import picture from "../assets/Picture.png";
 
 
 
-const createFeatureRequest = () => {
+const CreateFeatureRequest = () => {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [details, setDetails] = useState("");
+
+  const createPost = async () => {
+    try {
+      const response = await fetch("davidsserver.vps.webdock.cloud:8080/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          category,
+          details,
+        }),
+      });
+
+      if (response.ok) {
+        // Reset form or handle success as needed
+        setTitle("");
+        setCategory("");
+        setDetails("");
+        alert("Post created successfully!");
+      } else {
+        console.error("Failed to create post");
+        alert("Failed to create post");
+      }
+    } catch (error) {
+      console.error("Error creating post:", error);
+      alert("Error creating post");
+    }
+  };
+
   return (
     <div className="mobiledevise">
       <div className="mobile">
@@ -23,6 +58,8 @@ const createFeatureRequest = () => {
               id="titlesm"
               className="titleinputsm"
               placeholder="Short, descriptive title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="categorysm">
@@ -35,13 +72,16 @@ const createFeatureRequest = () => {
               id="categorysm"
               className="categoryinpsm"
               placeholder="Selected Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             />
           </div>
           <div className="detailssm">
             <label className="labelsm" htmlFor="details">
               DETAILS
             </label>
-            <textarea name="details" id="detailssm" placeholder="Any additional details" cols="30" rows="10">
+            <textarea name="details" id="detailssm" placeholder="Any additional details" cols="30" rows="10" value={details}
+              onChange={(e) => setDetails(e.target.value)}>
               {/* Any additional details */}
             </textarea>
           </div>
@@ -50,7 +90,7 @@ const createFeatureRequest = () => {
               <img src={picture} alt="" />
             </div>
             <div className="postsm">
-              <button className="submitsm">Create Post</button>
+              <button className="submitsm"onClick={createPost}> Create Post</button>
             </div>
           </div>
         </div>
@@ -74,6 +114,8 @@ const createFeatureRequest = () => {
                     id="title"
                     className="titleinput"
                     placeholder="Short, descriptive title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
                 <div className="category">
@@ -85,13 +127,16 @@ const createFeatureRequest = () => {
                     name="category"
                     id="category"
                     placeholder="Selected Category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                   />
                 </div>
                 <div className="details">
                   <label className="label" htmlFor="details">
                     DETAILS
                   </label>
-                  <textarea name="details" id="details" cols="30" rows="10">
+                  <textarea name="details" id="details" cols="30" rows="10"> value={details}
+                  onChange={(e) => setDetails(e.target.value)}
                     Any additional details
                   </textarea>
                 </div>
@@ -100,7 +145,7 @@ const createFeatureRequest = () => {
                     <img src={picture} alt="" />
                   </div>
                   <div className="post">
-                    <button className="submit">Create Post</button>
+                    <button className="submit" onClick={createPost}> Create Post</button>
                   </div>
                 </div>
               </div>
@@ -112,4 +157,4 @@ const createFeatureRequest = () => {
   );
 };
 
-export default createFeatureRequest;
+export default CreateFeatureRequest;
