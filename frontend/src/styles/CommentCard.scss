@@ -1,0 +1,43 @@
+@import "./globals.scss";
+
+
+.commentCard {
+    border-bottom: 1px solid $grey;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    justify-content: space-between;
+    .userInfo {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        img {
+            padding: 0.5vw;
+            width: 2vw;
+            height: 2vw;
+        }
+        .user {
+            padding: 0.5vw;
+            h5 {
+                color: $green1;
+            }
+        }
+    }
+
+    .comment {
+        display: flex;
+    }
+
+    .commentActions {
+        display: flex;
+        flex-direction: row;
+        h5 {
+            padding: 0.5vw;
+            color: $grey;
+        }
+        img {
+            width: 0.8vw;
+            filter: grayscale(100%);
+        }
+    }
+}

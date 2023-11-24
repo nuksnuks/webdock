@@ -3,6 +3,37 @@
 
 /* src/styles/post.scss */
 
+.singlePostCard {
+  width: 100%;
+  .box {
+    display: flex;
+    flex-direction: row;
+    .LikeFunc {
+      margin: 5px;
+      text-align: center;
+      img {
+        width: 2vw;
+      }
+    }
+    .InfoPart {
+      text-align: left;
+      margin: 5px;
+      .createdUser {
+        display: flex;
+        img {
+          margin: 0.5vw;
+          width: 1.5vw;
+          height: 1.5vw;
+        }
+        p {
+          margin: 0.5vw;
+        }
+      }
+      
+    }
+  }
+}
+
 .request {
   background: #FFFFFF;
   border-radius: 10px;
@@ -26,7 +57,7 @@
   
 }
 
-.vote-section {
+.like {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +95,6 @@
 }
 
 .post-list {
-  /*david har tilføjet skrifttype */
   font-family: $poppins;
   background-color: #f4f4f4;
   padding: 20px;
@@ -78,49 +108,6 @@
     margin-bottom: 10px;
     padding-left: 50px;
   }
-
-  //.post-container{}
-
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-
-    .post-item{
-      display: flex;
-      align-items: center;
-      margin: 10px 0;
-
-      .post-content{
-        display: flex;
-        flex-direction: column;
-        padding-left: 10px;
-      }
-
-      .user-image{
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-      }
-    
-    }
-
-    li {
-      flex: 1;
-      background: #FFFFFF;
-      border-radius: 10px;
-      box-shadow:  10px 10px 15px #bebebe;
-      padding: 20px;
-      margin: 0 auto;
-      width: 90%;
-      &:hover {
-        background-color: #f0f0f0;
-      }
-    }
-  }
 }
+
 

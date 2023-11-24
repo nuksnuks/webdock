@@ -1,0 +1,39 @@
+[
+    {
+        "userID": "0",
+        "name": "nicole",
+        "title": "title 1 - Jytte er lækker",
+        "status": "Planned",
+        "desc": "thisissomuchfun",
+        "date": "23/11",
+        "likes": ["like", "like", "like"],
+        "comments": ["This is very easy, if you understand", "I love cake"]
+    },
+    {
+        "userID": "1",
+        "title": "tilte 2",
+        "status": "In Progress",
+        "desc": "shecute",
+        "date": "23/11",
+        "likes": "1000",
+        "comments": "2000"
+    },  
+    {
+        "userID": "2",
+        "title": "title 3",
+        "status": "Completed",
+        "desc": "this is super FUN",
+        "date": "23/11",
+        "likes": "1",
+        "comments": "0"
+    },
+    {
+        "userID": "3",
+        "title": "title 4",
+        "status": "Planned",
+        "desc": "shecute",
+        "date": "23/11",
+        "likes": "1000",
+        "comments": "2000"
+    }  
+]
