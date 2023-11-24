@@ -22,6 +22,15 @@ connection
 // Sync models
 syncModels();
 
+app.get('/post', async (req,res) =>{
+  try {
+    const posts = await Post.findAll();
+    res.status(201).json(posts);
+  } catch (error) {
+    res.status(500).send('kunne ikke hente eller finde data')
+  }
+});
+
 app.post('/post', async (req, res) => {
   try {
     const post = await Post.create({
