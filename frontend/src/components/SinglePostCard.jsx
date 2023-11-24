@@ -1,7 +1,7 @@
 import React from 'react';
 import '/./src/styles/post.scss'
 
-const SinglePostCard = ({ status, title, desc, date, likes, userImg }) => {
+const SinglePostCard = ({ status, title, name, desc, date, likes, userImg }) => {
   return (
     <>
         <div className="singlePostCard">
@@ -9,14 +9,16 @@ const SinglePostCard = ({ status, title, desc, date, likes, userImg }) => {
                 <div className="LikeFunc">
                     <img src="/./src/assets/heart.png" alt="heart icon" />
                     <h5><b>{likes}</b></h5>
-                <img src="/./src/assets/User Account.png" alt="" />  
                 </div>
                 {/* I infoPart bliver indholdet af post indsat dynamisk. tingene i tubor klammerne henter den info man fortæller den skal hente i jsondata.map, det hvor man bruger post cards. */}
                 <div className="InfoPart">
-            <h2 numberOfLines={1}>{title}</h2>
-            <h5 className="statusBox">{status}</h5>
+                    <h2>{title}</h2>
+                    <h5 className="statusBox">{status}</h5>
                     <p>{desc}</p>
-                    <h5><b>{date}</b></h5>
+                    <div className="createdUser">
+                        <img src="/./src/assets/UserProfileImage.png" alt="" />
+                        <p><b>{name}</b>  Posted about {date}</p>
+                    </div>
                 </div>
             </div>
             

@@ -5,6 +5,33 @@
 
 .singlePostCard {
   width: 100%;
+  .box {
+    display: flex;
+    flex-direction: row;
+    .LikeFunc {
+      margin: 5px;
+      text-align: center;
+      img {
+        width: 2vw;
+      }
+    }
+    .InfoPart {
+      text-align: left;
+      margin: 5px;
+      .createdUser {
+        display: flex;
+        img {
+          margin: 0.5vw;
+          width: 1.5vw;
+          height: 1.5vw;
+        }
+        p {
+          margin: 0.5vw;
+        }
+      }
+      
+    }
+  }
 }
 
 .request {

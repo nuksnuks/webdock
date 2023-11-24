@@ -16,6 +16,7 @@ const Post = () => {
               <SinglePostCard 
                 userID={item.userID}
                 userImg={item.userImg}
+                name={item.name}
                 status={item.status}
                 title={item.title}
                 desc={item.desc}
@@ -23,10 +24,6 @@ const Post = () => {
                 likes={item.likes.length} />
             </div>
             ))}
-        
-    
-    
-    
     
     </>
   );
