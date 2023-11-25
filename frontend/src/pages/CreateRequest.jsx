@@ -6,13 +6,14 @@ const CreateRequest = () => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
+    const [tags, setTags] = useState("");
     const [image, setImage] = useState("");
     const [post, setPost] = useState('')
    
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const post = {title, category, description, image}
+        const post = {title, category, description, image, tags}
 
         console.log(post)
 
@@ -78,6 +79,15 @@ const CreateRequest = () => {
             onChange={(e) => setDescription(e.target.value)}>
                 
         </textarea>
+
+        <label htmlFor="tags">Keywords</label>
+        <input 
+          type="text" 
+          name="tags"
+          value={tags}
+                onChange={(e) => setTags(e.target.value.split(' ').toString())}>
+
+        </input>
 
         <div>
             <label htmlFor="image">Upload Image</label>

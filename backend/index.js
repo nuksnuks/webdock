@@ -9,19 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Test the connection
-connection
-  .authenticate()
-  .then(() => {
-    console.log('Connection established!');
-  })
-  .catch((err) => {
-    console.error('Unable to connect:', err);
-  });
-
-// Sync models
-syncModels();
-
 app.get('/post', async (req,res) =>{
   try {
     const posts = await Post.findAll();
@@ -37,7 +24,9 @@ app.post('/post', async (req, res) => {
       Category: req.body.category,
       title: req.body.title,
       description: req.body.description,
+      tag: req.body.tags,
       image: req.body.image
+      
     });
     res.status(201).json(post);
   } catch (error) {
