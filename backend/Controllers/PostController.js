@@ -1,6 +1,6 @@
 const Post = require("../Models/postModel");
 
-const PostController = {
+const postController = {
   getAllPosts: async (req, res) => {
     try {
       const posts = await Post.findAll();
@@ -12,7 +12,6 @@ const PostController = {
   },
 
   getPostById: async (req, res) => {
-    const postID = req.params.id;
     try {
       const post = await Post.findByPk(postID);
       if (!post) {
@@ -27,16 +26,16 @@ const PostController = {
 
   createPost: async (req, res) => {
     try {
-      const { category, title, description, tags, picture } = req.body;
 
       const post = await Post.create({
-        category, 
-        title, 
-        description, 
-        tags, 
-        picture
+        status: 'Under Review',
+        category: req.body.category,
+        title: req.body.title,
+        description: req.body.description,
+        tag: req.body.tags,
+        image: req.body.image
       });
-    }catch (error) {
+    } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
@@ -44,4 +43,4 @@ const PostController = {
   }
 };  
 
-module.exports = PostController;
+module.exports = postController ;
