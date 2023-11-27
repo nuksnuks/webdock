@@ -1,6 +1,13 @@
 $poppins: 'Poppins';
 $raleway: 'Raleway';
 
+body {
+  background-image: url('./src/assets/footer_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 @font-face {
   font-family: $poppins;
   src: url('./src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');

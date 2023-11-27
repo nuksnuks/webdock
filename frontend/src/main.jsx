@@ -11,6 +11,7 @@ import AdminPage from './pages/AdminPage';
 import FeatureRequest from './pages/FeatureRequest';
 import Settings from './pages/Settings';
 import CreateFeatureRequest from './pages/CreateFeatureRequest';
+import BackgroundBox from './pages/BackgroundBox';
 
 
 
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<FrontPage />} />
+          <Route index element={<BackgroundBox />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/single" element={<Single />} />

@@ -6,8 +6,7 @@ const FrontPage = () => {
   return (
    <>
    <div className='Front-content'>
-      <h1>det virkers</h1>
-      <p>det virker ikke</p>
+
     </div>
    </> 
   )
