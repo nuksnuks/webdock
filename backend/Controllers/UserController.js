@@ -1,4 +1,4 @@
-const User = require("../Models/userModel");
+const User = require("../Models/UserModel");
 
 const UserController = {
   getAllUsers: async (req, res) => {
@@ -12,7 +12,6 @@ const UserController = {
   },
 
   getUserById: async (req, res) => {
-    const userID = req.params.id;
     try {
       const user = await User.findByPk(userID);
       if (!user) {
@@ -24,6 +23,21 @@ const UserController = {
       res.status(500).send('Internal Server Error');
     }
   },
+  createUser: async (req, res) => {
+    try {
+      const user = await User.create({
+        role: 'user',
+        firstname: req.body.firstName,
+        lastname: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
+  
 
   // Add other user-related controller methods...
 };
