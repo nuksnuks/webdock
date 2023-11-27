@@ -13,7 +13,7 @@ const PostController = {
   },
 
   getPostById: async (req, res) => {
-    const postId = req.params.id;
+    const postID = req.params.id;
     try {
       const post = await Post.findByPk(postId);
       if (!post) {
@@ -26,6 +26,21 @@ const PostController = {
     }
   },
 
+  createPost: async (req, res) => {
+    try {
+      const { category, title, description, tags, picture } = req.body;
+
+      const post = await Post.create({
+        category, 
+        title, 
+        description, 
+        tags, 
+        picture
+      });
+    }catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   // Add other post-related controller methods...
 };
 

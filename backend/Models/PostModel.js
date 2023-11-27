@@ -4,29 +4,41 @@ const sequelize = require('../config/database');
 
 
 const Post = sequelize.define('Post', {
-  postId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true, // Define postId as the primary key
-    autoIncrement: true, // If it's an auto-incrementing primary key
-  },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.TEXT,
-  },
-  image: {
-    type: DataTypes.BLOB, // You can adjust the data type as needed
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
+    postID: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    userID: {
+        type: DataTypes.INTEGER,
+        references: {
+        model: 'Users',
+        key: 'userID',
+        }
+    },
+    likeID: {
+        type: DataTypes.INTEGER,
+        references: {
+        model: 'Likes',
+        key: 'likeID',
+        }
+    },
+    Category: {
+        type: DataTypes.ENUM({values: ['Dashboard Features','Documentation','Billing Feature','Networking','Heardware and Products','Perfect Server Stack', 'Mobile App','Webdock API','Competition','Uncategorized']})
+    },
+    title: {
+        type: DataTypes.STRING
+    },
+    description: {
+        type: DataTypes.STRING
+    },
+    tag: {
+        type: DataTypes.STRING
+    },
+    image: {
+
+        type: DataTypes.BLOB
+    }
 });
 
 // Define associations with other models

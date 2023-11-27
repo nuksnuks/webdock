@@ -1,5 +1,4 @@
-// controllers/UserController.js
-const { User } = require('../Models/UserModel.');
+const User = require("../Models/userModel");
 
 const UserController = {
   getAllUsers: async (req, res) => {
@@ -13,7 +12,7 @@ const UserController = {
   },
 
   getUserById: async (req, res) => {
-    const userId = req.params.id;
+    const userID = req.params.id;
     try {
       const user = await User.findByPk(userId);
       if (!user) {
