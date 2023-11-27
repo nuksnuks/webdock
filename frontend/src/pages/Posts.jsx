@@ -5,7 +5,6 @@ import jsonData from '../assets/data/dummyData.json';
 import BackgroundBox from './BackgroundBox';
 
 
-
 const Post = () => {
   const targetUserID = "1"; // Her er selve id'et det er dog statisk lige nu, så for at hente det id for den specifikke post skal der laves en if function
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import  '/./src/styles/Roadmap.scss'
 import PostCard from '../components/PostCard'
+import Post from '../../../backend/Models/PostModel'
 
 const Roadmap = () => {
     return (
@@ -34,6 +35,5 @@ const Roadmap = () => {
     </>
   )
 }
-
 
 export default Roadmap

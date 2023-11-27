@@ -9,7 +9,7 @@
       height: 100vh; // Gør komponenten fuldskærm i højden
       width: 100vw;
     }
-
+  
     .title-container {
       font-family: $poppins;
       display: flex;
@@ -38,19 +38,19 @@
         }
       }
     }
-
+  
     .main-container {
       background-color: $white; // Helt grøn baggrund
       border-radius: 0 10px 10px 10px; // Tilføj eventuelt afrundede hjørner
       width: 74%;
       height: auto;
-      display: flex;
       align-items: center;
       justify-content: center;
       padding: 3%;
     }
-
+  
     .content-container {
       // Styling for indholdet her, hvis nødvendigt
     }
   }
+  
