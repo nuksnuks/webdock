@@ -22,21 +22,9 @@ const CreateRequest = () => {
           headers: {'Content-Type': 'application/json'},
           //laver om til en json-string:
           body: JSON.stringify(post),
-        })
-        .then(response => {
-          if (response.ok) {
-            return response.json(); 
-          } else {
-            console.log('failed')
-          }
-        })
-        .then(data => {
-          console.log('Davids big brain fik det til at virke!', data); 
-        })
-        .catch(error => {
-          console.log('Major failure!', error.message);
         });
-          };
+  };
+
         
   return (
     <div className='form-container'>
@@ -86,7 +74,6 @@ const CreateRequest = () => {
           name="tags"
           value={tags}
                 onChange={(e) => setTags(e.target.value.split(' ').toString())}>
-
         </input>
 
         <div>

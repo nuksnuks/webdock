@@ -23,11 +23,14 @@ const Post = sequelize.define('Post', {
         key: 'likeID',
         }
     },
-    Category: {
+    category: {
         type: DataTypes.ENUM({values: ['Dashboard Features','Documentation','Billing Feature','Networking','Heardware and Products','Perfect Server Stack', 'Mobile App','Webdock API','Competition','Uncategorized']})
     },
     title: {
         type: DataTypes.STRING
+    },
+    status: {
+        type: DataTypes.ENUM({values: ['Under Review','Planned','In Progress','Completed','Closed']})
     },
     description: {
         type: DataTypes.STRING
