@@ -3,7 +3,11 @@ const { Sequelize, DataTypes } = require('sequelize');
 const { faker } = require('@faker-js/faker');
 
 // henter modeller
-const User = require('../Models/userModel');
+const User = require('../Models/UserModel');
+const Role = require('../Models/RoleModel');
+
+// definerer FK i Users-tabellen
+User.belongsTo(Role);
 
 // opretter forbindelse
 const sequelize = new Sequelize('webdock_db', 'root', 'zob4hSbUGSAM', {

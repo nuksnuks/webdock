@@ -1,4 +1,5 @@
-const Comment = require("../Models/commentModel");
+// controllers/CommentController.js
+const { Comment } = require('../Models/CommentModel.');
 
 const CommentController = {
   getAllComments: async (req, res) => {
@@ -12,9 +13,9 @@ const CommentController = {
   },
 
   getCommentById: async (req, res) => {
-    const commentID = req.params.id;
+    const commentId = req.params.id;
     try {
-      const comment = await Comment.findByPk(commentID);
+      const comment = await Comment.findByPk(commentId);
       if (!comment) {
         return res.status(404).send('Comment not found');
       }
@@ -28,4 +29,4 @@ const CommentController = {
   // Add other comment-related controller methods...
 };
 
-module.exports = CommentController
+module.exports = CommentController;

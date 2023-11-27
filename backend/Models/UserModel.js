@@ -1,47 +1,48 @@
+// models/User.js
 const { Sequelize, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/database');
-const Likes = require('./likeModel');
 
-const User = sequelize.define('User',{
-    userID: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+
+const User = sequelize.define('User', {
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true, // Define userId as the primary key
+    autoIncrement: true, 
+  },
+  roleId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Role', 
+      key: 'roleId', 
     },
-    role: {
-        type: DataTypes.ENUM({values: ['user','admin']}),
-    },
-    firstName: {
-        type: DataTypes.STRING,
-    },
-    lastName: {
-        type: DataTypes.STRING,
-    },
-    email: {
-        type: DataTypes.STRING
-    },
-    password: {
-        type: DataTypes.STRING
-    }
+  },
+  firstName: {
+    type: DataTypes.STRING(255), 
+    allowNull: true,
+  },
+  lastName: {
+    type: DataTypes.STRING(255),
+    allowNull: true,
+  },
+  email: {
+    type: DataTypes.STRING(255),
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING(255),
+    allowNull: false,
+  },
+  jobTitle: {
+    type: DataTypes.STRING(255),
+    allowNull: true,
+  },
 });
 
+// Define associations with other models
 User.associate = (models) => {
-  User.hasOne(Likes, {
-    foreignKey: 'userID'
-  });
-
-  User.hasOne(Notification, {
-    foreignKey: 'userID'
-  });
-
-  User.hasMany(Comment, {
-    foreignKey: 'userID'
-  });
-
-  User.hasMany(Post, {
-    foreignKey: 'userID'
-  });
+  User.hasMany(models.Post, { foreignKey: 'UserId' });
+  User.belongsTo(models.Role, { foreignKey: 'RoleId' });
+  // Add other associations...
 };
 
 module.exports = User;

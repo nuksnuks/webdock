@@ -1,30 +1,46 @@
+ // models/Comment.js
 const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../config/database'); // Assuming you have a Sequelize instance created
 
-const sequelize = require('../config/database');
-
-const Comment = sequelize.define('Comment',{
-    commentID: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+const Comment = sequelize.define('Comment', {
+  commentId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'User',
+      key: 'userId',
     },
-    userID: {
-        type: DataTypes.INTEGER,
-        references: {
-        model: 'Users',
-        key: 'userID',
-        }
+  },
+  postId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Post',
+      key: 'postId',
     },
-    postID: {
-        type: DataTypes.INTEGER,
-        references: {
-        model: 'Posts',
-        key: 'postID',
-        }
-    },
-    description: {
-        type : DataTypes.STRING
-    }
+  },
+  description: {
+    type: DataTypes.TEXT,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
 });
+
+Comment.associate = (models) => {
+  Comment.belongsTo(models.Post, { foreignKey: 'commentId' });
+  Comment.belongsTo(models.User, { foreignKey: 'userId' });
+  Comment.belongsTo(models.Post, { foreignKey: 'postId' });
+};
+
+sequelize.sync()
 
 module.exports = Comment;

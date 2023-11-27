@@ -1,4 +1,5 @@
-const Notification = require("../Models/notificationModel");
+// controllers/NotificationController.js
+const { Notification } = require('../Models/Notificationmodel.');
 
 const NotificationController = {
   getAllNotifications: async (req, res) => {
@@ -12,9 +13,9 @@ const NotificationController = {
   },
 
   getNotificationById: async (req, res) => {
-    const notificationID = req.params.id;
+    const notificationId = req.params.id;
     try {
-      const notification = await Notification.findByPk(notificationID);
+      const notification = await Notification.findByPk(notificationId);
       if (!notification) {
         return res.status(404).send('Notification not found');
       }
