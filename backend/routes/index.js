@@ -1,21 +1,22 @@
 // /Users/abd/projects/webdock/backend/routes/index.js
 const express = require('express');
 const router = express.Router();
-const UserController = require('..Controllers/');
+const UserController = require('..Controllers/index');
 const middlewares = require('../Middlewares');
 
-// Apply the logger middleware to all routes in this file
+// middleware.authenticate er stadig tom
 router.use(middlewares.loggerMiddleware);
 
 // Define routes
 router.get('/users', UserController.getAllUsers);
 
-// Apply the authentication middleware only to the routes that need it
+// middleware.authenticate er stadig tom
 router.get('/secure-users', middlewares.authenticationMiddleware, UserController.getSecureUsers);
 
 router.get('/users/:id', UserController.getUserById);
-router.post('/users', UserController.createUser);
-router.put('/users/:id', UserController.updateUser);
-router.delete('/users/:id', UserController.deleteUser);
+
+//todo: router.post('/users', UserController.createUser);
+//todo: router.put('/users/:id', UserController.updateUser);
+//todo: router.delete('/users/:id', UserController.deleteUser);
 
 module.exports = router;

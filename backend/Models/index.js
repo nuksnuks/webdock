@@ -1,42 +1,25 @@
-// /Users/abd/projects/webdock/backend/Models/index.js
-
 const sequelize = require('../config/database'); 
-const Post = require('./PostModel');
-const Role = require('./RoleModel');
-const User = require('./UserModel');
-const Category = require('./CategoryModel');
-const Comment = require('./CommentModel');
-const FlagStatus = require('./FlagStatusModel');
-const LikeStatus = require('./LikeStatusModel');
-const MergedPost = require('./MergedPostModel');
-const Notice = require('./NoticeModel');
-const ProgressStatus = require('./ProgressStatusModel');
+// først henter vi alle models:
+const Post = require('./postModel');
+const User = require('./userModel');
+const Comment = require('./commentModel');
+const Like = require('./likeModel');
+const Notification = require('./notificationModel');
 
-
-
-
-// Sync all defined models to the database
+// så sync'er alle models så at tabellerne er i databasen
 const syncModels = async () => {
+    
   try {
-    await Post.sync();
-    await Role.sync();
     await User.sync();
-    await Category.sync();
+    await Like.sync();
+    await Post.sync();
+    await Notification.sync();
     await Comment.sync();
-    await FlagStatus.sync();
-    await LikeStatus.sync();
-    await MergedPost.sync();
-    await Notice.sync();
-    await ProgressStatus.sync();
-
     console.log('Models synced successfully.');
-  } catch (error) {
+  } 
+  catch (error) {
     console.error('Error syncing models:', error);
   }
 };
 
-syncModels()
-sequelize.sync()
-
-module.exports = { syncModels, User, Post, Role, Category, Comment, FlagStatus, 
-  LikeStatus, MergedPost, Notice, ProgressStatus};
+module.exports =  syncModels ,{ Post, User, Comment, Like, Notification };
