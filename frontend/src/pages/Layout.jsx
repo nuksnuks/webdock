@@ -1,13 +1,26 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import  '/./src/styles/App.scss'
+import { Link, Outlet } from 'react-router-dom';
+import  '/./src/styles/App.scss';
 
 const Layout = () => {
   return (
     <>
       <Header/>
-      <Outlet/>
+      <div className="FrontPage">
+            <div className="wrapper">
+              <div className="title-container">
+                <h1 className="title1"><Link to="/roadmap">Roadmap</Link></h1>
+                <h1 className="title2"><Link to="/GlobalComponent">Feature Requests</Link></h1>
+              </div>
+              <div className="main-container">
+              <Outlet/>
+                <div className="content-container">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
     </>
   )
 };
