@@ -26,6 +26,9 @@ const Post = sequelize.define('Post', {
     category: {
         type: DataTypes.ENUM({values: ['Dashboard Features','Documentation','Billing Feature','Networking','Heardware and Products','Perfect Server Stack', 'Mobile App','Webdock API','Competition','Uncategorized']})
     },
+    Status: {
+        type: DataTypes.ENUM({values: ['Under Review', 'Planned' , 'In Progress' , 'Completed', 'Closed']})
+    },
     title: {
         type: DataTypes.STRING
     },
