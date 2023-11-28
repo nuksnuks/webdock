@@ -6,7 +6,7 @@ const PostController = require('../Controllers/PostController');
 router.get('/posts', PostController.getAllPosts);
 router.get('/posts/:id', PostController.getPostById);
 
-router.get('/CreateFeature', PostController.getAllPosts)
+router.get('/post', PostController.getAllPosts)
 router.post('/post', PostController.createPost);
 //todo: router.put('/posts/:id', PostController.updatePost);
 //todo: router.delete('/posts/:id', PostController.deletePost);
