@@ -1,5 +1,5 @@
 import React from 'react';
-import '/./src/styles/Roadmap.scss'
+import '/./src/styles/PostCard.scss'
 
 const PostCard = ({ title, desc, date, likes, comments }) => {
   return (
