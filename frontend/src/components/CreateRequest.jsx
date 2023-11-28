@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/CreateRequest.scss'
+//import '../styles/CreateRequest.scss'
 
 const CreateRequest = () => {
 

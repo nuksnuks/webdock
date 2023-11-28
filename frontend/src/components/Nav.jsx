@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav>
         <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
-        <ul>
+        {/*<ul>
           <li>
             <Link to="/roadmap">Roadmap</Link>
           </li>
@@ -19,7 +19,7 @@ const Nav = () => {
           <li>
             <Link to="/">Frontpage</Link>
           </li>
-        </ul>
+  </ul> */}
         <div>
             <button> Sign In </button>
             <button> Sign Up </button>
