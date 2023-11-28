@@ -14,8 +14,8 @@ const Roadmap = () => {
           </div>
           <div className="roadmapContent">
             {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item => item.status === "planned").map((item) => (
-              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
+            {jsondata.filter(item => item.status === "Planned").map((item) => (
+              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
             ))}
           </div>
         </div>
@@ -26,8 +26,8 @@ const Roadmap = () => {
           </div>
           <div className="roadmapContent">
             {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item=> item.status === "progress").map((item) => (
-              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
+            {jsondata.filter(item=> item.status === "In Progress").map((item) => (
+              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
             ))}
           </div>
         </div>
@@ -37,8 +37,8 @@ const Roadmap = () => {
               <h2>Completed</h2></div>
           <div className="roadmapContent">
             {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item => item.status === "completed").map((item) => (
-              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
+            {jsondata.filter(item => item.status === "Completed").map((item) => (
+              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
             ))}
           </div>
         </div>
