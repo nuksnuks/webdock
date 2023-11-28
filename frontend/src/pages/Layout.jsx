@@ -20,7 +20,8 @@ const Layout = () => {
                 <h1 className={`title2 ${isGlobalComponentPage ? 'global-component-page' : ''}`}><Link to="/GlobalComponent">Feature Requests</Link></h1>
                 </>
                 )}
-                {isPostPage && <h1 className="title3">Back<link to="/posts"></link></h1>}
+                {isPostPage && <h1 className="title3"><Link to="/roadmap">Back</Link></h1>}
+
               </div>
               <div className="main-container">
               <Outlet/>
