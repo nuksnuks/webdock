@@ -76,3 +76,21 @@
         transform: translatey(-1px);
     }
 }
+
+.newRequest{
+    float: right;
+    background-color: $green1;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    a { 
+    color: $white;
+    text-decoration: none;
+    list-style: none;
+    }
+    :hover {
+        background-color: $white;
+        color: $green1;
+    }
+}

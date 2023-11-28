@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/FeatureRequest.scss';
 import PostCard from '../components/PostCard';
+import { Link } from 'react-router-dom';
 
 
 const FeatureRequest = () => {
@@ -28,7 +29,9 @@ const FeatureRequest = () => {
           />
         ))}
       </div>
+      <button className='newRequest'><Link to="/CreateFeatureRequest">New Request</Link></button>
     </div>
+    
     
   ); 
 };

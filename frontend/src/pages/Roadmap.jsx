@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import  '/./src/styles/Roadmap.scss'
 import PostCard from '../components/PostCard'
-import jsondata from '../assets/data/dummyData.json';
+import { Link } from 'react-router-dom';
 
 const Roadmap = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from backend API
+    fetch('http://localhost:3001/post')
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.log('Error fetching data:', error));
+  }, []); 
     return (
     <>
       <div className="roadmap">
@@ -13,9 +22,9 @@ const Roadmap = () => {
               <h2>Planned</h2>
           </div>
           <div className="roadmapContent">
-            {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item => item.status === "Planned").map((item) => (
-              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
+            {/* Her indsætter vi vores data fra database tabellen post, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
+            {posts.filter(item => item.status === "Planned").map((item) => (
+              <PostCard key={item.postID} title={item.title} desc={item.description} date={item.date} likes={item.likes} comments={item.comments} ></PostCard>
             ))}
           </div>
         </div>
@@ -26,8 +35,8 @@ const Roadmap = () => {
           </div>
           <div className="roadmapContent">
             {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item=> item.status === "In Progress").map((item) => (
-              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
+            {posts.filter(item => item.status === "Under Review").map((item) => (
+              <PostCard key={item.postID} title={item.title} desc={item.description} date={item.date} likes={item.likes} comments={item.comments} ></PostCard>
             ))}
           </div>
         </div>
@@ -37,12 +46,15 @@ const Roadmap = () => {
               <h2>Completed</h2></div>
           <div className="roadmapContent">
             {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
-            {jsondata.filter(item => item.status === "Completed").map((item) => (
-              <PostCard title={item.title} desc={item.desc} date={item.createdAt} likes={item.likes.length} comments={item.comments.length} ></PostCard>
+            {posts.filter(item => item.status === "Under Review").map((item) => (
+              <PostCard key={item.postID} title={item.title} desc={item.description} date={item.date} likes={item.likes} comments={item.comments} ></PostCard>
             ))}
           </div>
         </div>
       </div>
+      
+      <button className='newRequest'><Link to="/CreateFeatureRequest">New Request</Link></button>
+    
     </>
   )
 }
