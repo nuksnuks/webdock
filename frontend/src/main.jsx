@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<BackgroundBox />} />
+          <Route index element={<FrontPage />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/single" element={<Single />} />
