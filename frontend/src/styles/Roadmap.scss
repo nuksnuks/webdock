@@ -4,11 +4,10 @@
     font-family: $poppins;
     text-align: center;
     padding: 10px;
-    font-size: 30px;
+    font-size: 1.5vw;
     user-select: none;
     color: black;
-    border-radius: 5px 5px 0px 0px;
-    
+    border-radius: 0.3vw;
 }
 
 .roadmap {
@@ -22,32 +21,45 @@
     .roadmapColumn {
         flex: 1;
         justify-content: space-around;
+        max-width: 33.33%;
         .roadmapColumnPlanned {
             @include RoadmapColumn;
+            display: flex;
+            margin: 1vw;
             .dot { 
                 background-color: $blue;
+                height: 1vw;
                 width: 1vw;
-                border: 1vw solid $blue;
+                border: 0.2vw solid $blue;
                 border-radius: 100%;
+                margin: 1vw;
             }
         }
         .roadmapColumnProgress{
             @include RoadmapColumn;
+            display: flex;
+            margin: 1vw;
             .dot { 
                 background-color: $green1;
                 width: 1vw;
-                border: 1vw solid $green1;
+                height: 1vw;
+                border: 0.2vw solid $green1;
                 border-radius: 100%;
+                margin: 1vw;
             }
         }
         
         .roadmapColumnCompleted {
             @include RoadmapColumn;
+            display: flex;
+            margin: 1vw;
             .dot { 
                 background-color: $purple;
+                height: 1vw;
                 width: 1vw;
-                border: 1vw solid $purple;
+                border: 0.2vw solid $purple;
                 border-radius: 100%;
+                margin: 1vw;
             }
         }
     }
@@ -55,12 +67,12 @@
         padding: 10px 15px;
         box-sizing: border-box;
         background: $white;
-        border: 1px solid $grey;
+        border: 0.2vw solid $lightGrey;
         cursor: pointer;
         
     }
     .roadmapContent:last-of-type {
-        border-radius: 0px 0px 5px 5px;
+        border-radius: 0.3vw;
         transform: translatey(-1px);
     }
 }
