@@ -1,7 +1,7 @@
-// models/Post.js
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); 
 
+const sequelize = require('../config/database');
+const Likes = require('./likeModel');
 
 const Post = sequelize.define('Post', {
     postID: {
@@ -23,11 +23,14 @@ const Post = sequelize.define('Post', {
         key: 'likeID',
         }
     },
-    Category: {
+    category: {
         type: DataTypes.ENUM({values: ['Dashboard Features','Documentation','Billing Feature','Networking','Heardware and Products','Perfect Server Stack', 'Mobile App','Webdock API','Competition','Uncategorized']})
     },
     title: {
         type: DataTypes.STRING
+    },
+    status: {
+        type: DataTypes.ENUM({values: ['Under Review','Planned','In Progress','Completed','Closed']})
     },
     description: {
         type: DataTypes.STRING
@@ -41,15 +44,19 @@ const Post = sequelize.define('Post', {
     }
 });
 
-// Define associations with other models
 Post.associate = (models) => {
-  Post.belongsTo(models.User, { foreignKey: 'userId' });
-  Post.hasMany(models.Notification, { foreignKey: 'postId' });
-  Post.belongsTo(models.Category, { foreignKey: 'categoryId' });
-  Post.belongsTo(models.ProgressStatus, { foreignKey: 'progressStatusId' });
-  Post.belongsTo(models.FlagStatus, { foreignKey: 'flagStatusId' });
-  Post.hasMany(models.LikeStatus, { foreignKey: 'postId' });
-  Post.hasMany(models.Comment, { foreignKey: 'commentId' });
+    Post.hasMany(Likes, {
+        foreignKey: 'likeID'
+    });
+    
+    Post.hasMany(Comment, {
+        foreignKey: 'postID'
+    });
+    
+    Post.belongsToMany(Notification, {
+        through: 'NotificationPost',
+        foreignKey: 'postID'
+      });
 };
 
 module.exports = Post;
