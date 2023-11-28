@@ -13,7 +13,7 @@ const postController = {
 
   getPostById: async (req, res) => {
     try {
-      const post = await Post.findByPk(postID);
+      const post = await Post.findByPk(req.params.id);
       if (!post) {
         return res.status(404).send('Post not found');
       }

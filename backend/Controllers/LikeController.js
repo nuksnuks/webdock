@@ -12,9 +12,8 @@ const LikeController = {
   },
 
   getLikesById: async (req, res) => {
-    const likeID = req.params.id;
     try {
-      const likes = await Likes.findByPk(likeID);
+      const likes = await Likes.findByPk(req.params.id);
       if (!likes) {
         return res.status(404).send('Like status not found');
       }

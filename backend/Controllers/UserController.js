@@ -13,7 +13,7 @@ const UserController = {
 
   getUserById: async (req, res) => {
     try {
-      const user = await User.findByPk(userID);
+      const user = await User.findByPk(req.params.id);
       if (!user) {
         return res.status(404).send('User not found');
       }

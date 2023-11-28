@@ -12,9 +12,8 @@ const NotificationController = {
   },
 
   getNotificationById: async (req, res) => {
-    const notificationID = req.params.id;
     try {
-      const notification = await Notification.findByPk(notificationID);
+      const notification = await Notification.findByPk(req.params.id);
       if (!notification) {
         return res.status(404).send('Notification not found');
       }
