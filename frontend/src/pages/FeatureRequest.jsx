@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/FeatureRequest.scss';
 import PostCard from '../components/PostCard';
 
+
 const FeatureRequest = () => {
   const [posts, setPosts] = useState([]);
 
@@ -12,6 +13,7 @@ const FeatureRequest = () => {
       .then((data) => setPosts(data))
       .catch((error) => console.log('Error fetching data:', error));
   }, []); 
+
 
   return (
     <div className="featurerequest">
@@ -27,7 +29,8 @@ const FeatureRequest = () => {
         ))}
       </div>
     </div>
-  );
+    
+  ); 
 };
 
 export default FeatureRequest;

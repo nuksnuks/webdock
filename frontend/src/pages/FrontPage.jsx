@@ -10,7 +10,7 @@ const FrontPage = () => {
             <div className="wrapper">
               <div className="title-container">
                 <h1 className="title1"><Link to="/roadmap">Roadmap</Link></h1>
-                <h1 className="title2"><Link to="/requests">Feature Requests</Link></h1>
+                <h1 className="title2"><Link to="/GlobalComponent">Feature Requests</Link></h1>
               </div>
               <div className="main-container">
                 <Roadmap/>

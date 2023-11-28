@@ -12,6 +12,7 @@ import FeatureRequest from './pages/FeatureRequest';
 import Settings from './pages/Settings';
 import CreateFeatureRequest from './pages/CreateFeatureRequest';
 import CreateRequest from './components/CreateRequest';
+import GlobalComponent from './components/GlobalComponent';
 
 
 
@@ -29,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/FeatureRequest" element={<FeatureRequest />} />
           <Route path="/Settings" element={<Settings />} />
           <Route path="/CreateFeatureRequest" element={<CreateRequest />} />
-
+          <Route path="/GlobalComponent" element={<GlobalComponent />} />
           
 
            
