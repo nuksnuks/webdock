@@ -2,7 +2,6 @@ import React from 'react';
 import '/./src/styles/post.scss';
 import SinglePostCard from '../components/SinglePostCard';
 import jsonData from '../assets/data/dummyData.json';
-import BackgroundBox from './BackgroundBox';
 
 
 const Post = () => {

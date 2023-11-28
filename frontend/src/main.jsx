@@ -11,7 +11,6 @@ import AdminPage from './pages/AdminPage';
 import FeatureRequest from './pages/FeatureRequest';
 import Settings from './pages/Settings';
 import CreateFeatureRequest from './pages/CreateFeatureRequest';
-import BackgroundBox from './pages/BackgroundBox';
 import CreateRequest from './components/CreateRequest';
 
 
