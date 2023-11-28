@@ -1,43 +1,44 @@
 import React from 'react'
 import  '/./src/styles/Roadmap.scss'
 import PostCard from '../components/PostCard'
-import jsonData from '../assets/data/dummyData.json'
+import jsondata from '../assets/data/dummyData.json';
 
-const Roadmap = () =>{ 
+const Roadmap = () => {
     return (
     <>
       <div className="roadmap">
         <div className="roadmapColumn">
           <div className="roadmapColumnPlanned">
-            <div className="dot"/>
-            <h1>Planned</h1> 
+              <div className="dot"></div>
+              <h2>Planned</h2>
           </div>
           <div className="roadmapContent">
-            {/* Her sætter vi post card op. Først mapper vi vores data i post card. Følgende kode er lavet med dummy data, skal rettes så data hentes fra database senere. */}
-            {jsonData.map((item) => (
-              <PostCard key={item.id} title={item.title} desc={item.desc} date={item.date} likes={item.likes.length} comments={item.comments.length} />
+            {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
+            {jsondata.filter(item => item.status === "planned").map((item) => (
+              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
             ))}
           </div>
         </div>
         <div className="roadmapColumn">
           <div className="roadmapColumnProgress">
-            <div className="dot"/>
-            <h1>In Progress</h1> 
+              <div className="dot"></div>
+              <h2>In Progress</h2>
           </div>
           <div className="roadmapContent">
-            {jsonData.map((item) => (
-              <PostCard key={item.id} title={item.title} desc={item.desc} date={item.date} likes={item.likes.length} comments={item.comments.length} />
+            {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
+            {jsondata.filter(item=> item.status === "progress").map((item) => (
+              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
             ))}
           </div>
         </div>
         <div className="roadmapColumn">
-          <div className="roadmapColumnCompleted">
-            <div className="dot"/>
-            <h1>Completed</h1>
-          </div>
+            <div className="roadmapColumnCompleted">
+              <div className="dot"></div>
+              <h2>Completed</h2></div>
           <div className="roadmapContent">
-            {jsonData.map((item) => (
-              <PostCard key={item.id} title={item.title} desc={item.desc} date={item.date} likes={item.likes.length} comments={item.comments.length} />
+            {/* Her indsætter vi vores jsondataCard, og fortæller den hvilke værdier den skal sætte ind, hvor den skal finde de her værdier og hvor de skal sættes ind.  */}
+            {jsondata.filter(item => item.status === "completed").map((item) => (
+              <PostCard title={jsondata.title} desc={jsondata.description} date={jsondata.createdAt} likes={jsondata.likeStatus.length} comments={jsondata.commentId.length} ></PostCard>
             ))}
           </div>
         </div>

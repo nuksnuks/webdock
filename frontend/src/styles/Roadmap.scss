@@ -24,17 +24,31 @@
         justify-content: space-around;
         .roadmapColumnPlanned {
             @include RoadmapColumn;
-            background-color: $blue;
-            
+            .dot { 
+                background-color: $blue;
+                width: 1vw;
+                border: 1vw solid $blue;
+                border-radius: 100%;
+            }
         }
         .roadmapColumnProgress{
             @include RoadmapColumn;
-            background-color: $green1;
+            .dot { 
+                background-color: $green1;
+                width: 1vw;
+                border: 1vw solid $green1;
+                border-radius: 100%;
+            }
         }
         
         .roadmapColumnCompleted {
             @include RoadmapColumn;
-            background-color: $purple;
+            .dot { 
+                background-color: $purple;
+                width: 1vw;
+                border: 1vw solid $purple;
+                border-radius: 100%;
+            }
         }
     }
     .roadmapContent {

@@ -1,0 +1,55 @@
+@import "./globals.scss";
+
+.CardBox{
+    border-bottom: 1px solid $grey;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    justify-content: space-between;
+
+    .LikeFunc {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        img {
+            padding: 0.5vw;
+            width: 2vw;
+            height: 2vw;
+        }
+
+        p {
+            color: $green1;
+        }
+        
+    }
+
+    .InfoPart {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        h6 {
+            color: $grey2;
+        }
+
+        p {
+            color: $grey2;
+        }
+
+    }
+    .CommentNum {
+        display: flex;
+        flex-direction: column;
+        
+        img {
+                padding: 0.5vw;
+                width: 2vw;
+                height: 2vw;
+            }
+        
+            p {
+                color: $green1;
+            }
+    }
+}
