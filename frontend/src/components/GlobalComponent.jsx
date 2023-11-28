@@ -8,7 +8,7 @@ import FeatureRequest from '../pages/FeatureRequest';
             <div className="FrontPage">
               <div className="wrapper">
                 <div className="title-container">
-                  <h1 className="title1"><Link to="/roadmap">Roadmap</Link></h1>
+                  <h1 className="title1"><Link to="/">Roadmap</Link></h1>
                   <h1 className="title2"><Link to="/FeatureRequest">Feature Requests</Link></h1>
                 </div>
                 <div className="main-container">
