@@ -21,8 +21,8 @@ const Nav = () => {
           </li>
   </ul> */}
         <div>
-            <button> Sign In </button>
-            <button> Sign Up </button>
+            <button> <a href="https://webdock.io/en/login?companyID=ucl_feedback_tool&redirect=http://localhost:5174" target='_blank'>Sign In</a></button>
+            <button> <a href="https://webdock.io/en/login?companyID=ucl_feedback_tool&redirect=http://localhost:5174" target='_blank'>Sign Up</a></button>
         </div>
         
       </nav>
