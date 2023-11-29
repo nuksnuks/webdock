@@ -1,12 +1,51 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/index')
+const router = require('./routes/index');
+const port = 3000;
 
+const jwt = require('jsonwebtoken');
 const app = express();
+
+
 app.use(cors());
 app.use(express.json());
 
 app.use('/', router);
+
+
+app.use(
+    cors({
+        origin: '*',
+    })
+);
+
+// .env
+const privateKey = 'e389bb7b-dc58-4b0b-8f54-dac159d5a609';
+
+// Middleware to parse JSON request body
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+app.post('/verify', async (req, res) => {
+    const { ssoToken } = req.body;
+    const user = jwt.verify(ssoToken, privateKey);
+    console.log(user);
+    res.json(user);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
+
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+
 
 //"backend landing page"
 
@@ -62,5 +101,5 @@ app.use('/', router);
 //   }
 // });
 
-const PORT = 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+

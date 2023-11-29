@@ -13,12 +13,15 @@ import Settings from './pages/Settings';
 import CreateFeatureRequest from './pages/CreateFeatureRequest';
 import CreateRequest from './components/CreateRequest';
 import GlobalComponent from './components/GlobalComponent';
-
+// SSO
+import SsoLogin from './components/ssoComponents/ssoLogin';
+import SsoCallback from './components/ssoComponents/ssoCallback';
+import { TokenProvider } from './contexts/TokenContext';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
+    <TokenProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -31,11 +34,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/Settings" element={<Settings />} />
           <Route path="/CreateFeatureRequest" element={<CreateRequest />} />
           <Route path="/GlobalComponent" element={<GlobalComponent />} />
-          
-
-           
+          <Route path="/ssologin" element={<SsoLogin/>} />
+          <Route path="/ssocallback" element={<SsoCallback/>} />
         </Route>
       </Routes>
     </BrowserRouter>
+    </TokenProvider>
   </React.StrictMode>,
 )
