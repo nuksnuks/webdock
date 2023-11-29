@@ -1,7 +1,7 @@
 const sequelize = require('../config/database'); 
 // først henter vi alle models:
 const Post = require('./postModel');
-const User = require('./userModel');
+const User = require('./UserModel');
 const Comment = require('./commentModel');
 const Like = require('./likeModel');
 const Notification = require('./notificationModel');
