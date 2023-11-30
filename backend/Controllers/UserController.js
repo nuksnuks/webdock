@@ -1,4 +1,8 @@
+require('dotenv').config();
 const User = require("../Models/UserModel");
+const jwt = require('jsonwebtoken');
+const privateKey = process.env.PRIVATE_KEY;
+
 
 const UserController = {
   getAllUsers: async (req, res) => {
@@ -37,6 +41,12 @@ const UserController = {
       res.status(500).send('Internal Server Error');
     }
   },
+  verifyUser: async (req, res) => {
+    const { ssoToken } = req.body;
+    const user = jwt.verify(ssoToken, privateKey);
+    console.log(user);
+    res.json(user);
+},
   
 
   // Add other user-related controller methods...

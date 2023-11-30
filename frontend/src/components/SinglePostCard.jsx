@@ -13,7 +13,7 @@ const SinglePostCard = ({ status, title, desc, date, likes, userImg }) => {
                 </div>
                 {/* I infoPart bliver indholdet af post indsat dynamisk. tingene i tubor klammerne henter den info man fortæller den skal hente i jsondata.map, det hvor man bruger post cards. */}
                 <div className="InfoPart">
-            <h2 numberOfLines={1}>{title}</h2>
+            <h2 numberoflines={1}>{title}</h2>
             <h5 className="statusBox">{status}</h5>
                     <p>{desc}</p>
                     <h5><b>{date}</b></h5>

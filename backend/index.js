@@ -1,61 +1,45 @@
 const express = require('express');
 const cors = require('cors');
 const router = require('./routes/index');
-const port = 3000;
-
-const jwt = require('jsonwebtoken');
 const app = express();
 
-
-app.use(cors());
+app.use(cors({origin: '*'}));
 app.use(express.json());
 
 app.use('/', router);
 
-
-app.use(
-    cors({
-        origin: '*',
-    })
-);
-
+// lavet til en .env fil og flyttet til "config"-mappen
 // .env
-const privateKey = 'e389bb7b-dc58-4b0b-8f54-dac159d5a609';
+// const privateKey = 'e389bb7b-dc58-4b0b-8f54-dac159d5a609';
 
-// Middleware to parse JSON request body
-app.use(express.json());
+// 
+// app.get('/', (req, res) => {
+//     res.send('Hello, World!');
+// });
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+// vores backend landing page
+const port = 3001;
+app.get('/', async (req,res) =>{
+    try {
+      res.send(`Velkommen til the Matrix. <br> gå til: <a href="http://localhost:${port}/users">users </a> <br> gå til: <a href="http://localhost:${port}/post">posts </a>`);
+    } catch (error) {
+      res.status(500).send('kunne ikke hente eller finde data')
+    }
+  });
 
-app.post('/verify', async (req, res) => {
-    const { ssoToken } = req.body;
-    const user = jwt.verify(ssoToken, privateKey);
-    console.log(user);
-    res.json(user);
-});
+
+// 
+// app.post('/verify', async (req, res) => {
+//     const { ssoToken } = req.body;
+//     const user = jwt.verify(ssoToken, privateKey);
+//     console.log(user);
+//     res.json(user);
+// });
+
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
-
-app.use(function (err, req, res, next) {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
-
-
-
-//"backend landing page"
-
-// app.get('/', async (req,res) =>{
-//   try {
-//     res.send('Velkommen til the Matrix. <br> gå til: <a href="http://localhost:3001/users">users </a> <br> gå til: <a href="http://localhost:3001/post">posts </a>');
-//   } catch (error) {
-//     res.status(500).send('kunne ikke hente eller finde data')
-//   }
-// });
 
 //User data
 
