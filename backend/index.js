@@ -1,12 +1,30 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/index')
+const router = require('./routes/index');
+const postmark = require("postmark");
+
 
 const app = express();
+
+const client = new postmark.ServerClient("c3d41965-18a4-479f-a591-4369b7f5952c");
+
+
 app.use(cors());
 app.use(express.json());
 
 app.use('/', router);
+
+app.post('/send-email', function(req, res) {
+    const { message } = req.body;
+    client.sendEmail({
+        "From": "uclfeedback@webdock.io",
+        "To": "m.n.dimon@outlook.com",
+        "Subject": "Webdock New Feature Request",
+        "TextBody": message })
+    .then(() => res.status(200).json({ message: 'Email sent successfully' }))
+    .catch(err => console.error(err));
+});
+
 
 //"backend landing page"
 

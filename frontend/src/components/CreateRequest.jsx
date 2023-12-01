@@ -16,6 +16,7 @@ const CreateRequest = () => {
         const post = {title, category, description, image, tags}
 
         console.log(post)
+        
 
         fetch('http://localhost:3001/post', {
           method:'POST',
@@ -37,6 +38,7 @@ const CreateRequest = () => {
           console.log('Major failure!', error.message);
         });
           };
+          
         
   return (
     <div className='form-container'>

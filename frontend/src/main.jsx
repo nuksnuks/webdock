@@ -13,6 +13,7 @@ import Settings from './pages/Settings';
 import CreateFeatureRequest from './pages/CreateFeatureRequest';
 import CreateRequest from './components/CreateRequest';
 import GlobalComponent from './components/GlobalComponent';
+import Email from './components/email';
 
 
 
@@ -31,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/Settings" element={<Settings />} />
           <Route path="/CreateFeatureRequest" element={<CreateRequest />} />
           <Route path="/GlobalComponent" element={<GlobalComponent />} />
-          
+          <Route path="/email" element={<Email />} />
 
            
         </Route>

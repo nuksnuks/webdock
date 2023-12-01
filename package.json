@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@react-email/render": "^0.0.9",
+    "node-fetch": "^3.3.2",
     "postmark": "^3.11.0"
   }
 }
