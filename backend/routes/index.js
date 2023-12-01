@@ -19,7 +19,7 @@ router.get('/users/:id', userController.getUserById);
 router.get('/users', userController.getAllUsers);
 
 // SSO Login Route
-router.post('/login-sso', UserController.loginUserWithSSO);
+// router.post('/login-sso', userController.loginUserWithSSO);
 
 //todo: router.post('/users', UserController.createUser);
 //todo: router.put('/users/:id', UserController.updateUser);

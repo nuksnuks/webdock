@@ -1,4 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const Post = require('./PostModel');
+const Comment = require('./CommentModel')
 
 const sequelize = require('../config/database');
 
@@ -15,11 +17,11 @@ const Notification = sequelize.define('Notification',{
         key: 'postID',
         }
     },
-    userID: {
+    commentID: {
         type: DataTypes.INTEGER,
         references: {
-        model: 'Users',
-        key: 'userID',
+        model: 'Comments',
+        key: 'commentID',
         }
     },
     notificationType: {
@@ -30,13 +32,15 @@ const Notification = sequelize.define('Notification',{
     }
 });
 
-Notification.associate = (models) => {
-
-    Notification.belongsToMany(Post, {
-        through: 'NotificationPost',
-        foreignKey: 'notificationID'
-      });
-
-};
+// Notification.associate = (models) => {
+// 
+//     Notification.belongsToMany(Post, {
+//         foreignKey: 'postID'
+//       }),
+//     Notification.belongsToMany(Comment, {
+//         foreignKey: 'commentID'
+//       });
+// 
+// };
 
 module.exports = Notification;

@@ -1,48 +1,46 @@
-// models/User.js
 const { Sequelize, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/database');
 
-
-const User = sequelize.define('User', {
-  userId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true, // Define userId as the primary key
-    autoIncrement: true, 
-  },
-  roleId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Role', 
-      key: 'roleId', 
+const User = sequelize.define('User',{
+    userID: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
     },
-  },
-  firstName: {
-    type: DataTypes.STRING(255), 
-    allowNull: true,
-  },
-  lastName: {
-    type: DataTypes.STRING(255),
-    allowNull: true,
-  },
-  email: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  password: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  jobTitle: {
-    type: DataTypes.STRING(255),
-    allowNull: true,
-  },
+    role: {
+        type: DataTypes.ENUM({values: ['user','admin']}),
+    },
+    firstName: {
+        type: DataTypes.STRING,
+    },
+    lastName: {
+        type: DataTypes.STRING,
+    },
+    email: {
+        type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
+    },
+    ssoToken: { // Add this field for storing the SSO token
+      type: DataTypes.STRING
+    },
 });
 
-// Define associations with other models
 User.associate = (models) => {
-  User.hasMany(models.Post, { foreignKey: 'UserId' });
-  User.belongsTo(models.Role, { foreignKey: 'RoleId' });
-  // Add other associations...
+  
+  User.hasOne(Notification, {
+    foreignKey: 'userID'
+  });
+
+  User.hasMany(Comment, {
+    foreignKey: 'userID'
+  });
+
+  User.hasMany(Post, {
+    foreignKey: 'userID'
+  });
 };
 
 module.exports = User;

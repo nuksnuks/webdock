@@ -3,9 +3,9 @@ const sequelize = require('sequelize');
 const connection = require('./config/database');
 const syncModels  = require('./models/app');
 const cors = require('cors');
-const User = require('./models/UserModel');
-const postController = require('./controllers/postController')
 routes = require('./routes');
+
+syncModels({ force: true })
 
 const app = express();
 app.use(cors());
@@ -37,8 +37,7 @@ app.get('/users', async (req,res) =>{
 //Post data
 
 // app.get('/post:id', postController.getPostById);
-app.get('/post', postController.getAllPosts);
-app.post('/post',postController.createPost);
+
 
 // app.get('/post', async (req,res) =>{
 //   try {

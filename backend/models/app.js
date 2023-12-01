@@ -1,10 +1,4 @@
 const sequelize = require('../config/database'); 
-// først henter vi alle models:
-const Post = require('./PostModel');
-const User = require('./UserModel');
-const Comment = require('./CommentModel');
-const Like = require('./likeModel');
-const Notification = require('./notificationModel');
 
 
 
@@ -12,11 +6,7 @@ const Notification = require('./notificationModel');
 const syncModels = async () => {
     
   try {
-    await User.sync();
-    await Like.sync();
-    await Post.sync();
-    await Notification.sync();
-    await Comment.sync();
+    await sequelize.sync();
     console.log('Models synced successfully.');
   } 
   catch (error) {
@@ -24,5 +14,5 @@ const syncModels = async () => {
   }
 };
 
-module.exports =  syncModels ,{ Post, User, Comment, Like, Notification };
+module.exports =  syncModels;
 
