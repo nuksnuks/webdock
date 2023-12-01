@@ -1,6 +1,6 @@
-const Likes = require("../Models/likeModel");
+const Likes = require("../models/likeModel");
 
-const LikeController = {
+const likeController = {
   getAllLikes: async (req, res) => {
     try {
       const likes = await Likes.findAll();
@@ -26,4 +26,4 @@ const LikeController = {
 
 };
 
-module.exports = LikeController;
+module.exports = likeController;

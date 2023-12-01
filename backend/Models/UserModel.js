@@ -23,7 +23,10 @@ const User = sequelize.define('User',{
     },
     password: {
         type: DataTypes.STRING
-    }
+    },
+    ssoToken: { // Add this field for storing the SSO token
+      type: DataTypes.STRING
+  }
 });
 
 User.associate = (models) => {

@@ -1,6 +1,6 @@
-const Notification = require("../Models/notificationModel");
+const Notification = require("../models/notificationModel");
 
-const NotificationController = {
+const notificationController = {
   getAllNotifications: async (req, res) => {
     try {
       const notifications = await Notification.findAll();
@@ -27,4 +27,4 @@ const NotificationController = {
   // Add other notification-related controller methods...
 };
 
-module.exports = NotificationController;
+module.exports = notificationController;

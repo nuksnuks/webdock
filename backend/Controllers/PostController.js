@@ -1,4 +1,4 @@
-const Post = require("../Models/postModel");
+const Post = require("../models/PostModel");
 
 const postController = {
   getAllPosts: async (req, res) => {
@@ -40,7 +40,7 @@ const postController = {
       res.status(500).send('Internal Server Error');
     }
   // Add other post-related controller methods...
-  }
+  },
 };  
 
-module.exports = postController ;
+module.exports = postController;

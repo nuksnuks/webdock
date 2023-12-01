@@ -1,6 +1,6 @@
-const User = require("../Models/UserModel");
+const User = require("../models/UserModel");
 
-const UserController = {
+const userController = {
   getAllUsers: async (req, res) => {
     try {
       const users = await User.findAll();
@@ -37,9 +37,12 @@ const UserController = {
       res.status(500).send('Internal Server Error');
     }
   },
+
   
 
-  // Add other user-related controller methods...
+  
+
+
 };
 
-module.exports = UserController;
+module.exports = userController;

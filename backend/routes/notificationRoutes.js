@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const NotificationController = require('../controllers/NotificationController.');
+const notificationController = require('../controllers/notificationController.');
 
 // Define routes
-router.get('/notifications', NotificationController.getAllNotifications);
-router.get('/notifications/:id', NotificationController.getNotificationById);
+router.get('/notifications', notificationController.getAllNotifications);
+router.get('/notifications/:id', notificationController.getNotificationById);
 
 //todo: router.post('/notifications', NotificationController.createNotification);
 //todo: router.put('/notifications/:id', NotificationController.updateNotification);

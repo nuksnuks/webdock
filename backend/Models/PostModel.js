@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/database');
 const Likes = require('./likeModel');
+const { post } = require('../routes');
 
 const Post = sequelize.define('Post', {
     postID: {
@@ -51,7 +52,7 @@ Post.associate = (models) => {
     Post.hasMany(Likes, {
         foreignKey: 'likeID'
     });
-    
+    Likes.belongsTo(Post,{foreignKey: 'likeID'})
     Post.hasMany(Comment, {
         foreignKey: 'postID'
     });
