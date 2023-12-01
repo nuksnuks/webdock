@@ -36,9 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
 
     createdAt: {
-      type: Sequelize.DataTypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
     }
   }, {
     sequelize,

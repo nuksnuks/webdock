@@ -10,7 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Post.associate = (models) => {
+        Post.hasMany(Comment, {
+            foreignKey: 'postID'
+        });
+        
+        Post.belongsTo(Notification, {
+            through: 'NotificationPost',
+            foreignKey: 'postID'
+          });
+    };
     }
   }
   Post.init({
@@ -44,15 +53,6 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Post',
   });
 
-  Post.associate = (models) => {
-    Post.hasMany(Comment, {
-        foreignKey: 'postID'
-    });
-    
-    Post.belongsTo(Notification, {
-        through: 'NotificationPost',
-        foreignKey: 'postID'
-      });
-};
+  
   return Post;
 };

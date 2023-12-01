@@ -10,7 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Notification.associate = (models) => {
+
+        Notification.belongsTo(Post, {
+            foreignKey: 'postID'
+          }),
+        Notification.belongsToMany(Comment, {
+            foreignKey: 'commentID'
+          });
+    
+    };
     }
   }
   Notification.init({
@@ -36,25 +45,16 @@ module.exports = (sequelize, DataTypes) => {
     notificationType: DataTypes.ENUM('adminNotification', 'userNotification'),
     description: DataTypes.STRING,
     createdAt: {
-      type: Sequelize.DataTypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
     }
   }, {
     sequelize,
     modelName: 'Notification',
   });
 
-  Notification.associate = (models) => {
-
-    Notification.belongsToMany(Post, {
-        foreignKey: 'postID'
-      }),
-    Notification.belongsToMany(Comment, {
-        foreignKey: 'commentID'
-      });
-
-};
+  
 
   return Notification;
 };

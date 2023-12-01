@@ -25,9 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     role: DataTypes.ENUM('user', 'admin'),
     createdAt: {
-      type: Sequelize.DataTypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
     }
     
   }, {
