@@ -30,6 +30,7 @@ const CommentController = {
       const post = await Comment.create({
         description: req.body.description
       });
+      res.status(201).json(comment);
     } catch (error) {
       console.log(error);
       res.status(500).send('Internal Sever Error');
@@ -38,4 +39,4 @@ const CommentController = {
   // Add other comment-related controller methods...
 };
 
-module.exports = CommentController
+module.exports = CommentController;

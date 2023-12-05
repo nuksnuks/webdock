@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '/./src/styles/CommentCreate.scss';
 
 const commentCreate = () => {
     const [comment, setComment] = useState("");
@@ -42,9 +43,10 @@ const commentCreate = () => {
     };
 
     return (
-       <form onSubmit={handleSubmit}>
-            <img src="/./src/assets/UserProfileImage.png" alt="Profile Image" />
+       <form className="commentBox" onSubmit={handleSubmit}>
+            <img className="commentImg" src="/./src/assets/UserProfileImage.png" alt="Profile Image" />
             <input
+                className="commentInput"
                 type="text"
                 value={comment}
                 onChange={handleChange}

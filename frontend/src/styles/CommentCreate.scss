@@ -1,0 +1,26 @@
+@import "./globals.scss";
+
+.commentBox{
+    width: 100%;
+    border-radius: 5px;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+    justify-content: space-between;
+    box-shadow: 3px 3px 10px $grey;
+    display: flex;
+
+    .commentImg{
+        display: flex;
+        width: 3.125em;
+        height: auto;
+        margin: 5px;
+    }
+
+    .commentInput{
+        display: flex;
+        width: 100%;
+        margin: 15px;
+    }
+
+}
