@@ -24,6 +24,17 @@ const CommentController = {
     }
   },
 
+  createComment: async (req, res) => {
+    try {
+
+      const post = await Comment.create({
+        description: req.body.description
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Sever Error');
+    }
+  }
   // Add other comment-related controller methods...
 };
 
