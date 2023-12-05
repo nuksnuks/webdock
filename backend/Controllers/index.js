@@ -1,4 +1,4 @@
-const userController = require('./userController');
+const userController = require('./UserController');
 const postController = require('./PostController');
 const notificationController = require('./notificationController');
 const commentController = require('./commentController');

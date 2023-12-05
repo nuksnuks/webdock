@@ -26,10 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.ENUM('user', 'admin'),
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW
     }
-    
   }, {
     sequelize,
     modelName: 'User',
@@ -52,3 +50,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return User;
 };
+

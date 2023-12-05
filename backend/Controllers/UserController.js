@@ -23,6 +23,7 @@ const userController = {
       res.status(500).send('Internal Server Error');
     }
   },
+  
   createUser: async (req, res) => {
     try {
       const user = await User.create({
@@ -37,11 +38,6 @@ const userController = {
       res.status(500).send('Internal Server Error');
     }
   },
-
-  
-
-  
-
 
 };
 

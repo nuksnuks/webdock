@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+
     }
   }
   Comment.init({
@@ -34,11 +34,9 @@ module.exports = (sequelize, DataTypes) => {
       }
   },
     description: DataTypes.STRING,
-
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW
     }
   }, {
     sequelize,

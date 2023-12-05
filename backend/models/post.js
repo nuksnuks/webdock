@@ -45,8 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.BLOB,
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW // Set a default value of the current timestamp
+      defaultValue: DataTypes.NOW
     }
   }, {
     sequelize,

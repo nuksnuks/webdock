@@ -1,7 +1,5 @@
 const sequelize = require('../config/database'); 
 
-
-
 // så sync'er alle models så at tabellerne er i databasen
 const syncModels = async () => {
     
