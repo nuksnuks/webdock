@@ -1,6 +1,6 @@
-const Comment = require("../Models/commentModel");
+const { Comment } = require("../models");
 
-const CommentController = {
+const commentController = {
   getAllComments: async (req, res) => {
     try {
       const comments = await Comment.findAll();
@@ -27,4 +27,4 @@ const CommentController = {
   // Add other comment-related controller methods...
 };
 
-module.exports = CommentController
+module.exports = commentController

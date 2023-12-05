@@ -1,4 +1,5 @@
-const Post = require("../Models/postModel");
+const { Sequelize } = require('sequelize');
+const { Post } = require("../models");
 
 const postController = {
   getAllPosts: async (req, res) => {
@@ -26,7 +27,6 @@ const postController = {
 
   createPost: async (req, res) => {
     try {
-
       const post = await Post.create({
         status: 'Under Review',
         category: req.body.category,
@@ -40,7 +40,7 @@ const postController = {
       res.status(500).send('Internal Server Error');
     }
   // Add other post-related controller methods...
-  }
+  },
 };  
 
-module.exports = postController ;
+module.exports = postController;

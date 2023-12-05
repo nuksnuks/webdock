@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "zob4hSbUGSAM",
+    "database": "webdock_db",
+    "host": "davidsserver.vps.webdock.cloud",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "zob4hSbUGSAM",
+    "database": "webdock_db",
+    "host": "davidsserver.vps.webdock.cloud",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "zob4hSbUGSAM",
+    "database": "webdock_db",
+    "host": "davidsserver.vps.webdock.cloud",
+    "dialect": "mysql"
+  }
+}

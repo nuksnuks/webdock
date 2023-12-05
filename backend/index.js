@@ -1,8 +1,16 @@
 const express = require('express');
+const sequelize = require('sequelize');
+const connection = require('./config/database');
+const syncModels  = require('./models/app');
 const cors = require('cors');
-const router = require('./routes/index')
+router = require('./routes/index');
+
+
+
+syncModels({ force: true })
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -34,8 +42,7 @@ app.use('/', router);
 //Post data
 
 // app.get('/post:id', postController.getPostById);
-// app.get('/post', postController.getAllPosts);
-// app.post('/post',postController.createPost);
+
 
 // app.get('/post', async (req,res) =>{
 //   try {
@@ -61,6 +68,9 @@ app.use('/', router);
 //     res.status(500).send(error.message); 
 //   }
 // });
+
+//app.use('/admin', adminRoutes);
+
 
 const PORT = 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
