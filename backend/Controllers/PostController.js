@@ -35,12 +35,25 @@ const postController = {
         tag: req.body.tags,
         image: req.body.image
       });
+
+      // After creating the post, send the email
+      const postmark = require("postmark");
+      const { message } = req.body;
+      client.sendEmail({
+          "From": "uclfeedback@webdock.io",
+          "To": "nicole.lefevre98@hotmail.com",
+          "Subject": "Webdock New Feature Request",
+          "TextBody": message })
+      .then(() => res.status(200).json({ message: 'Email sent successfully' }))
+      .catch(err => console.error(err));
+       
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
   // Add other post-related controller methods...
   },
+  
 };  
 
 module.exports = postController;
