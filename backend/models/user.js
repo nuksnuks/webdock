@@ -37,15 +37,15 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
   
-    User.hasOne(Notification, {
+    User.hasOne(models.Notification, {
       foreignKey: 'userID'
     });
   
-    User.hasMany(Comment, {
+    User.hasMany(models.Comment, {
       foreignKey: 'userID'
     });
   
-    User.hasMany(Post, {
+    User.hasMany(models.Post, {
       foreignKey: 'userID'
     });
   };

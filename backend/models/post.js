@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Post.associate = (models) => {
-        Post.hasMany(Comment, {
+        Post.hasMany(models.Comment, {
             foreignKey: 'postID'
         });
         
-        Post.belongsTo(Notification, {
+        Post.belongsTo(models.Notification, {
             through: 'NotificationPost',
             foreignKey: 'postID'
           });
