@@ -6,6 +6,8 @@ const userController = require('../Controllers/UserController');
 router.get('/users', userController.getAllUsers);
 router.get('/users/:id', userController.getUserById);
 
+router.post('/login-sso', userController.loginUserWithSSO);
+
 // todo: router.post('/users', UserController.createUser);
 // todo: router.put('/users/:id', UserController.updateUser);
 // todo: router.delete('/users/:id', UserController.deleteUser);

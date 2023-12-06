@@ -35,12 +35,23 @@ const postController = {
         tag: req.body.tags,
         image: req.body.image
       });
+
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
   // Add other post-related controller methods...
   },
+  updatePost: async (req, res) => {
+    try {
+      const post = await Post.update({
+        status: req.body.status
+      });
+      
+    } catch (error) {
+      
+    }
+  }
 };  
 
 module.exports = postController;

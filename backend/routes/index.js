@@ -3,7 +3,8 @@ const router = express.Router();
 const postRoutes = require("./postRoutes");
 const userRoutes = require("./userRoutes");
 const notificationRoutes = require("./notificationRoutes");
-const commentRoutes = require("./commentRoutes")
+const commentRoutes = require("./commentRoutes");
+require('dotenv').config();
 
 
 // const middlewares = require('../Middlewares');

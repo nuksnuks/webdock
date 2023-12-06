@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   },
     likedPost: DataTypes.BOOLEAN,
-    likeAmount: DataTypes.INTEGER,
+    postLikeAmount: DataTypes.INTEGER,
     category: DataTypes.STRING,
     title: DataTypes.STRING,
     status: DataTypes.STRING,
