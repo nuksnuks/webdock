@@ -3,7 +3,7 @@ import FeatureRequest from '../pages/FeatureRequest';
 
     const GlobalComponent = () => {
         return (
-           <FeatureRequest></FeatureRequest>
+           <FeatureRequest/>
           );
       };
       

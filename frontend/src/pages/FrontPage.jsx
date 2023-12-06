@@ -6,7 +6,7 @@ import '/./src/styles/App.scss'
 
 const FrontPage = () => {
         return (
-          <Roadmap></Roadmap>
+          <Roadmap/>
         );
       };
 

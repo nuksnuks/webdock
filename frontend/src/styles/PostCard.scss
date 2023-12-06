@@ -4,6 +4,12 @@
     border-bottom: 0.1vw solid $grey;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    .heartInfo{
+        display: flex;
+        flex-direction: row;
+    }
 
     .LikeFunc {
         display: flex;
@@ -25,11 +31,12 @@
     }
 
     .InfoPart {
+        font-family: $poppins;
         display: flex;
         flex-direction: column;
         text-align: left;
-        margin: 1.5vw;
-        width: 80%;
+        
+        max-width: 80vw;
 
         h6 {
             color: $grey2;

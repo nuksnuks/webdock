@@ -19,12 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
   },
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    name: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    ssoToken: DataTypes.STRING,
-    role: DataTypes.STRING,
+    role: DataTypes.STRING, 
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW

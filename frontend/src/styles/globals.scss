@@ -28,3 +28,29 @@ $purple: #AB4ABA;
 $blue: #0091FF;
 $grey2:#8C8C8C;
 $lightGrey: #F2F2F2;
+
+@mixin button {
+    background-color: $green1;
+    
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    a{
+      text-decoration: none;
+      color: $green2;
+    }
+    :hover {
+        color: $white;
+    }
+}
+
+@mixin RoadmapColumn {
+  font-family: $poppins;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5vw;
+  user-select: none;
+  color: black;
+  border-radius: 0.3vw;
+}

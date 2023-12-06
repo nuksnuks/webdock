@@ -26,12 +26,11 @@ const userController = {
   
   createUser: async (req, res) => {
     try {
-      const user = await User.create({
+      const user = await User.upsert({
         role: 'user',
-        firstname: req.body.firstName,
-        lastname: req.body.lastName,
+        name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        userID: req.body.id
       });
     } catch (error) {
       console.error(error);

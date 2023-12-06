@@ -1,13 +1,12 @@
 @import "./globals.scss";
 
-
-
 .featurerequest {
   padding: 10px 15px;
   box-sizing: border-box;
   background: $white;
-  border: 1px solid $grey;
+  
   cursor: pointer;
+  border-radius: 10px;
   
 }
 .roadmapContent:last-of-type {

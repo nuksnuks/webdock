@@ -4,19 +4,17 @@ form {
     display: flex;
     flex-direction: column;
     font-family: $poppins;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
 
     input#image{
         display: block;
     }
 
-    button {
-        background-color: $green1;
-        color: $white;
-        margin: 10px;
-        border: none;
-        border-radius: 5px;
-        :hover {
-            color: $white;
-        }
+    #button {
+        width:fit-content;
+        
+        @include button;
+        margin: 10px 0px 10px auto;
     }
 }
