@@ -1,8 +1,9 @@
 const { Sequelize } = require('sequelize');
+const config = require('./config.json')[process.env.NODE_ENV || 'development'];
 
-const connection = new Sequelize('webdock_db', 'root', 'zob4hSbUGSAM', {
-  host: 'davidsserver.vps.webdock.cloud',
-  dialect: 'mysql',
+const connection = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect,
 });
 
 module.exports = connection;
