@@ -1,18 +1,17 @@
 const express = require('express');
-const sequelize = require('sequelize');
-const connection = require('./config/database');
-const syncModels  = require('./models/app');
 const cors = require('cors');
-router = require('./routes/index');
-
-
-
-syncModels({ force: true })
+const router = require('./routes/index');
+const { sequelize } = require('./models');
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
+
+sequelize.sync();
+
+// hvordan virker det?: index(backend)<-index(routes)<-Controllers<-model
+// migrations: opdaterer columns/kolonner, hvis vi vil tilføje/fjerne kolonner, ikke data!
+// seeder: opretter testdata i vores databasen
 
 app.use('/', router);
 
@@ -42,7 +41,8 @@ app.use('/', router);
 //Post data
 
 // app.get('/post:id', postController.getPostById);
-
+// app.get('/post', postController.getAllPosts);
+// app.post('/post',postController.createPost);
 
 // app.get('/post', async (req,res) =>{
 //   try {
@@ -68,9 +68,6 @@ app.use('/', router);
 //     res.status(500).send(error.message); 
 //   }
 // });
-
-//app.use('/admin', adminRoutes);
-
 
 const PORT = 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

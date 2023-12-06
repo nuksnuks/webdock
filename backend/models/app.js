@@ -4,7 +4,7 @@ const sequelize = require('../config/database');
 const syncModels = async () => {
     
   try {
-    await sequelize.sync();
+    await sequelize.sync({force: true});
     console.log('Models synced successfully.');
   } 
   catch (error) {
