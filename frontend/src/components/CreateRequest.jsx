@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import '../styles/CreateRequest.scss'
+import '../styles/CreateRequest.scss'
 
 const CreateRequest = () => {
 
@@ -101,7 +101,7 @@ const CreateRequest = () => {
         </div>
 
         <input 
-        type="submit" value="Submit" onClick={(e) => setPost}></input>
+        type="submit" value="Submit" id="button"onClick={(e) => setPost}></input>
         <p>{post}</p>
     </form>
  

@@ -28,7 +28,7 @@ const postController = {
   createPost: async (req, res) => {
     try {
       const post = await Post.create({
-        Status: 'Under Review',
+        status: 'Under Review',
         category: req.body.category,
         title: req.body.title,
         description: req.body.description,

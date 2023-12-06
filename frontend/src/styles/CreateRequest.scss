@@ -1,0 +1,23 @@
+@import "./globals.scss";
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: $poppins;
+
+    input#image{
+        display: block;
+    }
+
+    #button {
+        background-color: $green1;
+        color: $white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        :hover {
+            background-color: $white;
+            color: $green1;
+        }
+    }
+}
