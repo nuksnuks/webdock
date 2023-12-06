@@ -101,7 +101,7 @@ const CreateRequest = () => {
         </div>
 
         <input 
-        type="submit" value="Submit" id="button"onClick={(e) => setPost}></input>
+        type="submit" value="Submit" id="button" onClick={(e) => setPost}></input>
         <p>{post}</p>
     </form>
  

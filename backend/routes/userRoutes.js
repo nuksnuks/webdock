@@ -9,6 +9,6 @@ router.get('/users/:id', userController.getUserById);
 // todo: router.post('/users', UserController.createUser);
 // todo: router.put('/users/:id', UserController.updateUser);
 // todo: router.delete('/users/:id', UserController.deleteUser);
-router.get('/user-dashboard', authenticationMiddleware, userController.getUserDashboard);
-router.get('/admin-dashboard', authenticationMiddleware, adminMiddleware, UserController.getAdminDashboard);
+// router.get('/user-dashboard', authenticationMiddleware, userController.getUserDashboard);
+// router.get('/admin-dashboard', authenticationMiddleware, adminMiddleware, UserController.getAdminDashboard);
 module.exports = router;

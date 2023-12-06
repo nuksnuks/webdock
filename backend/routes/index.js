@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const postRoutes = require("./postRoutes");
+const userRoutes = require("./userRoutes");
+const notificationRoutes = require("./notificationRoutes");
+const commentRoutes = require("./commentRoutes")
+
 
 // const middlewares = require('../Middlewares');
-const { userController, postController, notificationController, commentController} = require('../Controllers');
+// const { userController, postController, notificationController, commentController} = require('../Controllers');
 
 // middleware.authenticate er stadig tom
 // router.use(middlewares.loggerMiddleware);
@@ -17,14 +22,21 @@ router.get('/', async (req,res) =>{
   }
 });
 
-router.get('/post', postController.getAllPosts);
-router.post('/post', postController.createPost);
+router.use(postRoutes);
+router.use(userRoutes);
+router.use(notificationRoutes);
+router.use(commentRoutes);
+
+
+// router.get('/posts/:id', postController.getPostById);
+// router.get('/post', postController.getAllPosts);
+// router.post('/post', postController.createPost);
 
 // middleware.authenticate er stadig tom
 // router.get('/secure-users', middlewares.authenticationMiddleware, UserController.getSecureUsers);
 
-router.get('/users/:id', userController.getUserById);
-router.get('/users', userController.getAllUsers);
+// router.get('/users/:id', userController.getUserById);
+// router.get('/users', userController.getAllUsers);
 
 // SSO Login Route
 // router.post('/login-sso', userController.loginUserWithSSO);
