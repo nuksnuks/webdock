@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       key: 'commentID',
       }
   },
-    notificationType: DataTypes.ENUM('adminNotification', 'userNotification'),
+    notificationType: DataTypes.STRING,
     description: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,

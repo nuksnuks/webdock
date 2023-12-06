@@ -34,6 +34,8 @@ module.exports = (sequelize, DataTypes) => {
       }
   },
     description: DataTypes.STRING,
+    likedComment: DataTypes.BOOLEAN,
+    commentLikeAmount: DataTypes.INTEGER,
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW
