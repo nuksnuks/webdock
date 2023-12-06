@@ -36,7 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       }
   },
     likedPost: DataTypes.BOOLEAN,
-    postLikeAmount: DataTypes.INTEGER,
+    postLikeAmount: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     category: DataTypes.STRING,
     title: DataTypes.STRING,
     status: DataTypes.STRING,
