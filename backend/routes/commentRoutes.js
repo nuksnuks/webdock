@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const CommentController = require('../controllers/CommentController.');
+const commentController = require('../Controllers/CommentController');
 
 // Define routes
-router.get('/comments', CommentController.getAllComments);
-router.get('/comments/:id', CommentController.getCommentById);
+router.get('/comments', commentController.getAllComments);
+router.get('/comments/:id', commentController.getCommentById);
 
 router.post('/comments', CommentController.createComment);
 //todo: router.put('/comments/:id', CommentController.updateComment);

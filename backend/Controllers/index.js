@@ -1,15 +1,13 @@
-const UserController = require('./UserController');
-const PostController = require('./PostController');
-const NotificationController = require('./NotificationController');
-const LikeController = require('./LikeController');
-const CommentController = require('./CommentController');
+const userController = require('./UserController');
+const postController = require('./PostController');
+const notificationController = require('./notificationController');
+const commentController = require('./commentController');
 
 
 module.exports = {
-  UserController,
-  PostController,
-  NotificationController,
-  LikeController,
-  CommentController,
+  userController,
+  postController,
+  notificationController,
+  commentController,
   // Add other controllers as needed
 };

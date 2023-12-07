@@ -1,0 +1,20 @@
+@import "./globals.scss";
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: $poppins;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
+
+    input#image{
+        display: block;
+    }
+
+    #button {
+        width:fit-content;
+        
+        @include button;
+        margin: 10px 0px 10px auto;
+    }
+}

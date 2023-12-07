@@ -1,14 +1,6 @@
 @import "./globals.scss";
 
-@mixin RoadmapColumn{
-    font-family: $poppins;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.5vw;
-    user-select: none;
-    color: black;
-    border-radius: 0.3vw;
-}
+
 
 .roadmap {
     display: flex;
@@ -17,11 +9,14 @@
     gap: 10px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 100px;
+    border-radius: 0px 10px 10px 10px;
+    
     .roadmapColumn {
         flex: 1;
         justify-content: space-around;
-        max-width: 33.33%;
+        max-width: 33vw;
+        border-radius: 10px;
+
         .roadmapColumnPlanned {
             @include RoadmapColumn;
             display: flex;
@@ -79,18 +74,5 @@
 
 .newRequest{
     float: right;
-    background-color: $green1;
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    a { 
-    color: $white;
-    text-decoration: none;
-    list-style: none;
-    }
-    :hover {
-        background-color: $white;
-        color: $green1;
-    }
+    @include button;
 }

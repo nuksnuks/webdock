@@ -1,27 +1,21 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^8.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mariadb": "^3.2.2",
-    "mysql2": "^3.6.3",
-    "nodemon": "^3.0.1",
-    "sequelize": "^6.34.0",
-    "sequelize-cli": "^6.6.1"
-  },
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
-  "description": "",
-  "devDependencies": {
-    "@faker-js/faker": "^8.2.0"
+    "mysql2": "^3.6.5",
+    "postmark": "^4.0.2",
+    "sequelize": "^6.35.1"
   }
 }

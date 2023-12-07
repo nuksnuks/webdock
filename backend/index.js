@@ -1,10 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('./routes/index')
+const router = require('./routes/index');
+const { sequelize } = require('./models');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+sequelize.sync();
+
+// hvordan virker det?: index(backend)<-index(routes)<-Controllers<-model
+// migrations: opdaterer columns/kolonner, hvis vi vil tilføje/fjerne kolonner, ikke data!
+// seeder: opretter testdata i vores databasen
 
 app.use('/', router);
 

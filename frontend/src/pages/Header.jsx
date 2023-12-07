@@ -1,9 +1,16 @@
 import React from 'react'
-import Nav from '../components/Nav'
+import GuestNav from '../components/GuestNav'
+import UserNav from '../components/UserNav'
 
 function Header() {
+
+  const params = new URLSearchParams(window.location.search);
+
+  const hasParams = params.has("ssoToken");
   return (
-    <Nav/>
+    <>
+      {hasParams ? <UserNav/> : <GuestNav/>}
+    </>
   )
 }
 

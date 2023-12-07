@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-//import '../styles/CreateRequest.scss'
+import React, { useState, useEffect } from "react";
+import '../styles/CreateRequest.scss'
 
 const CreateRequest = () => {
 
@@ -8,14 +8,34 @@ const CreateRequest = () => {
     const [description, setDescription] = useState("");
     const [tags, setTags] = useState("");
     const [image, setImage] = useState("");
-    const [post, setPost] = useState('')
+    const [post, setPost] = useState('');
+    const [isUser, setIsUser] = useState(false);
+
+    const name = localStorage.getItem('user');
+    const email = localStorage.getItem('email');
+    const id = localStorage.getItem('id');
+
+    const userData = {name, email, id}
+
+     // Use the useEffect hook to check the localStorage for the "user" key
+     useEffect(() => {
+      // If the "user" key exists, set the isUser state to true
+      if (localStorage.getItem('user')) {
+        setIsUser(true);
+      }
+      // Otherwise, set the isUser state to false
+      else {
+        setIsUser(false);
+      }
+    }, []);
+
+    
    
     const handleSubmit = (e) => {
+        
         e.preventDefault();
 
-        const post = {title, category, description, image, tags}
-
-        console.log(post)
+        const post = {title, category, description, image, tags, id}
 
         fetch('http://localhost:3001/post', {
           method:'POST',
@@ -25,17 +45,22 @@ const CreateRequest = () => {
         })
         .then(response => {
           if (response.ok) {
-            return response.json(); 
+            return console.log(response.status); 
           } else {
             console.log('failed')
           }
         })
         .then(data => {
-          console.log('Davids big brain fik det til at virke!', data); 
         })
         .catch(error => {
           console.log('Major failure!', error.message);
-        });
+        })
+        .then(fetch('http://localhost:3001/users',{
+          method:'POST',
+          headers: {'Content-Type': 'application/json'},
+          //laver om til en json-string:
+          body: JSON.stringify(userData),
+        }))
           };
         
   return (
@@ -43,9 +68,11 @@ const CreateRequest = () => {
     <form onSubmit={handleSubmit}>
         <h3>Create a post</h3>
 
-        <label>Title</label>
+        <label htmlFor="title">Title</label>
         <input 
         type="text" 
+        name="title"
+        id="title"
         required
         value={title}
         onChange={(e) => setTitle(e.target.value)} />
@@ -84,6 +111,7 @@ const CreateRequest = () => {
         <input 
           type="text" 
           name="tags"
+          id="tags"
           value={tags}
                 onChange={(e) => setTags(e.target.value.split(' ').toString())}>
 
@@ -101,7 +129,7 @@ const CreateRequest = () => {
         </div>
 
         <input 
-        type="submit" value="Submit" onClick={(e) => setPost}></input>
+        type="submit" value="Submit" id="button" onClick={(e) => setPost} disabled={!isUser}></input>
         <p>{post}</p>
     </form>
  

@@ -1,6 +1,6 @@
-const User = require("../Models/UserModel");
+const { User } = require("../models");
 
-const UserController = {
+const userController = {
   getAllUsers: async (req, res) => {
     try {
       const users = await User.findAll();
@@ -23,23 +23,50 @@ const UserController = {
       res.status(500).send('Internal Server Error');
     }
   },
+  
   createUser: async (req, res) => {
     try {
-      const user = await User.create({
+      const user = await User.upsert({
         role: 'user',
-        firstname: req.body.firstName,
-        lastname: req.body.lastName,
+        name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        userID: req.body.id
       });
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
   },
+  loginUserWithSSO: async (req, res) => {
+    try {
+      // Extract the SSO token from the request body
+      const ssoToken = req.body.ssoToken;
   
+      // Validate the token (Verify it against the SSO provider's public key)
+      const decodedToken = jwt.verify(ssoToken, process.env.PRIVATE_KEY);
+  
+      // Store the SSO token in the user's record
+      const user = await User.findOne({ where: { email: decodedToken.email } });
+      if (user) {
+        user.ssoToken = ssoToken;
+        await user.save();
+  
+        // Set the redirect URL to http://localhost:5173/
+        const redirectUrl = 'http://localhost:5173/';
+  
+        // Redirect the user back to our solution
+        res.redirect(redirectUrl);
 
-  // Add other user-related controller methods...
+        console.log(process.env.PRIVATE_KEY);
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
+
 };
 
-module.exports = UserController;
+module.exports = userController;

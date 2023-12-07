@@ -1,43 +1,57 @@
-// models/Post.js
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); 
 
+const sequelize = require('../config/database');
+const { post } = require('../routes');
 
 const Post = sequelize.define('Post', {
-  postId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true, // Define postId as the primary key
-    autoIncrement: true, // If it's an auto-incrementing primary key
-  },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.TEXT,
-  },
-  image: {
-    type: DataTypes.BLOB, // You can adjust the data type as needed
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
+    postID: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    userID: {
+        type: DataTypes.INTEGER,
+        references: {
+        model: 'Users',
+        key: 'userID',
+        }
+    },
+    likedPost: {
+        type: DataTypes.BOOLEAN,
+    },
+    likeAmount: {
+        type: DataTypes.INTEGER
+    },
+    category: {
+        type: DataTypes.ENUM({values: ['Dashboard Features','Documentation','Billing Feature','Networking','Heardware and Products','Perfect Server Stack', 'Mobile App','Webdock API','Competition','Uncategorized']})
+    },
+    title: {
+        type: DataTypes.STRING
+    },
+    Status: {
+        type: DataTypes.ENUM({values: ['Under Review', 'Planned' , 'In Progress' , 'Completed', 'Closed']})
+    },
+    description: {
+        type: DataTypes.STRING
+    },
+    tag: {
+        type: DataTypes.STRING
+    },
+    image: {
+
+        type: DataTypes.BLOB
+    }
 });
 
-// Define associations with other models
 Post.associate = (models) => {
-  Post.belongsTo(models.User, { foreignKey: 'userId' });
-  Post.hasMany(models.Notification, { foreignKey: 'postId' });
-  Post.belongsTo(models.Category, { foreignKey: 'categoryId' });
-  Post.belongsTo(models.ProgressStatus, { foreignKey: 'progressStatusId' });
-  Post.belongsTo(models.FlagStatus, { foreignKey: 'flagStatusId' });
-  Post.hasMany(models.LikeStatus, { foreignKey: 'postId' });
-  Post.hasMany(models.Comment, { foreignKey: 'commentId' });
+    Post.hasMany(Comment, {
+        foreignKey: 'postID'
+    });
+    
+    Post.belongsTo(Notification, {
+        through: 'NotificationPost',
+        foreignKey: 'postID'
+      });
 };
 
 module.exports = Post;
