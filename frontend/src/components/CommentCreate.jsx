@@ -11,11 +11,11 @@ const commentCreate = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        //const userID = //Logged in userID
-        //const postID = //ID of post being commented on
+        const userID = localStorage.getItem ('id'); 
+        console.log(userID)
         
         const postcomment = {
-            //userID: userID,
+            userID: userID,
             //postID: postID,
             description: comment
         }
