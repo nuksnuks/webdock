@@ -11,10 +11,19 @@ form {
         display: block;
     }
 
+    input, select, textarea{
+        border: 1px solid $grey3;
+    border-radius: 10px; // Adjust this value as per your requirement
+    padding: 10px;
+    }
+
     #button {
         width:fit-content;
-        
+        color: $white;
         @include button;
         margin: 10px 0px 10px auto;
+    }
+    :hover {
+        color: $green1;
     }
 }
