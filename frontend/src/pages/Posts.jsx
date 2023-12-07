@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '/./src/styles/post.scss';
 import SinglePostCard from '../components/SinglePostCard';
+import CommentCreate from '../components/CommentCreate';
 
 const Post = () => {
   //const targetUserID = 13; //Target id 1 da vi ikke har SSO endnu
@@ -25,7 +26,8 @@ const Post = () => {
           desc={item.description}
           date={item.date}
           likes={item.likes} />
-      ))}
+      ))};
+      <CommentCreate></CommentCreate>
     </>
   );
 };
