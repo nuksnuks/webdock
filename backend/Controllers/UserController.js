@@ -31,6 +31,7 @@ const userController = {
         name: req.body.name,
         email: req.body.email,
         userID: req.body.id
+        
       });
     } catch (error) {
       console.error(error);
@@ -46,7 +47,7 @@ const userController = {
       const decodedToken = jwt.verify(ssoToken, process.env.PRIVATE_KEY);
   
       // Store the SSO token in the user's record
-      const user = await User.findOne({ where: { email: decodedToken.email } });
+      const user = await User.findOne({ where: { email: req.body.email } });
       if (user) {
         user.ssoToken = ssoToken;
         await user.save();
@@ -67,6 +68,25 @@ const userController = {
     }
   },
 
+
+  updateProfileImage: async (req, res) => {
+    try {
+      const user = await User.findByPk(req.userId);
+
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+
+      // Assuming you have a column named 'avatarUrl' in your User model
+      user.avatarUrl = `/uploads/${req.file.filename}`;
+      await user.save();
+
+      res.status(200).send('User image updated successfully');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
 };
 
 module.exports = userController;

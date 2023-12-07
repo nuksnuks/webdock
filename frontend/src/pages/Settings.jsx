@@ -1,79 +1,70 @@
-import React from "react";
-import '/./src/styles/Settings.scss'
-import ellipse from "../assets/UserProfileImage.png";
+// /Users/abd/developer/webdock/frontend/src/pages/Settings.jsx
+import React, { useState, useEffect } from 'react';
+import '/./src/styles/Settings.scss';
 import group from "../assets/Group 14.png";
-import profile from "../assets/UserProfileImage.png";
-import settingsm from "../assets/settings.png";
-import Ellipse from "../assets/Ellipsesm 106.png";
-import Groupsm from "../assets/Groupsm.png";
 
 const AccountSetting = () => {
+  const [name, setName] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Extract the SSO token from the URL
+        const params = new URLSearchParams(window.location.search);
+        const ssoToken = params.get("ssoToken");
+
+        if (ssoToken) {
+          const decodedToken = decodeToken(ssoToken);
+
+          setName(decodedToken.name || 'Default Name');
+          setImageUrl(decodedToken.avatarUrl || '/default-image-url.png');
+          setEmail(decodedToken.email || '');
+        } else {
+          // If no SSO token, fetch user details from the backend
+          const response = await fetch('http://localhost:3001/users/');
+          if (!response.ok) {
+            throw new Error('Failed to fetch user details');
+          }
+
+          const data = await response.json();
+
+          setName(data.name || 'Default Name');
+          setImageUrl(data.avatarUrl || '/default-image-url.png');
+          setEmail(data.email || '');
+        }
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleImageChange = async (e) => {
+    const formData = new FormData();
+    formData.append('image', e.target.files[0]);
+
+    try {
+      const response = await fetch('/api/update-user-image', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Handle success, maybe update state or show a success message
+      } else {
+        throw new Error('Failed to update user image');
+      }
+    } catch (error) {
+      console.error('Error updating user image:', error);
+    }
+  };
+
+
   return (
     <div className="mainConterAll">
-      {/* for mobile device */}
-      <div className="mobileContainer">
-        <div className="consm">
-          <div className="topsm">
-            <img src={profile} alt="profile" className="imagefsm" />
-          </div>
-          <div className="bottomsm">Webdock</div>
-        </div>
-        <div className="mainbodysm">
-          <div className="settingsm">
-            <img src={settingsm} alt="" />
-            <span>Settings</span>
-          </div>
-          <div className="muploading">
-            <img src={Ellipse} alt="Ellipse" />
-            <label
-              className="mlebalsm"
-              style={{ cursor: "pointer" }}
-              htmlFor="inputTag"
-            >
-              <span className="labelingsm">Upload Image</span>
-              <input id="inputTag" type="file" />
-            </label>
-          </div>
-          <div className="minfo">
-            <span className="minfo1">Email :</span>
-            <span className="minfo2">abdalrhmanaldarra@gmail.com</span>
-          </div>
-          <div className="minfo">
-            <span className="minfo1">Name :</span>
-            <span className="minfo2">Abd Alrhman Al Darra</span>
-          </div>
-          {/* -------------------- */}
-          <div className="lastinfsm">
-            <h3>Account Settings</h3>
-            <div className="editpsm">
-              <span>Edit profile</span>
-              <img src={Groupsm} alt="Groupsm" />
-            </div>
-            <div className="editpsm">
-              <span>Change password</span>
-              <img src={Groupsm} alt="Groupsm" />
-            </div>
-            <div className="Editpsm">
-              <span className="editptsm">Push <br/> notification</span>
-              <span className="editplsm">
-                <label className="switchsm">
-                  <input type="checkbox" />
-                  <span className="slidersm roundsm"></span>
-                </label>
-              </span>
-            </div>
-            <div className="Editpsm">
-              <span className="editptsm">Dark mode</span>
-              <span className="editplsm">
-                <label className="switchsm">
-                  <input type="checkbox" checked />
-                  <span className="slidersm roundsm"></span>
-                </label>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
       {/* For desktop device */}
       <div className="rootContainer">
         <div className="container">
@@ -88,7 +79,7 @@ const AccountSetting = () => {
               </div>
               <div className="profile">
                 <div className="top">
-                  <img src={ellipse} alt="profile" className="imagef" />
+                  <img src={imageUrl} alt="profile" className="imagef" />
                 </div>
                 <label className="uploadimg" style={{ cursor: "pointer" }}>
                   <span className="labeling">Upload Image</span>
@@ -97,11 +88,11 @@ const AccountSetting = () => {
               </div>
               <div className="pname">
                 <span className="hpname">Name:</span>
-                <span className="hpdetail">Abd Alrhman Al Darra</span>
+                <span className="hpdetail">{name}</span>
               </div>
               <div className="pemail">
                 <span className="hpname">Email:</span>
-                <span className="hpdetail">abdalrhmanaldarra@gmail.com</span>
+                <span className="hpdetail">{email}</span>
               </div>
               <div className="accountbottom">
                 <h3 className="aheader">Account</h3>

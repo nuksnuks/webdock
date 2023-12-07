@@ -15,11 +15,13 @@ if (params.has("ssoToken") ) {
   //bruger react-jwt fra linje 5 til at afkode ssoToken
   const decodedToken = decodeToken(jwt);
 
-  console.log(decodedToken)
+  console.log(decodedToken.avatarUrl)
   console.log(decodedToken.name)
   console.log(decodedToken.email)
   console.log(decodedToken.id)
-
+   
+  
+  localStorage.setItem('avatar',decodedToken.avatarUrl)
   localStorage.setItem('user',decodedToken.name);
   localStorage.setItem('email',decodedToken.email);
   localStorage.setItem('id',decodedToken.id);
@@ -39,6 +41,7 @@ const Layout = () => {
   const isGlobalComponentPage = location.pathname === '/GlobalComponent';
   const isPostPage = location.pathname === '/posts';
   const isPostPage2 = location.pathname === '/CreateFeatureRequest';
+  const isPostPage3 = location.pathname === '/settings';
 
   return (
     <>
@@ -46,13 +49,13 @@ const Layout = () => {
       <div className="FrontPage">
             <div className="wrapper">
               <div className="title-container">
-                {!isPostPage && !isPostPage2  && (
+                {!isPostPage && !isPostPage2  && !isPostPage3 &&  (
                 <>
                 <h2 className={`title1 ${isGlobalComponentPage ? 'global-component-page' : ''}`}><Link to="/roadmap">Roadmap</Link></h2>
                 <h2 className={`title2 ${isGlobalComponentPage ? 'global-component-page' : ''}`}><Link to="/GlobalComponent">Feature Requests</Link></h2>
                 </>
                 )}
-                {(isPostPage || isPostPage2) && (
+                {(isPostPage || isPostPage2 || isPostPage3 ) && (
                   <h2 className="title3"><Link to="/roadmap">Back</Link></h2>
                 )}
               </div>

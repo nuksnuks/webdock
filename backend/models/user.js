@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
   },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    role: DataTypes.STRING, 
+    role: DataTypes.STRING,
+    avatarUrl: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW

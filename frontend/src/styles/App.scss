@@ -1,7 +1,7 @@
  @import "./globals.scss";
 
  .content {
-    display: flex;
+    
     flex-direction: row;
     justify-content: flex-start;
  }
@@ -12,6 +12,7 @@
      flex-direction: column;
      align-items: center;
      height: 100vh; // Gør komponenten fuldskærm i højden
+     width: 100vw;
    }
  
    .title-container {
@@ -21,7 +22,7 @@
      margin-top: 20px;
      text-align: left;
      align-items: left;
-     width: 80vw;
+     width: 80%;
  
      .title1 {
        background-color: $white;
@@ -76,13 +77,13 @@
  
  
    .main-container {
-     background-color: $white;
-     border-radius: 10px 10px 10px 10px; // Tilføj eventuelt afrundede hjørner
-     width: 80vw;
+     background-color: $white; // Helt grøn baggrund
+     border-radius: 0 10px 10px 10px; // Tilføj eventuelt afrundede hjørner
+     width: 74%;
      height: auto;
      align-items: center;
      justify-content: center;
-     
+     padding: 3%;
    }
  
    .content-container {
