@@ -37,8 +37,6 @@ const CreateRequest = () => {
 
         const post = {title, category, description, image, tags, id}
 
-        console.log(post)
-
         fetch('http://localhost:3001/post', {
           method:'POST',
           headers: {'Content-Type': 'application/json'},
@@ -47,13 +45,12 @@ const CreateRequest = () => {
         })
         .then(response => {
           if (response.ok) {
-            return response.json(); 
+            return console.log(response.status); 
           } else {
             console.log('failed')
           }
         })
         .then(data => {
-          console.log('Davids big brain fik det til at virke!', data); 
         })
         .catch(error => {
           console.log('Major failure!', error.message);
