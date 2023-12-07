@@ -64,8 +64,8 @@
         background: $white;
         border: 0.2vw solid $lightGrey;
         cursor: pointer;
+        overflow: auto;
         height: 460px;
-        overflow-y: scroll;
         
     }
     .roadmapContent:last-of-type {
