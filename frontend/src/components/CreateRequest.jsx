@@ -129,7 +129,18 @@ const CreateRequest = () => {
         </div>
 
         <input 
-        type="submit" value="Submit" id="button" onClick={(e) => setPost} disabled={!isUser}></input>
+    type="submit" 
+    value="Submit" 
+    id="button" 
+    onClick={(e) => {
+        e.preventDefault();
+        setPost();
+        if (isUser) {
+            alert("Your post has been created");
+            window.location = '/'; // Redirects to the front page
+        }
+    }} 
+/>
         <p>{post}</p>
     </form>
  
