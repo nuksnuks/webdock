@@ -14,7 +14,7 @@
     .roadmapColumn {
         flex: 1;
         justify-content: space-around;
-        max-width: 33vw;
+        max-width: 33%;
         border-radius: 10px;
 
         .roadmapColumnPlanned {
@@ -65,7 +65,8 @@
         border: 0.2vw solid $lightGrey;
         cursor: pointer;
         overflow: auto;
-        height: 460px;
+        height: 350px;
+        white-space: nowrap;
         
     }
     .roadmapContent:last-of-type {

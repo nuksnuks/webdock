@@ -15,9 +15,9 @@ const PostCard = ({ title, desc, date, likes, comments }) => {
                 </div>
 
                 <div className="InfoPart">
-                    <h3 numberoflines={1}>{title}</h3>
-                    <h6 numberoflines={1}>{desc}</h6>
-                    <p numberoflines={1}>{date}</p>
+                    <h3>{title}</h3>
+                    <h6>{desc}</h6>
+                    <p>{date}</p>
                 </div>
             </div>
 
