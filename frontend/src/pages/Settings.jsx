@@ -1,4 +1,4 @@
-// /Users/abd/developer/webdock/frontend/src/pages/Settings.jsx
+import { decodeToken } from "react-jwt";
 import React, { useState, useEffect } from 'react';
 import '/./src/styles/Settings.scss';
 import group from "../assets/Group 14.png";
@@ -11,19 +11,22 @@ const AccountSetting = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Extract the SSO token from the URL
-        const params = new URLSearchParams(window.location.search);
-        const ssoToken = params.get("ssoToken");
+        // Extract the SSO token from local storge and the URL
+        
+        const ssoToken = localStorage.getItem("ssoToken");
+        
 
         if (ssoToken) {
           const decodedToken = decodeToken(ssoToken);
+          
 
           setName(decodedToken.name || 'Default Name');
           setImageUrl(decodedToken.avatarUrl || '/default-image-url.png');
           setEmail(decodedToken.email || '');
         } else {
           // If no SSO token, fetch user details from the backend
-          const response = await fetch('http://localhost:3001/users/');
+          const response = await fetch('http://localhost:3001/users/22474');
+
           if (!response.ok) {
             throw new Error('Failed to fetch user details');
           }
@@ -65,7 +68,6 @@ const AccountSetting = () => {
 
   return (
     <div className="mainConterAll">
-      {/* For desktop device */}
       <div className="rootContainer">
         <div className="container">
           <div className="rootbody">
@@ -112,7 +114,7 @@ const AccountSetting = () => {
                   <span className="editpt">Push notification</span>
                   <span className="editpl">
                     <label className="switch">
-                      <input type="checkbox" />
+                      <input type="checkbox" defaultChecked />
                       <span className="slider round"></span>
                     </label>
                   </span>
@@ -121,7 +123,7 @@ const AccountSetting = () => {
                   <span className="editpt">Dark mode</span>
                   <span className="editpl">
                     <label className="switch">
-                      <input type="checkbox" checked />
+                      <input type="checkbox" defaultChecked />
                       <span className="slider round"></span>
                     </label>
                   </span>

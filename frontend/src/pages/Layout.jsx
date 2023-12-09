@@ -1,39 +1,39 @@
+// Import necessary dependencies
 import React, { useEffect } from "react";
 import Header from "./Header";
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import  '/./src/styles/App.scss';
 import { decodeToken } from "react-jwt";
 
-//søger efter parameter i URL'en
-
+// Extract and handle SSO token
 const params = new URLSearchParams(window.location.search);
 
-if (params.has("ssoToken") ) {
+if (params.has("ssoToken")) {
   const jwt = params.get("ssoToken");
-  console.log(jwt)
 
-  //bruger react-jwt fra linje 5 til at afkode ssoToken
+  // Decode and store in local storage
   const decodedToken = decodeToken(jwt);
+  localStorage.setItem("ssoToken", jwt);
+  localStorage.setItem("avatar", decodedToken.avatarUrl);
+  localStorage.setItem("user", decodedToken.name);
+  localStorage.setItem("email", decodedToken.email);
+  localStorage.setItem("id", decodedToken.id);
+
+  
 
   console.log(decodedToken.avatarUrl)
   console.log(decodedToken.name)
   console.log(decodedToken.email)
   console.log(decodedToken.id)
-   
-  
-  localStorage.setItem('avatar',decodedToken.avatarUrl)
-  localStorage.setItem('user',decodedToken.name);
-  localStorage.setItem('email',decodedToken.email);
-  localStorage.setItem('id',decodedToken.id);
-
 } else {
-  const params = "guest";
-  console.log(params)
-  localStorage.removeItem('user');
-  localStorage.removeItem('email');
-  localStorage.removeItem('id');
+  // Handle when there is no SSO token
+  localStorage.removeItem("ssoToken");
+  localStorage.removeItem("user");
+  localStorage.removeItem("email");
+  localStorage.removeItem("id");
 }
 
+// Rest of the code...
 
 
 const Layout = () => {

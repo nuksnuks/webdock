@@ -29,6 +29,7 @@ router.use(notificationRoutes);
 router.use(commentRoutes);
 
 
+
 // router.get('/posts/:id', postController.getPostById);
 // router.get('/post', postController.getAllPosts);
 // router.post('/post', postController.createPost);
