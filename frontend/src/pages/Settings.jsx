@@ -11,28 +11,28 @@ const AccountSetting = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Extract the SSO token from local storge and the URL
-        
+        // Extract the SSO token from local storage and the URL
         const ssoToken = localStorage.getItem("ssoToken");
-        
-
+        console.log("SSO Token in Settings:", ssoToken);
+  
         if (ssoToken) {
           const decodedToken = decodeToken(ssoToken);
           
-
+  
           setName(decodedToken.name || 'Default Name');
           setImageUrl(decodedToken.avatarUrl || '/default-image-url.png');
           setEmail(decodedToken.email || '');
+          console.log("Decoded Token in Settings:", decodedToken);
         } else {
           // If no SSO token, fetch user details from the backend
-          const response = await fetch('http://localhost:3001/users/22474');
-
+          const response = await fetch('http://localhost:3001/users/22715');
+  
           if (!response.ok) {
             throw new Error('Failed to fetch user details');
           }
-
+  
           const data = await response.json();
-
+  
           setName(data.name || 'Default Name');
           setImageUrl(data.avatarUrl || '/default-image-url.png');
           setEmail(data.email || '');
@@ -41,10 +41,10 @@ const AccountSetting = () => {
         console.error('Error fetching user details:', error);
       }
     };
-
+  
     fetchData();
   }, []);
-
+  
   const handleImageChange = async (e) => {
     const formData = new FormData();
     formData.append('image', e.target.files[0]);
