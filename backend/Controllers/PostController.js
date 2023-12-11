@@ -33,6 +33,7 @@ const postController = {
         status: 'Under Review',
         category: req.body.category,
         title: req.body.title,
+        likedPost: 0,
         description: req.body.description,
         tag: req.body.tags,
         image: req.body.image

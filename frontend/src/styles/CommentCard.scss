@@ -13,8 +13,8 @@
         text-align: left;
         img {
             padding: 0.5vw;
-            width: 2vw;
-            height: 2vw;
+            width: 50px;
+            height: 50px;
         }
         .user {
             padding: 0.5vw;
@@ -35,9 +35,6 @@
             padding: 0.5vw;
             color: $grey;
         }
-        img {
-            width: 0.8vw;
-            filter: grayscale(100%);
-        }
+        
     }
 }

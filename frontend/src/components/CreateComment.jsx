@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import '/./src/styles/CommentCreate.scss';
+import { useParams } from "react-router-dom";
 
-const commentCreate = () => {
+const CreateComment = () => {
     const [comment, setComment] = useState("");
+
+    const {id} = useParams("post/:id")
     
     const handleChange = (event) => {
         setComment(event.target.value);
@@ -15,36 +18,34 @@ const commentCreate = () => {
         console.log(userID)
         
         const postcomment = {
-            userID: userID,
-            //postID: postID,
-            description: comment
+            userID: localStorage.getItem("id"),
+            postID: id,
+            description: comment,
         }
         console.log(postcomment);
         
-        fetch('http://localhost:3001/Comments', {
+        fetch(`http://localhost:3001/comments`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postcomment),
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    console.log('Failed')
-                }
-            })
-            .then(data => {
-                console.log('Det virker GGWP');
-                setComment("");
-            })
-            .catch(error => {
-                console.log('DARKNESS CONSUMES YOU', error.message);
-            });
+        .then(response => {
+            if (response.ok) {
+                return response.json({id});
+            } else {
+                console.log('Failed')
+            }
+        })
+        .catch(error => {
+            console.log('DARKNESS CONSUMES YOU', error.message);
+        });
+
+        
     };
 
     return (
        <form className="commentBox" onSubmit={handleSubmit}>
-            <img className="commentImg" src="/./src/assets/UserProfileImage.png" alt="Profile Image" />
+            <img className="commentImg" src={localStorage.getItem("avatar")} alt="Profile Image" />
             <input
                 className="commentInput"
                 type="text"
@@ -54,8 +55,8 @@ const commentCreate = () => {
             />
             <button type="submit">Comment</button>
         </form>
-    
+
     );
 };
 
-export default commentCreate;
+export default CreateComment;

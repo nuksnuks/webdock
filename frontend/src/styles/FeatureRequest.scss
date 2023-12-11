@@ -1,14 +1,42 @@
 @import "./globals.scss";
+h2{
+  font-family: $poppins;
+}
+.filter{
+  font-family: $poppins;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin-right: 0px;
+  margin-left: auto;
+  select {
+    border: $grey;
+    option {
+      border: none;
+    }
+    ::selection {
+      color: $grey2;
+      
+    }
+  }
+}
 
-.featurerequest {
+.requests {
   padding: 10px 15px;
   box-sizing: border-box;
   background: $white;
+  overflow: auto;
+  height: 450px;
+  border-radius: 10px;
+  border: 0.2vw solid #F2F2F2;
+
   
   cursor: pointer;
   border-radius: 10px;
   
 }
+
 .roadmapContent:last-of-type {
   border-radius: 0px 0px 5px 5px;
   transform: translatey(-1px);

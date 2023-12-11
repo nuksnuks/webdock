@@ -4,7 +4,6 @@ form {
     display: flex;
     flex-direction: column;
     font-family: $poppins;
-    padding: 10px;
     border-radius: 0px 10px 10px 10px;
 
     input#image{
@@ -21,7 +20,7 @@ form {
         width:fit-content;
         color: $white;
         @include button;
-        margin: 10px 0px 10px auto;
+        margin: 0px 0px 0px auto;
     }
     :hover {
         color: $green1;

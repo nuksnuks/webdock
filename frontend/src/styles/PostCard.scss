@@ -1,38 +1,41 @@
 @import "./globals.scss";
 
+a{
+    text-decoration: none;
+}
+
 .CardBox{
+    font-family: $raleway;
+    color: $grey;
     border-bottom: 0.1vw solid $grey3;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 0px 10px 0px;
-
+    
     .heartInfo{
         display: flex;
         flex-direction: row;
         white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .LikeFunc {
         display: flex;
         flex-direction: column;
         text-align: center;
-        margin: 1vw;
-        width: 10%;
+        margin: 0px auto 0px 10px;
 
-        img {
-            padding: 0.5vw;
-            width: 2vw;
-            height: 2vw;
-        }
+
+        .filledHeart{
+            color: $green1;
+          }
 
         p {
             color: $green1;
             white-space: nowrap;
             white-space: nowrap;
-            overflow: hidden;
+            overflow: auto;
             text-overflow: ellipsis;
         }
         
@@ -41,31 +44,25 @@
     .InfoPart {
         font-family: $poppins;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         text-align: left;
-        width: 80%;
-        h6 {
-            color: $grey2;
+        text-decoration: none;
+        img{
+            height: 40px;
+            width: 40px;
+            padding: 10px;
+            border-radius: 100%;
+            border: none;
 
         }
-
         p {
             color: $grey2;
         }
-
     }
     .CommentNum {
         display: flex;
         flex-direction: column;
-        text-align: center;
-        margin: 1vw;
-        width: 10%;
-        
-        img {
-                padding: 0.5vw;
-                width: 2vw;
-                height: 2vw;
-            }
+        margin: 0px 10px 0px 10px;
         
             p {
                 color: $green1;
