@@ -58,18 +58,58 @@ const postController = {
     } catch (error) {
       console.error("email is not emailing")
     }
-  // Add other post-related controller methods...
+  
   },
+
+  // Add post-upddate controller...
   updatePost: async (req, res) => {
     try {
-      const post = await Post.update({
-        status: req.body.status
-      });
-      
+      const postId = req.params.id;
+
+      // Check if the post exists
+      const post = await Post.findByPk(postId);
+
+      if (!post) {
+        return res.status(404).send('Post not found');
+      }
+
+      // Update post data based on the request body
+      post.status = req.body.status || post.status;
+
+      // Save the updated post data
+      await post.save();
+
+      res.status(200).json({ message: 'Post updated successfully', post });
     } catch (error) {
-      
+      console.error(error);
+      res.status(500).send('Internal Server Error');
     }
-  }
-};  
+  },
+
+  deletePost: async (req, res) => {
+    try {
+      const postId = req.params.id;
+
+      // Attempt to delete the post
+      const deletedRowCount = await Post.destroy({
+        where: { postID: postId },
+      });
+
+      // Check if the post was found and deleted
+      if (deletedRowCount === 0) {
+        return res.status(404).send('Post not found');
+      }
+
+      res.status(200).json({ message: 'Post deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
+
+  // ... (other methods)
+};
+
+  
 
 module.exports = postController;
