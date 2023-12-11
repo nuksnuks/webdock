@@ -1,8 +1,9 @@
 import React from 'react'
 import '/./src/styles/CommentCard.scss'
-import jsonData from '../assets/data/dummyData.json'
+import { FaHeart, FaRegHeart,  FaReply , FaEdit  } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
-const CommentCard = ({ userName, role, likes, comments }) => {
+const CommentCard = ({ userName, role, likes, description }) => {
     return (
       <>
         <div className="commentCard">
@@ -11,17 +12,19 @@ const CommentCard = ({ userName, role, likes, comments }) => {
                     <img src="/./src/assets/UserProfileImage.png" alt="Profile Image" />
                     <div className="user">
                         <h2> {userName} </h2>
-                        <h5> {role} </h5>
                     </div>
                 </div>
                 <div className="comment">
-                   <p>{comments}</p>
+                   <p>{description}</p>
                 </div>
                 <div className="commentActions">
-                    <h5><img src="/./src/assets/replyIcon.png" alt="Reply Icon" /> Reply </h5>
-                    <h5><img src="/./src/assets/editIcon.png" alt="Edit Icon" /> Edit </h5>
-                    <h5><img src="/./src/assets/deleteIcon.png" alt="Delete Icon" /> Delete </h5>
-                    <h5><img src="/./src/assets/heart.png" alt="Heart Icon" /> {likes} Like </h5>
+                    <FaReply />
+                    <FaEdit />
+                    <MdDeleteForever />
+                    <div className='heart-button'>
+                      <FaHeart className="filledHeart"/>
+                      <FaRegHeart className="heart"/>
+                    </div>
                 </div>
             </div>
         </div>

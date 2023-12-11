@@ -27,8 +27,13 @@ const commentController = {
   createComment: async (req, res) => {
     try {
 
-      const post = await Comment.create({
-        description: req.body.description
+      const comment = await Comment.create({
+        description: req.body.description,
+        userID: req.body.userID,
+        postID: req.body.postID,
+        likedComment: 0,
+        commentLikedAmount:0
+
       });
       res.status(201).json(comment);
     } catch (error) {

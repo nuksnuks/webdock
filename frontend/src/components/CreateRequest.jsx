@@ -14,8 +14,9 @@ const CreateRequest = () => {
     const name = localStorage.getItem('user');
     const email = localStorage.getItem('email');
     const id = localStorage.getItem('id');
+    const avatar = localStorage.getItem("avatar");
 
-    const userData = {name, email, id}
+    const userData = {name, email, id, avatar}
 
      // Use the useEffect hook to check the localStorage for the "user" key
      useEffect(() => {

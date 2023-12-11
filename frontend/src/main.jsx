@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link, Outlet} from "react-router-dom";
 
 import FrontPage from './pages/FrontPage';
-import Posts from './pages/Posts';
-import Roadmap from './pages/Roadmap';
-import Single from './pages/Single';
 import Layout from './pages/Layout';
 import AdminPage from './pages/AdminPage';
 import FeatureRequest from './pages/FeatureRequest';
 import Settings from './pages/Settings';
-import CreateFeatureRequest from './pages/CreateFeatureRequest';
 import CreateRequest from './components/CreateRequest';
-import GlobalComponent from './components/GlobalComponent';
-import CommentCreate from './components/CommentCreate';
+import CreateComment from './components/CreateComment';
+import SinglePost from './pages/SinglePost';
+
+
 
 
 
@@ -24,15 +22,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<FrontPage />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/roadmap" element={<Roadmap />} />
-          <Route path="/single" element={<Single />} />
+          <Route path="/post" element={<FeatureRequest/>} />
+          <Route path="/post/:id" element={<SinglePost/>} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/FeatureRequest" element={<FeatureRequest />} />
           <Route path="/Settings" element={<Settings />} />
-          <Route path="/CreateFeatureRequest" element={<CreateRequest />} />
-          <Route path="/GlobalComponent" element={<GlobalComponent />} />
-          <Route path="/CommentCreate" element={<CommentCreate />} />
+          <Route path="/CreateRequest" element={<CreateRequest />} />
+          
+          <Route path="/CommentCreate" element={<CreateComment />} />
 
            
         </Route>

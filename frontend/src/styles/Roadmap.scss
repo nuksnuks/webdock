@@ -20,7 +20,7 @@
         .roadmapColumnPlanned {
             @include RoadmapColumn;
             display: flex;
-            margin: 1vw;
+            
             .dot { 
                 background-color: $blue;
                 height: 1vw;
@@ -33,7 +33,7 @@
         .roadmapColumnProgress{
             @include RoadmapColumn;
             display: flex;
-            margin: 1vw;
+            
             .dot { 
                 background-color: $green1;
                 width: 1vw;
@@ -47,7 +47,7 @@
         .roadmapColumnCompleted {
             @include RoadmapColumn;
             display: flex;
-            margin: 1vw;
+            
             .dot { 
                 background-color: $purple;
                 height: 1vw;
@@ -59,7 +59,7 @@
         }
     }
     .roadmapContent {
-        padding: 10px 15px;
+        
         box-sizing: border-box;
         background: $white;
         border: 0.2vw solid $lightGrey;
@@ -70,12 +70,8 @@
         
     }
     .roadmapContent:last-of-type {
-        border-radius: 1.5vw;
+        border-radius: 10px;
         transform: translatey(-1px);
     }
 }
 
-.newRequest{
-    float: right;
-    @include button;
-}

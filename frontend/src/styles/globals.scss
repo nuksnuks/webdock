@@ -2,20 +2,20 @@ $poppins: 'Poppins';
 $raleway: 'Raleway';
 
 body {
-  background-image: url('./src/assets/footer_bg.jpg');
+  background-image: url('../src/assets/footer_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
 
 @font-face {
   font-family: $poppins;
-  src: url('./src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  src: url('../src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: $raleway;
-  src: url('./src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+  src: url('../src/assets/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
 $green1: #018647;
@@ -32,7 +32,7 @@ $lightGrey: #F2F2F2;
 
 @mixin button {
     background-color: $green1;
-    
+    width:80px;
     margin: 10px;
     padding: 10px;
     border: none;
@@ -54,4 +54,10 @@ $lightGrey: #F2F2F2;
   user-select: none;
   color: black;
   border-radius: 0.3vw;
+}
+
+.newRequest{
+  float: right;
+  @include button;
+  margin: 10px 0px 0px 0px;
 }
