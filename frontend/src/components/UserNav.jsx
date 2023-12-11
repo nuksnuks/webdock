@@ -26,7 +26,7 @@ const UserNav = () => {
     <nav>
         <Link to="/"><img src=".\src\assets\webdock-logo-positiv 3.png" alt="" /></Link>
         <div>
-            <button> <a href="./settings" target='_blank'>Settings</a></button>
+            <button> <a href="./settings">Settings</a></button>
             <button onClick={() => localStorage.removeItem("ssoToken")}>
   <a href="http://localhost:5173/roadmap">Log Out</a>
 </button>

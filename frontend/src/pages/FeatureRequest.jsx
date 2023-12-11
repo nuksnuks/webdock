@@ -20,13 +20,16 @@ const FeatureRequest = () => {
     <div className="featurerequest">
       <div className="FeaturerequestsContent">
         {posts.map((item) => (
+          <Link to={`/post/${item.postID}`} key={item.postID} style={{ textDecoration: 'none', color: 'inherit' }}>
           <PostCard
-            key={item.postID}
-            status={item.status}
-            title={item.title}
+          status={item.status}
+          title={item.title}
             desc={item.description}
             date={item.date}
+            likes={item.likes}
+            comments={item.comments}
           />
+        </Link>
         ))}
       </div>
       <button className='newRequest'><Link to="/CreateFeatureRequest">New Request</Link></button>
