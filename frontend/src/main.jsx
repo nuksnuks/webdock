@@ -10,6 +10,7 @@ import Settings from './pages/Settings';
 import CreateRequest from './components/CreateRequest';
 import CreateComment from './components/CreateComment';
 import SinglePost from './pages/SinglePost';
+import Popup from './components/Popup';
 
 
 
@@ -29,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/CreateRequest" element={<CreateRequest />} />
           
           <Route path="/CommentCreate" element={<CreateComment />} />
-
+          <Route path="/Popup" element={<Popup />} />
            
         </Route>
       </Routes>

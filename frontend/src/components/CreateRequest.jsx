@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/CreateRequest.scss'
 
-const CreateRequest = () => {
+const CreateRequest = ({ fetchMethod = 'POST' }) => {
 
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
@@ -31,7 +31,7 @@ const CreateRequest = () => {
     }, []);
 
     
-   
+    
     const handleSubmit = (e) => {
         
         e.preventDefault();
@@ -39,7 +39,7 @@ const CreateRequest = () => {
         const post = {title, category, description, image, tags, id}
 
         fetch('http://localhost:3001/post', {
-          method:'POST',
+          method: fetchMethod,
           headers: {'Content-Type': 'application/json'},
           //laver om til en json-string:
           body: JSON.stringify(post),
@@ -57,15 +57,16 @@ const CreateRequest = () => {
           console.log('Major failure!', error.message);
         })
         .then(fetch('http://localhost:3001/users',{
-          method:'POST',
+          method:fetchMethod,
           headers: {'Content-Type': 'application/json'},
           //laver om til en json-string:
           body: JSON.stringify(userData),
         }))
           };
-        
+          
   return (
     <div className='form-container'>
+      
     <form onSubmit={handleSubmit}>
         <h3>Create a post</h3>
 
@@ -134,7 +135,6 @@ const CreateRequest = () => {
     value="Submit" 
     id="button" 
     onClick={(e) => {
-        e.preventDefault();
         setPost();
         if (isUser) {
             alert("Your post has been created");
