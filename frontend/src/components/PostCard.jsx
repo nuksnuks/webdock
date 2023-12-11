@@ -4,7 +4,7 @@ import { FaHeart, FaRegHeart, FaRegCommentAlt } from "react-icons/fa";
 
 
 
-const PostCard = ({status, title, desc, date, likes, comments, author, avatar }) => {
+const PostCard = ({status, title, desc, date, likes, comments, userName, avatar }) => {
     
   return (
     <>
@@ -18,12 +18,12 @@ const PostCard = ({status, title, desc, date, likes, comments, author, avatar })
                 </div>
 
                 <div className="InfoPart">
-                    <img src={avatar} alt={author} />
+                    <img src={avatar} alt={userName} />
                     <div>
                         <h3>{title}</h3>
                         <h6>{desc}</h6>
                         <p>{date}</p>
-                        <p>{author}</p>
+                        <p>{userName}</p>
                         <p>{status}</p>
                     </div>
                     

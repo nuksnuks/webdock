@@ -3,7 +3,7 @@ import '/./src/styles/CommentCard.scss'
 import { FaHeart, FaRegHeart,  FaReply , FaEdit  } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
-const CommentCard = ({ userName, role, likes, description }) => {
+const CommentCard = ({ userName, likes, description }) => {
     return (
       <>
         <div className="commentCard">
@@ -18,12 +18,13 @@ const CommentCard = ({ userName, role, likes, description }) => {
                    <p>{description}</p>
                 </div>
                 <div className="commentActions">
-                    <FaReply />
-                    <FaEdit />
-                    <MdDeleteForever />
+                   <h5> <FaReply /> Reply </h5>
+                    <h5> <FaEdit /> Edit </h5>
+                    <h5><MdDeleteForever /> Delete </h5>
                     <div className='heart-button'>
                       <FaHeart className="filledHeart"/>
                       <FaRegHeart className="heart"/>
+                      <p>{likes}</p>
                     </div>
                 </div>
             </div>

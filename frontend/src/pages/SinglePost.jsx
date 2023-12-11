@@ -10,7 +10,7 @@ const Post = () => {
   
   const [post, setPost] = useState(null); 
   const [comments, setComments] = useState([]); // 
-
+  const [users, setUsers] = useState([]); 
   const { id } = useParams('post/');
 
   useEffect(() => {
@@ -29,12 +29,22 @@ const Post = () => {
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
-  console.log(comments)
+  useEffect(() => {
+    
+    fetch(`http://localhost:3001/users/`)
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log('Error fetching data:', error));
+  }, [id]);
 
+  console.log(users)
+
+  const user = users.find(user => user.userID === post.userID);
   return (
     <>
         {post && (
           <PostCard 
+            userName={user ? user.name : 'Unknown User'}
             userID={post.userID}
             userImg={post.avatarURL}
             status={post.status}
@@ -44,13 +54,21 @@ const Post = () => {
             likes={post.likes} />
         )}
       <CreateComment/>
-        {comments.length > 0 && ( 
-          comments.filter(comment => comment.postID === post.postID) 
-          .map(comment => ( 
-            <CommentCard key={comment.commentID} comment={comment.description}  /> 
-          ))
-        )}
-    </>
+    {comments.length > 0 && ( 
+      comments.filter(comment => comment.postID === post.postID)
+      .map(comment => { 
+        const user = users.find(user => user.userID === comment.userID);
+        return (
+          <CommentCard
+            key={comment.commentID}
+            userName={user ? user.name : 'Unknown User'}
+            likes={comment.commentLikeAmount}
+            description={comment.description}
+          />
+        );
+      })
+    )}
+</>
   );
 };
 
