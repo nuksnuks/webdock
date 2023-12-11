@@ -4,6 +4,7 @@ import '/./src/styles/PostCard.scss';
 import CreateComment from '../components/CreateComment';
 import CommentCard from '../components/CommentCard';
 import PostCard from '../components/PostCard';
+import Popup from '../components/Popup'
 import { useParams } from 'react-router-dom';
 
 const Post = () => {
@@ -42,6 +43,7 @@ const Post = () => {
   const user = users.find(user => user.userID === post.userID);
   return (
     <>
+        <Popup/>
         {post && (
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
