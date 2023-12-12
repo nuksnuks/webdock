@@ -49,7 +49,7 @@ const postController = {
      //const { message } = req.body;
       client.sendEmail({ 
           "From": "uclfeedback@webdock.io",
-          "To": "nicole.lefevre98@hotmail.com",
+          "To": "team7@outlook.dk",
           "Subject": "Webdock New Feature Request",
           "TextBody": req.body.description })
       .then(() => res.status(200).json({ message: 'Email sent successfully' }))
