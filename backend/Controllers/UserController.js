@@ -31,7 +31,7 @@ const userController = {
         name: req.body.name,
         email: req.body.email,
         userID: req.body.id,
-        avatarURL: req.body.avatar
+        avatarUrl: req.body.avatar
         
       });
     } catch (error) {
