@@ -43,7 +43,7 @@ const Post = () => {
   const user = users.find(user => user.userID === post.userID);
   return (
     <>
-        <Popup/>
+        {user && user.role === 'admin' && <Popup/>}
         {post && (
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
