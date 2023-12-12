@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 const Post = () => {
   
   const [post, setPost] = useState(null); 
-  const [comments, setComments] = useState([]); // 
+  const [comments, setComments] = useState([]); 
   const [users, setUsers] = useState([]); 
   const { id } = useParams('post/');
 
@@ -59,11 +59,11 @@ const Post = () => {
     {comments.length > 0 && ( 
       comments.filter(comment => comment.postID === post.postID)
       .map(comment => { 
-        const user = users.find(user => user.userID === comment.userID);
+        const commentUser = users.find(user => user.userID === comment.userID);
         return (
           <CommentCard
             key={comment.commentID}
-            userName={user ? user.name : 'Unknown User'}
+            userName={commentUser ? commentUser.name : 'Unknown User'}
             likes={comment.commentLikeAmount}
             description={comment.description}
           />
