@@ -4,8 +4,8 @@ import '/./src/styles/PostCard.scss';
 import CreateComment from '../components/CreateComment';
 import CommentCard from '../components/CommentCard';
 import PostCard from '../components/PostCard';
-import Popup from '../components/Popup'
 import { useParams } from 'react-router-dom';
+import BasicModal from '../components/Popup';
 
 const Post = () => {
   
@@ -38,12 +38,14 @@ const Post = () => {
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
+
+
   console.log(users)
 
   const user = users.find(user => user.userID === post.userID);
   return (
     <>
-        {user && user.role === 'admin' && <Popup/>}
+        {user && user.role === 'admin' ? <BasicModal/> : <></>}
         {post && (
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
@@ -57,8 +59,7 @@ const Post = () => {
         )}
       <CreateComment/>
     {comments.length > 0 && ( 
-      comments.filter(comment => comment.postID === post.postID)
-      .map(comment => { 
+      comments.filter(comment => comment.postID === post.postID).map(comment => { 
         const commentUser = users.find(user => user.userID === comment.userID);
         return (
           <CommentCard
