@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '/./src/styles/PostCard.scss';
+import '/./src/styles/globals.scss';
 
 import CreateComment from '../components/CreateComment';
 import CommentCard from '../components/CommentCard';
@@ -38,14 +39,14 @@ const Post = () => {
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
-
-
-  console.log(users)
-
   const user = users.find(user => user.userID === post.userID);
+  const admins = users.find(users=> users.role === 'admin');
+
+  const isLoggedIn = Boolean(localStorage.getItem("ssoToken"));
+
   return (
     <>
-        {user && user.role === 'admin' ? <BasicModal/> : <></>}
+        {admins && isLoggedIn ? <BasicModal/> : <></>}
         {post && (
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
