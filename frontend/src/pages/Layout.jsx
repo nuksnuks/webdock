@@ -1,9 +1,10 @@
 // Import necessary dependencies
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import  '/./src/styles/App.scss';
 import { decodeToken } from "react-jwt";
+import AdminModal from '../components/AdminPopup';
 
 const params = new URLSearchParams(window.location.search);
   
@@ -31,6 +32,20 @@ if (params.has("ssoToken")) {
 
 
 const Layout = () => {
+
+  const [users, setUsers] = useState([]); 
+
+  useEffect(() => {
+    
+    fetch(`http://localhost:3001/users/`)
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log('Error fetching data:', error));
+  });
+
+  const admins = users.find(users=> users.role === 'admin');
+  const isLoggedIn = Boolean(localStorage.getItem("ssoToken"));
+
   const location = useLocation();
   const isGlobalComponentPage = location.pathname === '/post';
   const isPostPage = location.pathname === '/posts';
@@ -42,7 +57,7 @@ const Layout = () => {
       <Header/>
       <div className="FrontPage">
             <div className="wrapper">
-            <h1>Hello {localStorage.getItem("user")}</h1>
+            <h1>Hello {localStorage.getItem("user")}{admins && isLoggedIn ? <AdminModal/> : <></>}</h1>
               <div className="title-container">
                 {!isPostPage && !isPostPage2  && !isPostPage3 &&  (
                 <>

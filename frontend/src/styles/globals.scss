@@ -37,6 +37,7 @@ $lightGrey: #F2F2F2;
     padding: 10px;
     border: none;
     border-radius: 5px;
+    color: $lightGrey;
     a{
       text-decoration: none;
       color: $green2;
@@ -44,6 +45,49 @@ $lightGrey: #F2F2F2;
     :hover {
         color: $white;
     }
+}
+
+.adminBtn {
+  background-color: $white;
+  color: $green1;
+  width: auto;
+  float: right;
+  align-self: flex-end;
+  margin-left: 20vw;
+}
+
+.adminBtn:hover {
+  background-color: $green2;
+  color: $green1;
+}
+
+.changeList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: $poppins;
+  .adminList, .userList { 
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 200px;
+      overflow: auto;
+      li {
+        span {
+          padding: 1vw;
+          height: 450px;
+        }
+      }
+    }
+  }
+  .removeAdmin, .makeAdmin {
+    text-align: center;
+    margin-top: 10vw;
+    width: auto;
+  }
 }
 
 @mixin RoadmapColumn {
