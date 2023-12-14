@@ -18,13 +18,10 @@ const CreateRequest = ({ fetchMethod = 'POST' }) => {
 
     const userData = {name, email, id, avatar}
 
-     // Use the useEffect hook to check the localStorage for the "user" key
      useEffect(() => {
-      // If the "user" key exists, set the isUser state to true
       if (localStorage.getItem('user')) {
         setIsUser(true);
       }
-      // Otherwise, set the isUser state to false
       else {
         setIsUser(false);
       }
@@ -66,59 +63,51 @@ const CreateRequest = ({ fetchMethod = 'POST' }) => {
           
   return (
     <div className='form-container'>
-      
     <form onSubmit={handleSubmit}>
         <h3>Create a post</h3>
-
-        <label htmlFor="title">Title</label>
-        <input 
-        type="text" 
-        name="title"
-        id="title"
-        required
-        value={title}
-        onChange={(e) => setTitle(e.target.value)} />
-
-        <label htmlFor="category1">Category</label>
-        <select 
-        id="category1" 
-        name="category" 
-        onChange={(e) => setCategory(e.target.value)}>
-            <option value='Dashboard Features'>Dashboard Features</option>
-            <option value='Documentation'>Documentation</option>
-            <option value='Billing Feature'>Billing Feature</option>
-            <option value='Networking'>Networking</option>
-            <option value='Heardware and Products'>Heardware and Products</option>
-            <option value='Perfect Server Stack'>Perfect Server Stack</option>
-            <option value='Mobile App'>Mobile App</option>
-            <option value='Webdock API'>Webdock API</option>
-            <option value='Competition'>Competition</option>
-            <option value='Uncategorized'>Uncategorized</option>
-            {category}
-        </select>
-
-        <label htmlFor="description">Description</label>
-        <textarea 
-            name="description" 
-            id="description" 
-            cols="30" 
-            rows="10"
-            required 
-            value= {description}
-            onChange={(e) => setDescription(e.target.value)}>
-                
-        </textarea>
-
-        <label htmlFor="tags">Keywords</label>
-        <input 
-          type="text" 
-          name="tags"
-          id="tags"
-          value={tags}
-                onChange={(e) => setTags(e.target.value.split(' ').toString())}>
-
-        </input>
-
+          <label htmlFor="title">Title</label>  
+            <input 
+            type="text" 
+            name="title"
+            id="title"
+            required
+            value={title}
+            onChange={(e) => setTitle(e.target.value)} />
+          <label htmlFor="category1">Category</label>
+            <select 
+              id="category1" 
+              name="category" 
+              onChange={(e) => setCategory(e.target.value)}>
+                  <option value='Dashboard Features'>Dashboard Features</option>
+                  <option value='Documentation'>Documentation</option>
+                  <option value='Billing Feature'>Billing Feature</option>
+                  <option value='Networking'>Networking</option>
+                  <option value='Heardware and Products'>Heardware and Products</option>
+                  <option value='Perfect Server Stack'>Perfect Server Stack</option>
+                  <option value='Mobile App'>Mobile App</option>
+                  <option value='Webdock API'>Webdock API</option>
+                  <option value='Competition'>Competition</option>
+                  <option value='Uncategorized'>Uncategorized</option>
+                  {category}
+            </select>
+          <label htmlFor="description">Description</label>
+             <textarea 
+                name="description" 
+                id="description" 
+                cols="30" 
+                rows="10"
+                required 
+                value= {description}
+                onChange={(e) => setDescription(e.target.value)}>
+            </textarea>
+          <label htmlFor="tags">Keywords</label>
+            <input 
+              type="text" 
+              name="tags"
+              id="tags"
+              value={tags}
+              onChange={(e) => setTags(e.target.value.split(' ').toString())}>
+            </input>
         <div>
             <label htmlFor="image">Upload Image</label>
             <input 
@@ -129,22 +118,20 @@ const CreateRequest = ({ fetchMethod = 'POST' }) => {
                 onChange={(e) => setImage(e.target.value)}
             ></input>
         </div>
-
         <input 
-    type="submit" 
-    value="Submit" 
-    id="button" 
-    onClick={(e) => {
-        setPost();
-        if (isUser) {
-            alert("Your post has been created");
-            window.location = '/'; // Redirects to the front page
-        }
-    }} 
+          type="submit" 
+          value="Submit" 
+          id="button" 
+          onClick={(e) => {
+              setPost();
+              if (isUser) {
+                  alert("Your post has been created");
+                  window.location = '/'; // Redirects to the front page
+              }
+          }} 
 />
         <p>{post}</p>
     </form>
- 
     </div>
   )
 }
