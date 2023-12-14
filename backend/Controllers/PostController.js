@@ -59,6 +59,63 @@ const postController = {
     }
   // Add other post-related controller methods...
   },
+
+likePost: async (req, res) => {
+  const postId = req.params.id;
+
+  try {
+    // Find the post by ID
+    const post = await Post.findByPk(postId);
+
+    if (!post) {
+      console.log('Post not found');
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    // Check if the user has already liked the post
+    if (post.likedPost) {
+      console.log('Removing like');
+      // User has already liked the post, so remove the like
+      post.likedPost = false;
+      post.postLikeAmount -= 1;
+    } else {
+      console.log('Adding like');
+      // User has not liked the post, so add a like
+      post.likedPost = true;
+      post.postLikeAmount += 1;
+    }
+
+    // Save the updated post
+    await post.save();
+
+    console.log('Post updated successfully:', post.toJSON());
+    res.status(200).json({ message: 'Post liked/unliked successfully', liked: post.likedPost, likeCount: post.postLikeAmount });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+},
+
+
+ 
+    updateLike: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const post = await Post.findOne({ where: { id } });
+      if (!post) {
+        return res.status(404).send('Post not found');
+      }
+      const updatedPost = await post.update({
+        likedPost: true,
+        postLikeAmount: Sequelize.literal('postLikeAmount + 1')
+      });
+      return res.status(200).json(updatedPost);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send('Internal server error');
+    }
+  },
+
   updatePost: async (req, res) => {
     try {
       const post = await Post.update({
