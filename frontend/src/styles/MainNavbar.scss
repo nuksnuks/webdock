@@ -1,34 +1,58 @@
 @import "./globals.scss";
 
 nav {
-    position:sticky;
+    position: sticky;
     z-index: 2;
     font-family: $poppins;
     background-color: $white;
     color: $grey;
-    display:flex;
+    display: flex;
     justify-content: space-between;
+    align-items: center; /* Add this line to vertically align items in the center */
     border-bottom: 1px solid $grey;
+
     a {
         img {
             padding: 15px;
             height: 20px;
         }
-    }  
-    
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    
-    li{ 
-        float: left;
-          
     }
-}
-button {
-    @include button
+
+    /* Add styles for the search form container */
+    .search-form {
+        flex-grow: 1; 
+        display: -webkit-inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
+        li {
+            float: left;
+        }
+    }
+
+    button {
+        @include button;
+    }
+    
+    #button {
+        width:fit-content;
+        color: $white;
+        @include button;
+        margin: 0px 0px 0px auto;
+    }
+
+
+
+    
+
+
+    
 }

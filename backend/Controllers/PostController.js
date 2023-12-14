@@ -1,5 +1,6 @@
 const { Sequelize } = require('sequelize');
 const { Post } = require("../models");
+const { Op } = require('sequelize');
 
 const postController = {
   getAllPosts: async (req, res) => {
@@ -107,9 +108,39 @@ const postController = {
     }
   },
 
-  // ... (other methods)
+
+  getPostByQuery: async (req, res) => {
+    try {
+      const { query } = req.query;
+      console.log('Search Query:', query);
+
+      if (!query) {
+        return res.status(400).json({ error: 'Query parameter is required' });
+      }
+
+      const posts = await Post.findAll({
+        where: {
+          [Op.or]: [
+            { title: { [Op.like]: `%${query}%` } }, // Partial title match
+            { description: { [Op.like]: `%${query}%` } }, // Partial description match
+            { tag: { [Op.like]: `%${query}%` } }, // Partial tag match
+          ],
+        },
+      });
+
+      console.log('Found Posts:', posts);
+
+      if (posts.length === 0) {
+        return res.status(404).json({ error: 'No matching posts found' });
+      }
+  
+      res.json(posts);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
 };
 
-  
 
-module.exports = postController;
+module.exports = postController; 
