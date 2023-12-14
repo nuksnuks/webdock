@@ -11,7 +11,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
     const {id} = useParams("post/:id")
 
     useEffect(() => {
-        fetch(`http://localhost:3001/post/${id}`)
+        fetch(`http://localhost:3001/post/${id}/like`)
             .then((liked) => console.log(JSON.stringify(liked)))
             .then(data => setLiked(liked));
     }, [title]);
