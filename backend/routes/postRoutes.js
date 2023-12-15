@@ -9,7 +9,8 @@ router.get('/post/:id', postController.getPostById);
 router.post('/post', postController.createPost);
 router.delete('/post/:id', postController.deletePost);
 router.put('/post/:id', postController.updatePost);
-
+router.post('/post/:id/like', postController.likePost);
+router.post('/post/:id/dislike', postController.dislikePost);
 
 //todo: router.delete('/posts/:id', PostController.deletePost);
 

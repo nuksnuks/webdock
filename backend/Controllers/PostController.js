@@ -140,6 +140,78 @@ const postController = {
       res.status(500).send('Internal Server Error');
     }
   },
+
+
+  likePost: async (req, res) => {
+    const postId = req.params.id;
+
+    try {
+      // Find the post by ID
+      const post = await Post.findByPk(postId);
+
+      if (!post) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+
+      // Check if the user has already liked the post
+      if (post.likedPost) {
+        // User has already liked the post, so remove the like
+        post.likedPost = false;
+        post.postLikeAmount -= 1;
+      } else {
+        // User has not liked the post, so add a like
+        post.likedPost = true;
+        post.postLikeAmount += 1;
+      }
+
+      // Save the updated post
+      await post.save();
+
+      res.status(200).json({ message: 'Post liked/unliked successfully', liked: post.likedPost, likeCount: post.postLikeAmount });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+
+  // method for disliking a post 
+  dislikePost: async (req, res) => {
+    const postId = req.params.id;
+
+    try {
+      // Find the post by ID
+      const post = await Post.findByPk(postId);
+
+      if (!post) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+
+      // Check if the user has already disliked the post (you can use a separate field for disliking)
+      if (post.dislikedPost) {
+        // User has already disliked the post, so remove the dislike
+        post.dislikedPost = false;
+        post.postDislikeAmount -= 1;
+      } else {
+        // User has not disliked the post, so add a dislike
+        post.dislikedPost = true;
+        post.postDislikeAmount += 1;
+      }
+
+      // Save the updated post
+      await post.save();
+
+      res.status(200).json({ message: 'Post disliked/undisliked successfully', disliked: post.dislikedPost, dislikeCount: post.postDislikeAmount });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+
+
+  
+
+
+  
 };
 
 
