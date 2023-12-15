@@ -62,10 +62,12 @@ const postController = {
   updatePost: async (req, res) => {
     try {
       const post = await Post.update({
-        status: req.body.status
+        title: req.body.title,
+        description: req.body.description,
+        status: req.body.status,
       }, {
         where: {
-          id: req.params.id
+          postID: req.params.id
         }
       });
       
@@ -76,6 +78,25 @@ const postController = {
       }
     } catch (error) {
       res.json({ message: 'An error occurred' });
+    }
+  },
+
+  deletePost: async (req, res) => {
+    try {
+      const post = await Post.destroy({
+        where: {
+          postID: req.params.id
+        }
+      });
+      
+      if (post) {
+        res.json({ message: 'Post deleted successfully', deletedCount: post });
+      } else {
+        res.json({ message: 'Post not found' });
+      }
+    } catch (error) {
+      console.log(error); 
+      res.json({ message: 'An error occurred', error: error.message });  // hvad går gaaaaaaalt her
     }
   }
 };  

@@ -38,12 +38,17 @@ $lightGrey: #F2F2F2;
     border: none;
     border-radius: 5px;
     color: $lightGrey;
+    float: right;
+    cursor: pointer;
     a{
       text-decoration: none;
       color: $green2;
     }
     :hover {
         color: $white;
+    }
+    .EditButton{
+      
     }
 }
 

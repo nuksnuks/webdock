@@ -39,14 +39,14 @@ const Post = () => {
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
-  const user = users.find(user => user.userID === post.userID);
-  const admins = users.find(users=> users.role === 'admin');
-
+  const user = post && users.find(user => user.userID === post.userID);
+  const loggedInUser = users.find(user => user.email === localStorage.getItem("email"));
+  const isAdmin = loggedInUser && loggedInUser.role === 'admin';
   const isLoggedIn = Boolean(localStorage.getItem("ssoToken"));
 
   return (
     <>
-        {admins && isLoggedIn ? <BasicModal/> : <></>}
+        {isAdmin && isLoggedIn && post ? <BasicModal id={post.postID} title={post.title} description={post.description} /> : <></>}
         {post && (
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
@@ -59,20 +59,20 @@ const Post = () => {
             likes={post.likes} />
         )}
       <CreateComment/>
-    {comments.length > 0 && ( 
-      comments.filter(comment => comment.postID === post.postID).map(comment => { 
-        const commentUser = users.find(user => user.userID === comment.userID);
-        return (
-          <CommentCard
-            key={comment.commentID}
-            userName={commentUser ? commentUser.name : 'Unknown User'}
-            likes={comment.commentLikeAmount}
-            description={comment.description}
-          />
-        );
-      })
-    )}
-</>
+      {comments.length > 0 && ( 
+        comments.filter(comment => post && comment.postID === post.postID).map(comment => { 
+          const commentUser = users.find(user => user.userID === comment.userID);
+          return (
+            <CommentCard
+              key={comment.commentID}
+              userName={commentUser ? commentUser.name : 'Unknown User'}
+              likes={comment.commentLikeAmount}
+              description={comment.description}
+            />
+          );
+        })
+      )}
+  </>
   );
 };
 
