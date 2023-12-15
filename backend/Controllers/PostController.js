@@ -63,10 +63,19 @@ const postController = {
     try {
       const post = await Post.update({
         status: req.body.status
+      }, {
+        where: {
+          id: req.params.id
+        }
       });
       
+      if (post) {
+        res.json({ message: 'Post updated successfully' });
+      } else {
+        res.json({ message: 'Post not found' });
+      }
     } catch (error) {
-      
+      res.json({ message: 'An error occurred' });
     }
   }
 };  

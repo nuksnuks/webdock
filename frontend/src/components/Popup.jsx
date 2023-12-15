@@ -1,27 +1,42 @@
-import React from 'react';
-import '/./src/styles/Roadmap.scss';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import CreateRequest from './CreateRequest';
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 860,
-  bgcolor: 'background.paper',
-  border: '2px solid $grey1',
-  borderRadius: '10px',
-  boxShadow: 24,
-  p: 4,
+  // your styles
 };
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState(''); // add a state for the status
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`http://localhost:3001/post/${ id }`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status })
+      });
+
+      const data = await response.json();
+
+      if (data) {
+        alert('Post updated successfully');
+      } else {
+        alert('Post not found');
+      }
+    } catch (error) {
+      alert('An error occurred');
+    }
+  };
 
   return (
     <div>
@@ -33,7 +48,13 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <CreateRequest fetchMethod='PUT'/>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Title:
+              <input type="text" value={title} onChange={e => setStatus(e.target.value)} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
         </Box>
       </Modal>
     </div>
