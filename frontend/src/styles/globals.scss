@@ -37,6 +37,9 @@ $lightGrey: #F2F2F2;
     padding: 10px;
     border: none;
     border-radius: 5px;
+    color: $lightGrey;
+    float: right;
+    cursor: pointer;
     a{
       text-decoration: none;
       color: $green2;
@@ -44,7 +47,12 @@ $lightGrey: #F2F2F2;
     :hover {
         color: $white;
     }
+    .EditButton{
+      
+    }
 }
+
+
 
 @mixin RoadmapColumn {
   font-family: $poppins;

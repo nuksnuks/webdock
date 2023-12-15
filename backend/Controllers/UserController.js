@@ -27,11 +27,11 @@ const userController = {
   createUser: async (req, res) => {
     try {
       const user = await User.upsert({
-        role: 'user',
+        role: req.body.role,
         name: req.body.name,
         email: req.body.email,
         userID: req.body.id,
-        avatarURL: req.body.avatar
+        avatarUrl: req.body.avatar
         
       });
     } catch (error) {
@@ -87,7 +87,25 @@ const userController = {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
+    
   },
+  updateUser: async (req, res) => {
+    try {
+      const user = await User.findByPk(req.params.id);
+
+      if (!user) {
+        return res.status(404).send('User not found');
+      } else {
+        await user.update({
+          role: req.body.role
+        });
+        return res.status(200).send('User updated successfully');
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+}
 };
 
 module.exports = userController;

@@ -14,17 +14,57 @@
      overflow-y: hidden;
      color: $grey;
 
-     h1{
-      font-family: $poppins;
-      color: white;
-      align-self: flex-start;
-      margin-left: 10vw;
-      right: auto;
-     }
-     
+     .admin {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+    
+      h1 {
+        text-align: right;
+        font-family: $poppins;
+        color: white;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        right: auto;
+      }
+    
+      .adminBtn {
+        align-self: flex-start;
+        background-color: $white;
+        color: $green1;
+        width: auto;
+        float: right;
+        align-self: flex-end;
+        margin-left: 20vw;
+      }
+        .adminBtn:hover {
+          cursor: pointer;
+        }
+    }
+    
+  }
+  .UserBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: $poppins;
+    .AdminPart { 
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      p{
+        font-size: 20px;
+      }
+    }
+    .Change {
+      width: 15%;
+      margin: 0;
+      
+    }
   }
 
- 
    .title-container {
      font-family: $poppins;
      display: flex;
@@ -85,19 +125,14 @@
      }
    }
  
- 
    .main-container {
-     background-color: $white; // Helt grøn baggrund
-     border-radius: 0 10px 10px 10px; // Tilføj eventuelt afrundede hjørner
+     background-color: $white;
+     border-radius: 0 10px 10px 10px;
      width: 74%;
      
      overflow: hidden;
      align-items: center;
      justify-content: center;
      padding: 3% 3% 20px 3%;
-   }
- 
-   .content-container {
-     // Styling for indholdet her, hvis nødvendigt
    }
  }

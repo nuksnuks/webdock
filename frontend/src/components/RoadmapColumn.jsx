@@ -30,7 +30,6 @@ const RoadmapColumn = ({status, posts}) => {
             date={item.createdAt} 
             likes={item.likes} 
             comments={item.comments}  
-            status={item.status}
           />
           </Link>
         ))}

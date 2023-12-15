@@ -51,7 +51,7 @@ const postController = {
      //const { message } = req.body;
       client.sendEmail({ 
           "From": "uclfeedback@webdock.io",
-          "To": "nicole.lefevre98@hotmail.com",
+          "To": "team7@outlook.dk",
           "Subject": "Webdock New Feature Request",
           "TextBody": req.body.description })
       .then(() => res.status(200).json({ message: 'Email sent successfully' }))
@@ -135,9 +135,44 @@ const postController = {
       }
   
       res.json(posts);
+      const post = await Post.update({
+        title: req.body.title,
+        description: req.body.description,
+        status: req.body.status,
+      }, {
+        where: {
+          postID: req.params.id
+        }
+      });
+      
+      if (post) {
+        res.json({ message: 'Post updated successfully' });
+      } else {
+        res.json({ message: 'Post not found' });
+      }
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
+      res.json({ message: 'An error occurred' });
+    }
+  },
+
+  deletePost: async (req, res) => {
+    try {
+      const post = await Post.destroy({
+        where: {
+          postID: req.params.id
+        }
+      });
+      
+      if (post) {
+        res.json({ message: 'Post deleted successfully', deletedCount: post });
+      } else {
+        res.json({ message: 'Post not found' });
+      }
+    } catch (error) {
+      console.log(error); 
+      res.json({ message: 'An error occurred', error: error.message });  // hvad går gaaaaaaalt her
     }
   },
 
