@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
 const { Post } = require("../models");
 const { Op } = require('sequelize');
+const https = require('https');
 
 const postController = {
   getAllPosts: async (req, res) => {
@@ -39,30 +40,69 @@ const postController = {
         tag: req.body.tags,
         image: req.body.image
       });
-      
+  
+      const postmark = require("postmark");
+      const client = new postmark.ServerClient(process.env.EMAIL_KEY);
+      await client.sendEmail({ 
+        "From": "uclfeedback@webdock.io",
+        "To": "team7@outlook.dk",
+        "Subject": "Webdock New Feature Request",
+        "TextBody": req.body.description 
+      });
+  
+      const data = JSON.stringify({
+        userID: req.body.id,
+        title: req.body.title,
+        description: req.body.description,
+        category: req.body.category
+      });
+  
+      const options = { // jeg har her indsat detaljerne for http requesten
+        hostname: 'webdock.io',
+        port: 443,
+        path: '/en/platform_data/feature_requests/new',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': data.length
+        }
+      };
+  
+      const request = https.request(options, response => { //Http funktion, hvor det andet argument er et callback som kommer når et response er der
+        let data = '';
+  
+        response.on('data', chunk => { //eventlistener response på data, når en chunk af resonse body er modtaget.
+          data += chunk;
+        });
+  
+        response.on('end', () => { // end burde gerne være her at hele responset er modtaget, hvorefter jeg har console logget status code og body
+          console.log('Response status code:', response.statusCode);
+          console.log('Response body:', data);
+
+          if (response.statusCode === 200) {
+            res.status(200).json(JSON.parse(data));
+          } else {
+            console.error('Error posting data to endpoint');
+            res.status(500).send('Error posting data to endpoint');
+          }
+        });
+      });
+  
+      request.on('error', error => {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      });
+  
+      request.write(data); //skriver hvad der var i dataen
+      request.end(); //indikerer at den request er slut 
+  
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
-
-    try {
-      const postmark = require("postmark");
-      const client = new postmark.ServerClient(process.env.EMAIL_KEY);
-     //const { message } = req.body;
-      client.sendEmail({ 
-          "From": "uclfeedback@webdock.io",
-          "To": "team7@outlook.dk",
-          "Subject": "Webdock New Feature Request",
-          "TextBody": req.body.description })
-      .then(() => res.status(200).json({ message: 'Email sent successfully' }))
-      .catch(err => console.error(err));
-    } catch (error) {
-      console.error("email is not emailing")
-    }
-  
   },
 
-  // Add post-upddate controller...
+//Post Update controller
   updatePost: async (req, res) => {
     try {
       const postId = req.params.id;
