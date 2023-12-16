@@ -12,8 +12,6 @@ const Roadmap = () => {
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((error) => console.log('Error fetching data:', error));
-
-      console.log(posts)
   }, []); 
 
     return (
