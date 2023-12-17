@@ -51,7 +51,7 @@ const Post = () => {
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
             userID={post.userID}
-            userImg={post.avatarURL}
+            avatar={user.avatarUrl}
             status={post.status}
             title={post.title}
             desc={post.description}
