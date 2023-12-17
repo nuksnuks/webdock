@@ -72,7 +72,44 @@ const commentController = {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
+  },
+
+  likeComment: async (req, res) => {
+    const commentId = req.params.id;
+
+    try {
+      // Find the comment by ID
+      const comment = await Comment.findByPk(commentId);
+
+      if (!comment) {
+        return res.status(404).json({ error: 'Comment not found' });
+      }
+
+      // Check if the user has already liked the comment
+      if (comment.likedComment) {
+        // User has already liked the comment, so remove the like
+        comment.likedComment = false;
+        comment.commentLikeAmount -= 1;
+      } else {
+        // User has not liked the comment, so add a like
+        comment.likedComment = true;
+        comment.commentLikeAmount += 1;
+      }
+
+      // Save the updated comment
+      await comment.save();
+
+      res.status(200).json({
+        message: 'Comment liked/unliked successfully',
+        liked: comment.likedComment,
+        likeCount: comment.commentLikeAmount,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   }
+  
 };
 
 
