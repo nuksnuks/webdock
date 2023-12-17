@@ -39,7 +39,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                 </div>
 
                 <div className="InfoPart">
-                    <img src={avatar} alt={userName} />
+                    <img src={avatar} alt={userName} loading="lazy"/>
                     <div>
                         <h3>{title}</h3>
                         <i>{date}</i>

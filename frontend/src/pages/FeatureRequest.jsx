@@ -62,7 +62,7 @@ const FeatureRequest = () => {
             return user && (
               <Link to={`/post/${item.postID}`} key={item.postID}>
                 <PostCard
-                  avatar={user.avatarUrl}
+                  avatar={user.avatarUrl || "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg"}
                   key={item.postID} 
                   status={item.status}
                   title={item.title}

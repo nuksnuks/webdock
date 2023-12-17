@@ -25,17 +25,17 @@ const Post = () => {
 
   useEffect(() => {
     
-    fetch(`http://localhost:3001/comments/`)
+    fetch(`http://localhost:3001/users/`)
       .then((response) => response.json())
-      .then((data) => setComments(data))
+      .then((data) => setUsers(data))
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
   useEffect(() => {
     
-    fetch(`http://localhost:3001/users/`)
+    fetch(`http://localhost:3001/comments/`)
       .then((response) => response.json())
-      .then((data) => setUsers(data))
+      .then((data) => setComments(data))
       .catch((error) => console.log('Error fetching data:', error));
   }, [id]);
 
@@ -51,7 +51,7 @@ const Post = () => {
           <PostCard 
             userName={user ? user.name : 'Unknown User'}
             userID={post.userID}
-            avatar={user.avatarUrl}
+            avatar={user.avatarUrl || "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg"}
             status={post.status}
             title={post.title}
             desc={post.description}
@@ -65,6 +65,7 @@ const Post = () => {
           const commentUser = users.find(user => user.userID === comment.userID);
           return (
             <CommentCard
+              avatar={user.avatarUrl || 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'}
               key={comment.commentID}
               userName={commentUser ? commentUser.name : 'Unknown User'}
               likes={comment.commentLikeAmount}

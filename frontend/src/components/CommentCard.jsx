@@ -3,13 +3,13 @@ import '/./src/styles/CommentCard.scss'
 import { FaHeart, FaRegHeart,  FaReply , FaEdit  } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
-const CommentCard = ({ userName, likes, description }) => {
+const CommentCard = ({ userName, likes, description, avatar }) => {
     return (
       <>
         <div className="commentCard">
             <div className="box">
                 <div className="userInfo">
-                    <img src={"/./src/assets/UserProfileImage.png"} alt="Profile Image" />
+                    <img src={avatar} alt="Profile Image" loading="lazy"/>
                     <div className="user">
                         <h3> {userName} </h3>
                     </div>
