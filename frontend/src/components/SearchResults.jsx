@@ -11,7 +11,7 @@ const SearchResults = ({ searchResults }) => {
             <PostCard
               title={post.title}
               desc={post.description}
-              date={post.date} // Add any other props you want to pass
+              date={post.date}
               likes={post.likes}
               comments={post.comments}
               userName={post.userName}

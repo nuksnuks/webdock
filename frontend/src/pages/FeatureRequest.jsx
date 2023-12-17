@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import '../styles/FeatureRequest.scss';
 import PostCard from '../components/PostCard';
 import { Link, useParams } from 'react-router-dom';
+import { FaUserCircle } from "react-icons/fa";
 
 const FeatureRequest = () => {
 
   const { id } = useParams();
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState('All'); 
-  const [users, setUsers] = useState([]); 
+ 
   
 
   useEffect(() => {
@@ -21,13 +23,15 @@ const FeatureRequest = () => {
   }, []); 
 
   useEffect(() => {
-    
-    fetch(`http://localhost:3001/users/`)
+
+    fetch('http://localhost:3001/users')
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.log('Error fetching data:', error));
-  }, [id]);
+  
+  }, []); 
 
+  const user = posts && users.find(user => users.userID === posts.userID);
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -52,22 +56,24 @@ const FeatureRequest = () => {
 
         
     {posts.filter(item => filter === 'All' || item.status === filter) 
-.map((post) => {
-  const user = users.find(user => user.userID === post.userID);
-  return (
-    <Link to={`/post/${post.postID}`} key={post.postID}>
-      {post && (
-      <PostCard
-        key={post.postID} 
-        status={post.status}
-        title={post.title}
-        desc={post.description}
-        date={post.createdAt}
-        userName={user ? user.name : ''}
-      />)}
-    </Link>
-  );
-})}
+        .map((item) => {
+            const user = users.find(user => user.userID === item.userID);
+            
+            return user && (
+              <Link to={`/post/${item.postID}`} key={item.postID}>
+                <PostCard
+                  avatar={user.avatarUrl}
+                  key={item.postID} 
+                  status={item.status}
+                  title={item.title}
+                  desc={item.description}
+                  date={item.createdAt}
+                  userName={user.name}
+                />
+              </Link>
+            );
+        })}
+
       
     </div>   
     <button className='newRequest'>
