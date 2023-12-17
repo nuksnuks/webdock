@@ -8,6 +8,8 @@ const FeatureRequest = () => {
   const { id } = useParams();
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState('All'); 
+  const [users, setUsers] = useState([]); 
+  
 
   useEffect(() => {
 
@@ -17,6 +19,14 @@ const FeatureRequest = () => {
       .catch((error) => console.log('Error fetching data:', error));
   
   }, []); 
+
+  useEffect(() => {
+    
+    fetch(`http://localhost:3001/users/`)
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log('Error fetching data:', error));
+  }, [id]);
 
 
   const handleFilterChange = (e) => {
@@ -41,21 +51,23 @@ const FeatureRequest = () => {
     
 
         
-        {posts.filter(item => filter === 'All' || item.status === filter) 
-        .map((item) => (
-            
-            <Link to={`/post/${item.postID}`} key={item.postID}>
-              <PostCard
-                key={item.postID} 
-                status={item.status}
-                title={item.title}
-                desc={item.description}
-                date={item.createdAt}
-                author={item.name}
-              />
-            </Link>
-          
-        ))}
+    {posts.filter(item => filter === 'All' || item.status === filter) 
+.map((post) => {
+  const user = users.find(user => user.userID === post.userID);
+  return (
+    <Link to={`/post/${post.postID}`} key={post.postID}>
+      {post && (
+      <PostCard
+        key={post.postID} 
+        status={post.status}
+        title={post.title}
+        desc={post.description}
+        date={post.createdAt}
+        userName={user ? user.name : ''}
+      />)}
+    </Link>
+  );
+})}
       
     </div>   
     <button className='newRequest'>

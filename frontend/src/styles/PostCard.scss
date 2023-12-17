@@ -4,6 +4,7 @@ a{
     text-decoration: none;
 }
 
+
 .CardBox{
     font-family: $raleway;
     color: $grey;
@@ -11,6 +12,7 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 10px;
     
     .heartInfo{
         display: flex;
@@ -58,6 +60,54 @@ a{
         p {
             color: $grey2;
         }
+        .dot-under-review {
+            background-color: #f1c40f; /* Yellow */
+            height: 1vw;
+                width: 1vw;
+                border: 0.2vw solid #f1c40f;
+                border-radius: 100%;
+                margin: 1vw 1vw 1vw 0 ;
+          }
+          
+          .dot-planned {
+            background-color: $blue; /* Blue */
+            height: 1vw;
+                width: 1vw;
+                border: 0.2vw solid $blue;
+                border-radius: 100%;
+                margin: 1vw 1vw 1vw 0 ;
+          }
+          
+          .dot-in-progress {
+            background-color: $green1; /* Grøn */
+            height: 1vw;
+                width: 1vw;
+                border: 0.2vw solid $green1;
+                border-radius: 100%;
+                margin: 1vw 1vw 1vw 0 ;
+          }
+          
+          .dot-completed {
+            background-color: $purple; /* Lilla */
+            height: 1vw;
+                width: 1vw;
+                border: 0.2vw solid $purple;
+                border-radius: 100%;
+                margin: 1vw 1vw 1vw 0 ;
+          }
+          
+          .dot-closed {
+            background-color: #e67e22; /* Orange */
+            height: 1vw;
+                width: 1vw;
+                border: 0.2vw solid #e67e22;
+                border-radius: 100%;
+                margin: 1vw 1vw 1vw 0 ;
+          }
+          b{
+            padding-left: 20px;
+            margin-bottom: 10px;
+          }
     }
     
     .CommentNum {

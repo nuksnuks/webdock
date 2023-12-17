@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '/./src/styles/PostCard.scss'
+import '/./src/styles/Roadmap.scss'
 import { FaHeart, FaRegHeart, FaRegCommentAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
@@ -44,7 +45,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                         <i>{date}</i>
                         <p>{userName}</p>
                         <p>{desc}</p>
-                        <b>{status}</b>
+                        <div className={`dot dot-${status ? status.toLowerCase().replace(' ', '-') : ''}`}><b>{status}</b></div>
                     </div>
                     
                 </div>
