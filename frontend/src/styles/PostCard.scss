@@ -120,3 +120,11 @@ a{
             }
     }
 }
+.loggedOutText{
+    font-family: $poppins;
+    color: white;
+    background-color: $grey3;
+    border-radius: 10px;
+    text-align: right;
+    padding-right: 10px;
+}

@@ -77,7 +77,7 @@ const Post = () => {
               likes={post.likes} 
               />
           )}
-          <CreateComment/>
+          {isLoggedIn?<CreateComment/>:<p className="loggedOutText">Log in to comment on this post</p>}
           {comments.length > 0 && user && ( 
             comments.filter(comment => post && comment.postID === post.postID).map(comment => { 
               const commentUser = users.find(user => user.userID === comment.userID);
