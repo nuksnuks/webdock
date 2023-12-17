@@ -1,7 +1,14 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const cors = require('cors');
 const router = require('./routes/index');
 const { sequelize } = require('./models');
+
+const options = {
+   key: fs.readFileSync('/etc/letsencrypt/live/davidsserver.vps.webdock.cloud/privkey.pem'),
+   cert: fs.readFileSync('/etc/letsencrypt/live/davidsserver.vps.webdock.cloud/fullchain.pem')
+};
 
 const app = express();
 app.use(cors());
@@ -9,65 +16,7 @@ app.use(express.json());
 
 sequelize.sync();
 
-// hvordan virker det?: index(backend)<-index(routes)<-Controllers<-model
-// migrations: opdaterer columns/kolonner, hvis vi vil tilføje/fjerne kolonner, ikke data!
-// seeder: opretter testdata i vores databasen
-
 app.use('/', router);
 
-//"backend landing page"
-
-// app.get('/', async (req,res) =>{
-//   try {
-//     res.send('Velkommen til the Matrix. <br> gå til: <a href="http://localhost:3001/users">users </a> <br> gå til: <a href="http://localhost:3001/post">posts </a>');
-//   } catch (error) {
-//     res.status(500).send('kunne ikke hente eller finde data')
-//   }
-// });
-
-//User data
-
-// app.get('/users', async (req,res) =>{
-//   try {
-//     const posts = await User.findAll();
-//     res.json(posts);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
-
-
-//Post data
-
-// app.get('/post:id', postController.getPostById);
-// app.get('/post', postController.getAllPosts);
-// app.post('/post',postController.createPost);
-
-// app.get('/post', async (req,res) =>{
-//   try {
-//     const posts = await Post.findAll();
-//     res.status(201).json(posts);
-//   } catch (error) {
-//     res.status(500).send('kunne ikke hente eller finde data')
-//   }
-// });
-
-// app.post('/post', async (req, res) => {
-//   try {
-//     const post = await Post.create({
-//       status: 'Under Review',
-//       category: req.body.category,
-//       title: req.body.title,
-//       description: req.body.description,
-//       tag: req.body.tags,
-//       image: req.body.image
-//     });
-//     res.status(201).json(post);
-//   } catch (error) {
-//     res.status(500).send(error.message); 
-//   }
-// });
-
-const PORT = 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Option 2: Create an HTTP server and listen on port 3001
+app.listen(3001, () => console.log('Server running on port 3001'));
