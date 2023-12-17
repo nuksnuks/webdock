@@ -9,18 +9,18 @@ const CommentCard = ({ userName, likes, description }) => {
         <div className="commentCard">
             <div className="box">
                 <div className="userInfo">
-                    <img src="/./src/assets/UserProfileImage.png" alt="Profile Image" />
+                    <img src={"/./src/assets/UserProfileImage.png"} alt="Profile Image" />
                     <div className="user">
-                        <h2> {userName} </h2>
+                        <h3> {userName} </h3>
                     </div>
                 </div>
                 <div className="comment">
                    <p>{description}</p>
                 </div>
                 <div className="commentActions">
-                   <h5> <FaReply /> Reply </h5>
-                    <h5> <FaEdit /> Edit </h5>
-                    <h5><MdDeleteForever /> Delete </h5>
+                   <p> <FaReply /> Reply </p>
+                    <p> <FaEdit /> Edit </p>
+                    <p><MdDeleteForever /> Delete </p>
                     <div className='heart-button'>
                       <FaHeart className="filledHeart"/>
                       <FaRegHeart className="heart"/>

@@ -5,7 +5,6 @@
   padding: 0;
 }
 
-
   .rootbody{
     margin-left: -45px;
     height: 1107px;
@@ -18,10 +17,12 @@
     margin: 30px 60px 30px 30px;
 
   }
+
   .account{
     margin-left: 45px;
     margin-top: 45px;
   }
+
   .accset{
     font-family: $poppins;
     font-size: 50px;
@@ -30,6 +31,7 @@
     letter-spacing: 0em;
     text-align: left;
   }
+
   .accdetail{
     font-family: $poppins;
     font-size: 30px;
@@ -38,12 +40,14 @@
     letter-spacing: 0em;
     text-align: left;
   }
+
   .profile{
     display: flex;
     gap: 30px;
     margin-left: 45px;
     margin-top: 75px;
   }
+
   .top{
     width: 100px;
     height: 100px;
@@ -51,6 +55,7 @@
     background-color: rgb(17, 15, 15);
     overflow: hidden;
 }
+
 .imagef{
     height: 100%;
     width: 100%;
@@ -63,7 +68,7 @@
     width: 216px;
     height: 73px;
     border-radius: 4px;
-    border: 1px solid #000000;
+    
     background-color: #00904A;
    position: relative;
 
@@ -198,8 +203,6 @@
     transform: translateX(26px);
   }
 
-
-  /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }

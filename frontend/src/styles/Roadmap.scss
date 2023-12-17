@@ -1,7 +1,5 @@
 @import "./globals.scss";
 
-
-
 .roadmap {
     display: flex;
     background-color: $white;
@@ -30,6 +28,7 @@
                 margin: 1vw;
             }
         }
+
         .roadmapColumnProgress{
             @include RoadmapColumn;
             display: flex;
@@ -58,6 +57,7 @@
             }
         }
     }
+
     .roadmapContent {
         
         box-sizing: border-box;
@@ -69,6 +69,7 @@
         white-space: nowrap;
         
     }
+
     .roadmapContent:last-of-type {
         border-radius: 10px;
         transform: translatey(-1px);

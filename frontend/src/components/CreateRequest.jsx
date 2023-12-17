@@ -126,7 +126,7 @@ const CreateRequest = ({ fetchMethod = 'POST' }) => {
               setPost();
               if (isUser) {
                   alert("Your post has been created");
-                  window.location = '/'; // Redirects to the front page
+                  window.location = '/';
               }
           }} 
 />

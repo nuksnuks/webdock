@@ -2,6 +2,10 @@
 
 
 .commentCard {
+    .box{
+        width: 100%;
+    }
+    font-family: $poppins;
     border-bottom: 1px solid $grey;
     display: flex;
     flex-direction: row;
@@ -31,10 +35,17 @@
     .commentActions {
         display: flex;
         flex-direction: row;
-        h5 {
-            padding: 0.5vw;
-            color: $grey;
-        }
+        margin-right: auto;
+        margin-left:auto;
+            p{
+                svg{
+                    margin-left: auto;
+                    margin-right:auto;
+                }
+                display: flex;
+                flex-direction: column;
+                margin: 0px 5px 0px 5px;
+            }
         
     }
 }

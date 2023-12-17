@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 const RoadmapColumn = ({status, posts}) => {
-  //Status props
   const statusClass = {
     "Planned": "roadmapColumnPlanned",
     "In Progress": "roadmapColumnProgress",

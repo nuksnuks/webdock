@@ -1,0 +1,27 @@
+@import './globals.scss';
+
+#edit-form {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 240px;
+    
+}
+#submit{
+    @include button;
+    margin-top: 10px;
+}
+#deleteBtn{
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: fit-content;
+    margin-left: auto;
+ 
+}

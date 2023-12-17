@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import '/./src/styles/Roadmap.scss';
-import '/./src/styles/globals.scss';
+import '/./src/styles/admin.scss';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import '../styles/admin.scss'
 
 const style = {
   position: 'absolute',
@@ -41,15 +41,17 @@ export default function AdminModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box>
           <div className="changeList">
             <div className="adminList">
               <ul>
                 <h1>Admins</h1>
                 {users.filter(users => users.role === 'admin').map(users => {
-                  return <li key={(`users-${(users.usersID)}`)}><input type="checkbox"/><span>{users.name}</span></li>
+                  return 
+                  <li key={(`users-${(users.usersID)}`)}>
+                      <input type="checkbox"/>{users.name}
+                  </li>
                 })}
-                
               </ul>
               <button className="removeAdmin">Remove Admin</button>
             </div>
@@ -57,8 +59,13 @@ export default function AdminModal() {
             <div className="userList">
               <ul>
                 <h1>Users</h1>
-                {users.filter(users => users.role === 'user').map(users => {
-                  return <li key={(`users-${(users.usersID)}`)}><input type="checkbox"/><span>{users.name}</span></li>
+                {users.filter(users => users.role === 'user')
+                  .map(users => {
+                    return 
+                    <li key={(`users-${(users.usersID)}`)}>
+                      <input type="checkbox"/>
+                      {users.name}
+                    </li>
                 })}  
               </ul>
               <button className="makeAdmin">Make Admin</button>

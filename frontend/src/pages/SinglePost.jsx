@@ -56,7 +56,8 @@ const Post = () => {
             title={post.title}
             desc={post.description}
             date={post.createdAt}
-            likes={post.likes} />
+            likes={post.likes} 
+            />
         )}
       <CreateComment/>
       {comments.length > 0 && ( 

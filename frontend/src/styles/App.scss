@@ -21,7 +21,7 @@
       margin: auto;
     
       h1 {
-        text-align: right;
+        text-align: left;
         font-family: $poppins;
         color: white;
         align-self: flex-start;
@@ -29,15 +29,20 @@
         flex-direction: row;
         right: auto;
       }
+      a{
+        margin-top: auto;
+        margin-bottom: auto;
+      }
     
       .adminBtn {
+        @include button;
         align-self: flex-start;
         background-color: $white;
         color: $green1;
-        width: auto;
         float: right;
         align-self: flex-end;
-        margin-left: 20vw;
+        
+        
       }
         .adminBtn:hover {
           cursor: pointer;
@@ -50,19 +55,8 @@
     flex-direction: column;
     justify-content: space-around;
     font-family: $poppins;
-    .AdminPart { 
-      display: flex;
-      flex-direction: column;
-      margin-top: 40px;
-      p{
-        font-size: 20px;
-      }
-    }
-    .Change {
-      width: 15%;
-      margin: 0;
-      
-    }
+    
+    
   }
 
    .title-container {
@@ -129,10 +123,12 @@
      background-color: $white;
      border-radius: 0 10px 10px 10px;
      width: 74%;
-     
      overflow: hidden;
      align-items: center;
      justify-content: center;
      padding: 3% 3% 20px 3%;
+   }
+   .edit-button{
+    @include button;
    }
  }

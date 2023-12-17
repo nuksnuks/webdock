@@ -41,10 +41,10 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                     <img src={avatar} alt={userName} />
                     <div>
                         <h3>{title}</h3>
-                        <h6>{desc}</h6>
-                        <p>{date}</p>
+                        <i>{date}</i>
                         <p>{userName}</p>
-                        <p>{status}</p>
+                        <p>{desc}</p>
+                        <b>{status}</b>
                     </div>
                     
                 </div>

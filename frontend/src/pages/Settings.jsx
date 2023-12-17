@@ -24,9 +24,7 @@ const AccountSetting = () => {
           setEmail(decodedToken.email || '');
           console.log("Decoded Token in Settings:", decodedToken);
         } else {
-          // If no SSO token, fetch user details from the backend
-          const response = await fetch('http://localhost:3001/users/22715');
-  
+          const response = await fetch('http://localhost:3001/users/22483');
           if (!response.ok) {
             throw new Error('Failed to fetch user details');
           }

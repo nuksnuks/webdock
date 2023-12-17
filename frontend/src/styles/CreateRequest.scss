@@ -6,7 +6,7 @@ form {
     font-family: $poppins;
     border-radius: 0px 10px 10px 10px;
 
-    input#image{
+    input#image {
         display: block;
     }
 
@@ -20,7 +20,7 @@ form {
         width:fit-content;
         color: $white;
         @include button;
-        margin: 0px 0px 0px auto;
+        
     }
     :hover {
         color: $green1;

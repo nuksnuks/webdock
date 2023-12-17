@@ -57,17 +57,18 @@ const UserNav = () => {
   return (
     <nav>
       <Link to="/">
-        <img src=".\src\assets\webdock-logo-positiv 3.png" alt="" />
+        <img src="/src/assets/webdock-logo-positiv 3.png" alt="" />
       </Link>
       <div className="search-form">
         <form onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="Search posts..."
+            id="search"
+            name="search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          
         </form>
       </div>
       <Dialog open={isModalOpen} onClose={closeModal}>
@@ -80,12 +81,12 @@ const UserNav = () => {
           )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={closeModal} color="primary">
+          <Button onClick={closeModal}>
             Close
           </Button>
         </DialogActions>
       </Dialog>
-      <div>
+      <div className="buttons">
         <button>
           <a href="/./settings">Settings</a>
         </button>

@@ -13,9 +13,6 @@ const CreateComment = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        const userID = localStorage.getItem ('id'); 
-        console.log(userID)
         
         const postcomment = {
             userID: localStorage.getItem("id"),
@@ -32,6 +29,7 @@ const CreateComment = () => {
         .then(response => {
             if (response.ok) {
                 return response.json({id});
+                
             } else {
                 console.log('Failed')
             }
@@ -39,16 +37,23 @@ const CreateComment = () => {
         .catch(error => {
             console.log('DARKNESS CONSUMES YOU', error.message);
         });
-
+        
+        location.reload();
         
     };
 
     return (
        <form className="commentBox" onSubmit={handleSubmit}>
-            <img className="commentImg" src={localStorage.getItem("avatar")} alt="Profile Image" />
+            <img 
+                className="commentImg" 
+                src={localStorage.getItem("avatar")} 
+                alt="Profile Image" 
+            />
             <input
                 className="commentInput"
                 type="text"
+                id="comment-input"
+                name="comment-input"
                 value={comment}
                 onChange={handleChange}
                 placeholder="What do you think?"

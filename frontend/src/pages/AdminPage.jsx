@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from '../components/UserCard';
-import '/./src/styles/globals.scss';
-import '/./src/styles/App.scss';
+import '../styles/admin.scss'
 
 export default function AdminPage() {
 
@@ -25,6 +24,7 @@ export default function AdminPage() {
         })
         .then(() => {
             setUsers(users.map(user => user.userID === userId ? { ...user, role: newRole } : user));
+            location.reload();
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -32,18 +32,21 @@ export default function AdminPage() {
     };
 
     return (
-        <>
         <div className="UserBox">
+            <h2>Users</h2>
             {users.map((item) => (
                 <div className="AdminPart" key={item.name}>
                     <UserCard 
                         name={item.name} 
                         role={item.role}
                     />
-                    <button className='Change' onClick={() => handleAdminChange(item.userID, item.role)}>{item.role === 'admin' ? 'Make User' : 'Make Admin'}</button>
+                    <button 
+                        className='change' 
+                        onClick={() => handleAdminChange(item.userID, item.role)}>
+                            {item.role === 'admin' ? 'Make User' : 'Make Admin'}
+                    </button>
                 </div>
             ))}
         </div>
-        </>
     );
 };

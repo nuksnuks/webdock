@@ -1,0 +1,14 @@
+@import './globals.scss';
+
+.AdminPart { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.1vw solid $grey3;
+    
+  }
+  .change {
+   @include button;
+   margin-top: auto;
+   margin-bottom: auto;
+  }

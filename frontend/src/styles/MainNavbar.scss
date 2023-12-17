@@ -8,7 +8,7 @@ nav {
     color: $grey;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Add this line to vertically align items in the center */
+    align-items: center; 
     border-bottom: 1px solid $grey;
 
     a {
@@ -18,7 +18,6 @@ nav {
         }
     }
 
-    /* Add styles for the search form container */
     .search-form {
         flex-grow: 1; 
         display: -webkit-inline-flex;
@@ -37,22 +36,19 @@ nav {
             float: left;
         }
     }
-
+    a{
+        
+    }
+    .buttons {
+        width: fit-content;
+        justify-content: space-between;
+        
+        
+    }
     button {
         @include button;
-    }
-    
-    #button {
-        width:fit-content;
-        color: $white;
-        @include button;
-        margin: 0px 0px 0px auto;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
-
-
-    
-
-
-    
 }

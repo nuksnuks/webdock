@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import '/./src/styles/globals.scss';
+import '/./src/styles/Popup.scss';
 
-const style = {
-  // your styles
-};
 
 export default function BasicModal({ id, title: initialTitle, description: initialDescription, status: initialStatus }) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState(initialTitle);
   const [description, setDescription] = useState(initialDescription);
-  const [status, setStatus] = useState(initialStatus);  // Add this line
+  const [status, setStatus] = useState(initialStatus);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const postData = {id, title, description, status};  // Include status here
+    const postData = {id, title, description, status};
     console.log(postData)
 
     try {
@@ -44,7 +40,7 @@ export default function BasicModal({ id, title: initialTitle, description: initi
   };
 
   const handleDelete = async (event) => {
-    event.preventDefault(); // Prevents delete from running with update
+    event.preventDefault(); 
 
     try {
       const response = await fetch(`http://localhost:3001/posts/${ id }`, {
@@ -66,35 +62,66 @@ export default function BasicModal({ id, title: initialTitle, description: initi
 
   return (
     <div>
-      <button className='EditButton' onClick={handleOpen}>Edit post</button>
+      <button className='edit-button' onClick={handleOpen}>Edit post</button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <form onSubmit={handleSubmit}>
-            <label>
+        <Box>
+          <form onSubmit={handleSubmit} id="edit-form">
+            <h2>Edit Post</h2>
+            <label htmlFor="title">
               Title:
-              <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
             </label>
-            <label>
+            <input 
+              name="title" 
+              id="title"
+              type="text" 
+              value={title} 
+              onChange={e => setTitle(e.target.value)} 
+            />
+            
+            <label htmlFor="desccription">
               Description:
-              <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
             </label>
-            <label>  {/* Add this block */}
+            <input 
+              name="description" 
+              id="description"
+              type="text" 
+              value={description} 
+              onChange={e => setDescription(e.target.value)} 
+            />
+            <label htmlFor="status">
               Status:
-              <select value={status} onChange={e => setStatus(e.target.value)}>
+            </label>
+            <select 
+              value={status} 
+              onChange={e => setStatus(e.target.value)} 
+              id="status"
+              name="status"
+              >
                 <option value="Under Review">Under Review</option>
                 <option value="Planned">Planned</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
                 <option value="Closed">Closed</option>
               </select>
-            </label>
-            <input type="submit" value="Submit" />
-            <button type="button" onClick={handleDelete}>Delete this post</button>
+
+            <input 
+              id="submit"
+              name="submit"
+              type="submit" 
+              value="Confirm Changes" 
+            />
+            <button 
+              id="deleteBtn" 
+              type="button" 
+              onClick={handleDelete}
+            >
+              Delete this post
+            </button>
           </form>
         </Box>
       </Modal>

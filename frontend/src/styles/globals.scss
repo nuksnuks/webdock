@@ -32,8 +32,8 @@ $lightGrey: #F2F2F2;
 
 @mixin button {
     background-color: $green1;
-    width:80px;
-    margin: 10px;
+    width:fit-content;
+   
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -51,8 +51,6 @@ $lightGrey: #F2F2F2;
       
     }
 }
-
-
 
 @mixin RoadmapColumn {
   font-family: $poppins;
