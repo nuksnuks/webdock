@@ -11,14 +11,12 @@ const AccountSetting = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Extract the SSO token from local storage and the URL
+        
         const ssoToken = localStorage.getItem("ssoToken");
         console.log("SSO Token in Settings:", ssoToken);
   
         if (ssoToken) {
           const decodedToken = decodeToken(ssoToken);
-          
-  
           setName(decodedToken.name || 'Default Name');
           setImageUrl(decodedToken.avatarUrl || '/default-image-url.png');
           setEmail(decodedToken.email || '');

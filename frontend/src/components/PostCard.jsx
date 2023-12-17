@@ -11,11 +11,11 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
     const [liked, setLiked] = useState(false);
     const {id} = useParams("post/:id")
 
-    useEffect(() => {
-        fetch(`http://localhost:3001/post/${id}/like`)
-            .then((liked) => console.log(JSON.stringify(liked)))
-            .then(data => setLiked(liked));
-    }, [title]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:3001/post/${id}/like`)
+    //         .then((liked) => console.log(JSON.stringify(liked)))
+    //         .then(data => setLiked(liked));
+    // }, [title]);
 
     const handleLike = () => {
         setLiked(!liked);
@@ -27,7 +27,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
             body: JSON.stringify({ postId: id })
         });
     }
-    console.log(liked)
+    // console.log(liked)
   return (
     <>
         
