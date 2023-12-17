@@ -42,7 +42,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                     <img src={avatar} alt={userName} loading="lazy"/>
                     <div>
                         <h3>{title}</h3>
-                        <i>{date}</i>
+                        <i>{new Date(date).toLocaleDateString()}</i>
                         <p>{userName}</p>
                         <p>{desc}</p>
                         <div className={`dot dot-${status ? status.toLowerCase().replace(' ', '-') : ''}`}><b>{status}</b></div>

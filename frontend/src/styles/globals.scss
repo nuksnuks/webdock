@@ -33,11 +33,10 @@ $lightGrey: #F2F2F2;
 @mixin button {
     background-color: $green1;
     width:fit-content;
-   
     padding: 10px;
     border: none;
     border-radius: 5px;
-    color: $lightGrey;
+    color: $white;
     float: right;
     cursor: pointer;
     a{
@@ -45,10 +44,7 @@ $lightGrey: #F2F2F2;
       color: $green2;
     }
     :hover {
-        color: $white;
-    }
-    .EditButton{
-      
+        color: $lightGrey;
     }
 }
 
@@ -66,4 +62,7 @@ $lightGrey: #F2F2F2;
   float: right;
   @include button;
   margin: 10px 0px 0px 0px;
+a{
+  color: $white;
+}
 }
