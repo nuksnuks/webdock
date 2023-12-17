@@ -153,11 +153,11 @@ const postController = {
     try {
       const { query } = req.query;
       console.log('Search Query:', query);
-
+  
       if (!query) {
         return res.status(400).json({ error: 'Query parameter is required' });
       }
-
+  
       const posts = await Post.findAll({
         where: {
           [Op.or]: [
@@ -167,33 +167,18 @@ const postController = {
           ],
         },
       });
-
+  
       console.log('Found Posts:', posts);
-
+  
       if (posts.length === 0) {
         return res.status(404).json({ error: 'No matching posts found' });
       }
   
-      res.json(posts);
-      const post = await Post.update({
-        title: req.body.title,
-        description: req.body.description,
-        status: req.body.status,
-      }, {
-        where: {
-          postID: req.params.id
-        }
-      });
-      
-      if (post) {
-        res.json({ message: 'Post updated successfully' });
-      } else {
-        res.json({ message: 'Post not found' });
-      }
+      // Return the search results
+      res.json({ searchResults: posts });
     } catch (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
-      res.json({ message: 'An error occurred' });
+      res.status(500).json({ message: 'An error occurred' });
     }
   },
 

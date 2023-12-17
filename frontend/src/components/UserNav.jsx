@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
-import '/./src/styles/MainNavbar.scss';
-import { decodeToken } from 'react-jwt';
 import React, { useState, useEffect } from 'react';
-import PostCard from '../components/PostCard';
-import Modal from 'react-modal';
-
+import { Link } from 'react-router-dom';
+import { decodeToken } from 'react-jwt';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogActions from '@mui/material/DialogActions';
+import Button from '@mui/material/Button';
+import SearchResults from './SearchResults';
 
 const UserNav = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +15,6 @@ const UserNav = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    Modal.setAppElement('#root'); // Set the app element for this modal
     setIsModalOpen(true);
   };
 
@@ -26,9 +28,13 @@ const UserNav = () => {
 
     try {
       const response = await fetch(`http://localhost:3001/post/search?query=${searchQuery}`);
+      if (!response.ok) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
       const data = await response.json();
-      setSearchResults(data);
-      openModal(); // Open the modal when there are search results
+      console.log('Response data:', data);
+      setSearchResults(data.searchResults);
+      openModal();
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
@@ -61,33 +67,24 @@ const UserNav = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
+          
         </form>
       </div>
-      <Modal
-  isOpen={isModalOpen}
-  onRequestClose={closeModal}
-  contentLabel="Search Results"
->
-<h2>Search Results</h2>
-{searchResults.length > 0 ? (
-  <div className="search-results">
-    {searchResults.map((post) => (
-      <Link to={`/post/${post.postID}`} key={post.postID}>
-        {/* Wrap PostCard in Link */}
-        <PostCard
-          title={post.title}
-          desc={post.description}
-          likes={post.likes}
-          postId={post.postID} // Pass postID as a prop
-        />
-      </Link>
-    ))}
-  </div>
-) : (
-  <p>No results found.</p>
-)}
-<button onClick={closeModal}>Close</button>
-      </Modal>
+      <Dialog open={isModalOpen} onClose={closeModal}>
+        <DialogTitle>Search Results</DialogTitle>
+        <DialogContent>
+          {searchResults.length > 0 ? (
+            <SearchResults searchResults={searchResults} />
+          ) : (
+            <DialogContentText>No results found.</DialogContentText>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeModal} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div>
         <button>
           <a href="/./settings">Settings</a>
