@@ -52,66 +52,144 @@ a{
         text-align: left;
         text-decoration: none;
         margin-left: 5px;
+    h3{
+        @media (max-width: 576px) {
+            font-size: 1rem;
+            margin-bottom: 10px;        
+        }
+                }
         img{
             height: 50px;
             width: 50px;
             padding: 10px;
             border-radius: 100%;
             border: none;
-
+@media (max-width: 576px) {
+        display: none;
+    }
 
         }
+        i{
+            font-size: 0.7em;
+            @media (max-width: 576px) {
+                  display: none;
+                }
+        }
+        .userName{
+            font-weight: 700;
+            margin-bottom: 10px;
+            @media (max-width: 576px) {
+                    display: none;
+                }
+        }
+               
         body.page
         p {
             color: $grey2;
+            
         }
         .dot-under-review {
-            background-color: #f1c40f; /* Yellow */
-            height: 1vw;
+                display: flex;
+                
+                align-items: center;
+                background-color: #f1c40f; /* Yellow */
+                height: 1vw;
                 width: 1vw;
                 border: 0.2vw solid #f1c40f;
                 border-radius: 100%;
-                margin: 1vw 1vw 1vw 0 ;
+                margin: 0.5vw 0.5vw 0.5vw 0;
+                @media (max-width: 576px) {
+                        height: 3vw;
+                        width: 3vw;
+                        margin-bottom: 10px;
+                    }
           }
           
           .dot-planned {
-            background-color: $blue; /* Blue */
-            height: 1vw;
+                display: flex;
+                
+                align-items: center;
+                background-color: $blue; /* Blue */
+                height: 1vw;
                 width: 1vw;
                 border: 0.2vw solid $blue;
                 border-radius: 100%;
-                margin: 1vw 1vw 1vw 0 ;
+                margin: 0.5vw 0.5vw 0.5vw 0;
+                @media (max-width: 576px) {
+                        height: 3vw;
+                        width: 3vw;
+                        margin-bottom: 10px;
+                    }
           }
           
           .dot-in-progress {
-            background-color: $green1; /* Grøn */
-            height: 1vw;
+                display: flex;
+                
+                align-items: center;
+                background-color: $green1; /* Grøn */
+                height: 1vw;
                 width: 1vw;
                 border: 0.2vw solid $green1;
                 border-radius: 100%;
-                margin: 1vw 1vw 1vw 0 ;
+                margin: 0.5vw 0.5vw 0.5vw 0 ;
+                @media (max-width: 576px) {
+                        height: 3vw;
+                        width: 3vw;
+                        margin-bottom: 10px;
+                    }
           }
           
           .dot-completed {
-            background-color: $purple; /* Lilla */
-            height: 1vw;
+                display: flex;
+                
+                align-items: center;
+                background-color: $purple; /* Lilla */
+                height: 1vw;
                 width: 1vw;
                 border: 0.2vw solid $purple;
                 border-radius: 100%;
-                margin: 1vw 1vw 1vw 0 ;
+                margin: 0.5vw 0.5vw 0.5vw 0 ;
+                @media (max-width: 576px) {
+                        height: 3vw;
+                        width: 3vw;
+                        margin-bottom: 10px;
+                    }
           }
           
           .dot-closed {
-            background-color: #e67e22; /* Orange */
-            height: 1vw;
+                display: flex;
+                
+                align-items: center;
+                background-color: #e67e22; /* Orange */
+                height: 1vw;
                 width: 1vw;
                 border: 0.2vw solid #e67e22;
                 border-radius: 100%;
-                margin: 1vw 1vw 1vw 0 ;
+                margin: 0.5vw 0.5vw 0.5vw 0 ;
+                @media (max-width: 576px) {
+                        height: 3vw;
+                        width: 3vw;
+                        margin-bottom: 10px;
+                    }
           }
           b{
-            padding-left: 35px;
+            padding-left: 25px;
             margin-bottom: 10px;
+            padding-top: 10px;
+                @media (max-width: 576px) {
+                    font-size: 0.8rem;
+                    line-height: 3vw;
+                }
+          }
+          p{
+            word-wrap: break-word;
+                overflow-wrap: break-word;
+            @media (max-width: 576px) {
+                    font-size: 0.8rem;
+                    line-height: 3vw;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                }
           }
     }
     

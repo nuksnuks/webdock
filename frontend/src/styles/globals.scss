@@ -46,6 +46,9 @@ $lightGrey: #F2F2F2;
     :hover {
         color: $lightGrey;
     }
+        @media (max-width: 576px) {
+          padding: 5px;
+        }
 }
 
 @mixin RoadmapColumn {

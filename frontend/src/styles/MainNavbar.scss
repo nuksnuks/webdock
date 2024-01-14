@@ -36,9 +36,7 @@ nav {
             float: left;
         }
     }
-    a{
-        
-    }
+    
     .buttons {
         width: fit-content;
         justify-content: space-between;
@@ -49,6 +47,8 @@ nav {
         @include button;
         margin-left: 5px;
         margin-right: 5px;
+    
     }
+        
 
 }

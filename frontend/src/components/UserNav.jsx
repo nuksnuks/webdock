@@ -57,7 +57,10 @@ const UserNav = () => {
   return (
     <nav>
       <Link to="/">
-        <img src="/src/assets/webdock-logo-positiv 3.png" alt="" />
+        <picture>
+          <source media="(max-width: 992px)" srcset="/src/assets/webdock-logo-facebook.png"></source>
+          <img src="/src/assets/webdock-logo-positiv 3.png" alt="logo" />
+        </picture>
       </Link>
       <div className="search-form">
         <form onSubmit={handleSearch}>

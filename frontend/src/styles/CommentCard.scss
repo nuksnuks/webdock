@@ -11,21 +11,41 @@
     flex-direction: row;
     margin: 5px;
     justify-content: space-between;
+    padding-left: 20px;
+        @media (max-width: 576px) {
+            padding-left: 0px;
+        }
     .userInfo {
         display: flex;
         flex-direction: row;
         text-align: left;
         img {
-            padding: 0.5vw;
-            width: 50px;
-            height: 50px;
+            margin: 0px 5px 0px 5px;
+            padding-top: 0.8vw;
+            width: 35px;
+            height: 35px;
             border-radius: 100%;
+            @media (max-width: 576px) {
+                width: 25px;
+                height: 25px;
+                margin-top: 0.5rem;
+                }
         }
         .user {
             padding: 0.5vw;
             h5 {
                 color: $green1;
             }
+            h3 {
+                @media (max-width: 576px) {
+                        font-size: 0.8rem;
+                    }
+            }
+                        p {
+                            @media (max-width: 576px) {
+                                font-size: 0.8rem;
+                            }
+                        }
         }
     }
 
@@ -49,6 +69,7 @@
         margin-left: auto;
         margin-top: 10px;
         margin-bottom: 10px;
+        font-size: 0.7em;
             p{
                 svg{
                     margin-left: auto;

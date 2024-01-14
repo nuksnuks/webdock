@@ -42,20 +42,23 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                 <div className="InfoPart">
                         {location.pathname !== '/' && <img src={avatar} alt={userName} loading="lazy"/>}
                     <div>
-                        <h3>{title}</h3>
+                          <h3>{title}</h3>
+                          <div className={`dot dot-${status ? status.toLowerCase().replace(' ', '-') : ''}`}><b>{status}</b></div>
                         <i>{new Date(date).toLocaleDateString()}</i>
-                        <p>{userName}</p>
+                        <p className="userName">{userName}</p>
                         <p>{desc}</p>
-                        <div className={`dot dot-${status ? status.toLowerCase().replace(' ', '-') : ''}`}><b>{status}</b></div>
+                        
                     </div>
                     
                 </div>
             </div>
 
-            <div className="CommentNum">
-                <FaRegCommentAlt />
-                <p>{comments}</p>
-            </div>
+             {location.pathname !== `/post/${id}` && (
+                    <div className="CommentNum">
+                        <FaRegCommentAlt />
+                        <p>{comments}</p>
+                    </div>
+                )}
         </div>
     </>
   )

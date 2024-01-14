@@ -8,17 +8,26 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 0px 10px 10px 10px;
+    @media (max-width: 576px) {
+            flex-direction: column;
+
+        }
     
     .roadmapColumn {
         flex: 1;
         justify-content: space-around;
         max-width: 33%;
         border-radius: 10px;
+        @media (max-width: 576px) {
+                max-width: 100%;
+            }
 
         .roadmapColumnPlanned {
             @include RoadmapColumn;
             display: flex;
-            
+            @media (max-width: 576px) {
+                    font-size: 0.8rem;
+                }
             .dot { 
                 background-color: $blue;
                 height: 1vw;
@@ -26,12 +35,19 @@
                 border: 0.2vw solid $blue;
                 border-radius: 100%;
                 margin: 1vw;
+                @media (max-width: 576px) {
+                        height: 4vw;
+                        width: 4vw;
+                    }
             }
         }
 
         .roadmapColumnProgress{
             @include RoadmapColumn;
             display: flex;
+            @media (max-width: 576px) {
+                    font-size: 0.8rem;
+                }
             
             .dot { 
                 background-color: $green1;
@@ -40,12 +56,19 @@
                 border: 0.2vw solid $green1;
                 border-radius: 100%;
                 margin: 1vw;
+                @media (max-width: 576px) {
+                        height: 4vw;
+                        width: 4vw;
+                    }
             }
         }
         
         .roadmapColumnCompleted {
             @include RoadmapColumn;
             display: flex;
+            @media (max-width: 576px) {
+                    font-size: 0.8rem;
+                }
             
             .dot { 
                 background-color: $purple;
@@ -54,6 +77,10 @@
                 border: 0.2vw solid $purple;
                 border-radius: 100%;
                 margin: 1vw;
+                @media (max-width: 576px) {
+                        height: 4vw;
+                        width: 4vw;
+                    }
             }
         }
     }
