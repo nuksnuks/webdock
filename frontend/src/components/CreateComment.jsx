@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '/./src/styles/CommentCreate.scss';
+import { FaHeart, FaRegHeart,  FaReply , FaEdit  } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
 const CreateComment = () => {

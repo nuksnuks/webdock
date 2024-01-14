@@ -2,24 +2,25 @@ import React, { useState, useEffect } from "react";
 import '/./src/styles/PostCard.scss'
 import '/./src/styles/Roadmap.scss'
 import { FaHeart, FaRegHeart, FaRegCommentAlt } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 
 
 
 const PostCard = ({status, title, desc, date, likes, comments, userName, avatar }) => {
     const [liked, setLiked] = useState(false);
-    const {id} = useParams("post/:id")
+    const { id } = useParams("post/:id")
+    const location = useLocation();
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:3001/post/${id}/like`)
-    //         .then((liked) => console.log(JSON.stringify(liked)))
-    //         .then(data => setLiked(liked));
-    // }, [title]);
+    useEffect(() => {
+        fetch(`http://localhost:3001/post/${id}/like`)
+            .then((liked) => console.log(JSON.stringify(liked)))
+            .then(data => setLiked(liked));
+    }, [title]);
 
     const handleLike = () => {
         setLiked(!liked);
-        fetch(`http://localhost:3001/post/${id}/like`, {
+        fetch(`http://localhost:3001/post/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,7 +28,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
             body: JSON.stringify({ postId: id })
         });
     }
-    // console.log(liked)
+    console.log(liked)
   return (
     <>
         
@@ -39,7 +40,7 @@ const PostCard = ({status, title, desc, date, likes, comments, userName, avatar 
                 </div>
 
                 <div className="InfoPart">
-                    <img src={avatar} alt={userName} loading="lazy"/>
+                        {location.pathname !== '/' && <img src={avatar} alt={userName} loading="lazy"/>}
                     <div>
                         <h3>{title}</h3>
                         <i>{new Date(date).toLocaleDateString()}</i>
